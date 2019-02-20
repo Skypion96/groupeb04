@@ -11,4 +11,8 @@ public enum Round {
 	public String getRoundName() {
 		return roundName;
 	}
+	
+	public String toString() {
+		return roundName;
+	}
 }

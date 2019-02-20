@@ -85,6 +85,24 @@ public class Question {
 		return statement;
 	}
 	
+	public boolean isValid() {
+		
+		if(choices.size()!=4) {
+			return false;
+		}
+		
+		int nbTrue=0;
+		for(Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
+			if(mapEntry.getValue()==true) {
+				nbTrue++;;
+			}
+		}
+		if(nbTrue!=1) {
+			return false;
+		}
+		return true;
+	}
+	
 	public Map<String, Boolean> getChoices(){
 		HashMap<String, Boolean> choices = new HashMap<String, Boolean>();
 		choices.putAll(this.choices);

@@ -16,7 +16,7 @@ public class Deck {
 	}
 	
 	public boolean addQuestion(Question q) {
-		if(q.getChoices().size()==4) {
+		if(q.isValid()) {
 			return questions.add(q);
 		}
 		return false;
