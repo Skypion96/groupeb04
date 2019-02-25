@@ -28,31 +28,30 @@ public class AddQuestion extends AnchorPane {
 	private RadioButton rbChoice3;
 	private RadioButton rbChoice4;
 	
-	private Label lblRound;
-	
 	private Button btnOk;
 	
 	public AddQuestion() {
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(getTxtStatement(), getTxtChoice1(), getTxtChoice2(), getTxtChoice3(), getTxtChoice4(), getRbChoice1(), getRbChoice2(), getRbChoice3(), getRbChoice4(), getBtnOk(), getTxtAuthor(), getCbRound(), getLblRound());
+		this.getChildren().addAll(getTxtAuthor(), getCbRound(), getTxtStatement(), getTxtChoice1(), getTxtChoice2(), getTxtChoice3(),
+				getTxtChoice4(), getRbChoice1(), getRbChoice2(), getRbChoice3(), getRbChoice4(), getBtnOk());
 		
-		AnchorPane.setTopAnchor(getTxtStatement(), 5.0);
-		AnchorPane.setRightAnchor(getTxtStatement(), 170.0);
+		AnchorPane.setTopAnchor(getTxtStatement(), 35.0);
+		AnchorPane.setRightAnchor(getTxtStatement(), 5.0);
 		AnchorPane.setLeftAnchor(getTxtStatement(), 5.0);
 		
-		AnchorPane.setTopAnchor(getTxtChoice1(), 40.0);
+		AnchorPane.setTopAnchor(getTxtChoice1(), 70.0);
 		AnchorPane.setRightAnchor(getTxtChoice1(), 75.0);
 		AnchorPane.setLeftAnchor(getTxtChoice1(), 15.0);
 		
-		AnchorPane.setTopAnchor(getTxtChoice2(), 70.0);
+		AnchorPane.setTopAnchor(getTxtChoice2(), 100.0);
 		AnchorPane.setRightAnchor(getTxtChoice2(), 75.0);
 		AnchorPane.setLeftAnchor(getTxtChoice2(), 15.0);
 		
-		AnchorPane.setTopAnchor(getTxtChoice3(), 100.0);
+		AnchorPane.setTopAnchor(getTxtChoice3(), 130.0);
 		AnchorPane.setRightAnchor(getTxtChoice3(), 75.0);
 		AnchorPane.setLeftAnchor(getTxtChoice3(), 15.0);
 		
-		AnchorPane.setTopAnchor(getTxtChoice4(), 130.0);
+		AnchorPane.setTopAnchor(getTxtChoice4(), 160.0);
 		AnchorPane.setRightAnchor(getTxtChoice4(), 75.0);
 		AnchorPane.setLeftAnchor(getTxtChoice4(), 15.0);
 		
@@ -62,31 +61,28 @@ public class AddQuestion extends AnchorPane {
 		getRbChoice3().setToggleGroup(group);
 		getRbChoice4().setToggleGroup(group);
 		
-		AnchorPane.setTopAnchor(getRbChoice1(), 45.0);
+		AnchorPane.setTopAnchor(getRbChoice1(), 75.0);
 		AnchorPane.setRightAnchor(getRbChoice1(), 5.0);
 		
-		AnchorPane.setTopAnchor(getRbChoice2(), 75.0);
+		AnchorPane.setTopAnchor(getRbChoice2(), 105.0);
 		AnchorPane.setRightAnchor(getRbChoice2(), 5.0);
 		
-		AnchorPane.setTopAnchor(getRbChoice3(), 105.0);
+		AnchorPane.setTopAnchor(getRbChoice3(), 135.0);
 		AnchorPane.setRightAnchor(getRbChoice3(), 5.0);
 		
-		AnchorPane.setTopAnchor(getRbChoice4(), 135.0);
+		AnchorPane.setTopAnchor(getRbChoice4(), 165.0);
 		AnchorPane.setRightAnchor(getRbChoice4(), 5.0);
 		
 		AnchorPane.setBottomAnchor(getBtnOk(), 5.0);
 		AnchorPane.setRightAnchor(getBtnOk(), 5.0);
 		
 		AnchorPane.setTopAnchor(getTxtAuthor(), 5.0);
-		AnchorPane.setRightAnchor(getTxtAuthor(), 5.0);
+		AnchorPane.setLeftAnchor(getTxtAuthor(), 5.0);
+		AnchorPane.setRightAnchor(getTxtAuthor(), 140.0);
 		
-		AnchorPane.setTopAnchor(getLblRound(), 175.0);
-		AnchorPane.setRightAnchor(getLblRound(), 75.0);
-		AnchorPane.setLeftAnchor(getLblRound(), 5.0);
-		
-		AnchorPane.setTopAnchor(getCbRound(), 170.0);
-		AnchorPane.setRightAnchor(getCbRound(), 75.0);
-		AnchorPane.setLeftAnchor(getCbRound(), 115.0);
+		AnchorPane.setTopAnchor(getCbRound(), 5.0);
+		AnchorPane.setRightAnchor(getCbRound(), 5.0);
+		//AnchorPane.setLeftAnchor(getCbRound(), 115.0);
 		
 	}
 	
@@ -101,7 +97,7 @@ public class AddQuestion extends AnchorPane {
 	public TextField getTxtChoice1() {
 		if(txtChoice1==null) {
 			txtChoice1 = new TextField();
-			txtChoice1.setPromptText("Choice 1");
+			txtChoice1.setPromptText("Enter choice 1");
 		}
 		return txtChoice1;
 	}
@@ -109,7 +105,7 @@ public class AddQuestion extends AnchorPane {
 	public TextField getTxtChoice2() {
 		if(txtChoice2==null) {
 			txtChoice2 = new TextField();
-			txtChoice2.setPromptText("Choice 2");
+			txtChoice2.setPromptText("Enter choice 2");
 		}
 		return txtChoice2;
 	}
@@ -117,7 +113,7 @@ public class AddQuestion extends AnchorPane {
 	public TextField getTxtChoice3() {
 		if(txtChoice3==null) {
 			txtChoice3 = new TextField();
-			txtChoice3.setPromptText("Choice 3");
+			txtChoice3.setPromptText("Enter choice 3");
 		}
 		return txtChoice3;
 	}
@@ -125,7 +121,7 @@ public class AddQuestion extends AnchorPane {
 	public TextField getTxtChoice4() {
 		if(txtChoice4==null) {
 			txtChoice4 = new TextField();
-			txtChoice4.setPromptText("Choice 4");
+			txtChoice4.setPromptText("Enter choice 4");
 		}
 		return txtChoice4;
 	}
@@ -173,7 +169,7 @@ public class AddQuestion extends AnchorPane {
 	public TextField getTxtAuthor() {
 		if(txtAuthor==null) {
 			txtAuthor = new TextField();
-			txtAuthor.setPromptText("Author");
+			txtAuthor.setPromptText("Enter author's name");
 		}
 		return txtAuthor;
 	}
@@ -185,13 +181,6 @@ public class AddQuestion extends AnchorPane {
 			cbRound.setValue(Round.FIRST_ROUND);
 		}
 		return cbRound;
-	}
-	
-	public Label getLblRound() {
-		if(lblRound==null) {
-			lblRound = new Label("Question's Round :");
-		}
-		return lblRound;
 	}
 	
 }

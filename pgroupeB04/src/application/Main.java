@@ -15,7 +15,7 @@ public class Main extends Application {
             AddQuestion addQ = new AddQuestion();
 
             
-            Scene scene = new Scene(addQ, 600, 220);
+            Scene scene = new Scene(addQ, 600, 250);
 
             
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

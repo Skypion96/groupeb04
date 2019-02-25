@@ -1,3 +1,5 @@
-/modele/
-/view/
 /application/
+/modele/
+/serialisation/
+/util/
+/view/
