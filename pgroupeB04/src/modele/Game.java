@@ -2,32 +2,33 @@ package modele;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class Game {
 	
 	private Deck deck;
-	private int questionNumber;
+	private int currentQuestionNumber;
 	private Question currentQuestion;
 	private List<String> currentAnswers;
 	private int correctAnswer;
 	
 	public Game() {
 		deck=Deck.fromJson();
-		questionNumber=1;
+		currentQuestionNumber=0;
 		newQuestion();
 	}
 	
 	//Generate a new question depending of the advancement of the game
 	public void newQuestion() {
+		currentQuestionNumber++;
+		
+		//A random question is chosen depending of the Round the player is in which is determined by the number of the current question
 		Round round;
-		if(questionNumber<6) {
+		if(currentQuestionNumber<6) {
 			round=Round.FIRST_ROUND;
 		}
 		else {
-			if(questionNumber<11) {
+			if(currentQuestionNumber<11) {
 				round=Round.SECOND_ROUND;
 			}
 			else {
@@ -35,16 +36,20 @@ public class Game {
 			}
 		}
 		int size = deck.getQuestions().size();
+		
+		//Pick a random question while not in the correct round
 		Random rand = new Random();
 		int questionNb;
 		
 		do {
 			questionNb=rand.nextInt(size);
 		}
-		while(deck.getQuestions().get(questionNb).getRound().equals(round));
+		while(!deck.getQuestions().get(questionNb).getRound().equals(round));
 		
+		//Setting the current question
 		currentQuestion=deck.getQuestions().get(questionNb);
 		
+		//Setting the index of the correct answer
 		int i=0;
 		for(HashMap.Entry<String, Boolean> entry : deck.getQuestions().get(questionNb).getChoices().entrySet()) {
 			currentAnswers.add(entry.getKey());
@@ -53,17 +58,21 @@ public class Game {
 			}
 			i++;
 		}
+		deck.getQuestions().remove(questionNb);
 	}
 	
+	//Shows the question
 	public String showQuestion() {
 		return currentQuestion.getStatement();
 	}
 	
+	//Shows the chosen answer
 	public String showAnswer(int n) {
 		return currentAnswers.get(n);
 	}
 	
-	public boolean confirmAnswer(int n) {
+	//Checking if the chosen answer is the correct answer
+	public boolean isAnswerCorrect(int n) {
 		return n==correctAnswer;
 	}
 	
