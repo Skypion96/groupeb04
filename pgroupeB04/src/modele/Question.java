@@ -77,7 +77,7 @@ public class Question {
 		return author;
 	}
 	
-	public Round getround() {
+	public Round getRound() {
 		return round;
 	}
 	
@@ -113,6 +113,5 @@ public class Question {
 		Question q = new Question(author, round, statement);
 		q.choices.putAll(choices);
 		return q;
-	}
-	
+	}	
 }

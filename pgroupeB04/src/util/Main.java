@@ -27,6 +27,8 @@ public class Main {
 		d2 = Deck.fromJson();
 		System.out.println(d2.getQuestions().get(1).getStatement());
 		
+		System.out.println();
+		
 	}
 
 }

@@ -82,7 +82,6 @@ public class AddQuestion extends AnchorPane {
 		
 		AnchorPane.setTopAnchor(getCbRound(), 5.0);
 		AnchorPane.setRightAnchor(getCbRound(), 5.0);
-		//AnchorPane.setLeftAnchor(getCbRound(), 115.0);
 		
 	}
 	
