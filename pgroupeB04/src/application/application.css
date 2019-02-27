@@ -1,0 +1,16 @@
+#btnPlay {
+	/*-fx-background-image: url("../../img/back_btn.jpg");*/
+	-fx-background-radius: 100px;
+	-fx-padding: 50px 0 50px 0;
+	-fx-background-color: aqua;/*linear-gradient(to right, white, black)*/
+}
+
+#btnPlay:hover {
+    /*-fx-background-color: green;
+    -fx-scale-y: 1.1;*/	
+}
+
+#btnPlay:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
