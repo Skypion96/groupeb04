@@ -17,7 +17,7 @@ public class Main extends Application {
             AddQuestion addQ = new AddQuestion();
 
             
-            Scene scene = new Scene(welM, 600, 250);primaryStage.setFullScreen(true);
+            Scene scene = new Scene(welM, 1000, 600);primaryStage.setFullScreen(true);
             primaryStage.setFullScreenExitHint("Press Esc to exit full screen");
 
             
