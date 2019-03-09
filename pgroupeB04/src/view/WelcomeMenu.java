@@ -15,7 +15,9 @@ public class WelcomeMenu extends AnchorPane{
 
 	public WelcomeMenu() {
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit());
+		Image image = new Image("logo.png");
+		ImageView logo = new ImageView(image);
+		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), logo);
 		
 		AnchorPane.setTopAnchor(btnPlay, 300.);
 		AnchorPane.setLeftAnchor(btnPlay, 40.);

@@ -1,4 +1,11 @@
-<<<<<<< HEAD
+#welcome{
+	-fx-background-image: url("backgroundMenu.jpg");
+	-fx-background-size: 1920 1080;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}
+
 #btnPlay {
 	/*-fx-background-image: url("../../img/back_btn.jpg");*/
 	-fx-background-radius: 100px;
@@ -16,5 +23,3 @@
     -fx-scale-x: 0.9;
     
 }
-=======
->>>>>>> branch 'master' of https://Janssens_Maxime@bitbucket.org/OrientDavid/groupeb04.git
