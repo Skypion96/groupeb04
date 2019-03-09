@@ -1,5 +1,8 @@
 package view;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -12,12 +15,11 @@ public class WelcomeMenu extends AnchorPane{
 	private Button btnRules;
 	private Button btnHighScore;
 	private Button btnExit;
+	private ImageView logo;
 
-	public WelcomeMenu() {
+	public WelcomeMenu(){
 		this.setPadding(new Insets(10));
-		Image image = new Image("logo.png");
-		ImageView logo = new ImageView(image);
-		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), logo);
+		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo());
 		
 		AnchorPane.setTopAnchor(btnPlay, 300.);
 		AnchorPane.setLeftAnchor(btnPlay, 40.);
@@ -30,6 +32,8 @@ public class WelcomeMenu extends AnchorPane{
 		
 		AnchorPane.setTopAnchor(btnExit, 710.);
 		AnchorPane.setLeftAnchor(btnExit, 40.);
+		
+		AnchorPane.setRightAnchor(logo, -100.);
 	}
 
 	public Button getBtnPlay() {
@@ -79,4 +83,24 @@ public class WelcomeMenu extends AnchorPane{
 		}
 		return btnExit;
 	}
+
+	public ImageView getLogo() {
+		if(logo==null) {
+			File fLogo = new File("logo.png");
+			String localUrl = null;
+			try {
+				localUrl = fLogo.toURI().toURL().toString();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Image iLogo = new Image(localUrl);
+			logo = new ImageView(iLogo);
+			logo.setScaleX(0.6);
+			logo.setScaleY(0.6);
+		}
+		return logo;
+	}
+	
+	
 }

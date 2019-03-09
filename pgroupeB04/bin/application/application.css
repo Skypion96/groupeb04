@@ -7,15 +7,16 @@
 }
 
 #btnPlay {
-	/*-fx-background-image: url("../../img/back_btn.jpg");*/
-	-fx-background-radius: 100px;
+	-fx-padding:6px 0 6px 0;
+	-fx-background-radius: 100px 0 100px 0;
 	-fx-padding: 50px 0 50px 0;
-	-fx-background-color: aqua;/*linear-gradient(to right, white, black)*/
+	-fx-background-color: linear-gradient(to right, #C701CF, #6F0073);
 }
 
 #btnPlay:hover {
-    /*-fx-background-color: green;
-    -fx-scale-y: 1.1;*/	
+    -fx-background-color: #F39C12;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
 }
 
 #btnPlay:pressed {
