@@ -3,6 +3,9 @@ package view;
 import java.io.File;
 import java.net.MalformedURLException;
 
+import application.Main;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -44,6 +47,13 @@ public class WelcomeMenu extends AnchorPane{
 			btnPlay.setMinWidth(400.);
 			btnPlay.setMaxWidth(400.);
 			btnPlay.setId("btnPlay");
+			btnPlay.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					Main.showGame();
+				}
+			});
 		}
 		return btnPlay;
 	}

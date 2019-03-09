@@ -1,5 +1,5 @@
 #welcome{
-	-fx-background-image: url("backgroundMenu.jpg");
+	-fx-background-image: url("../../backgroundMenu.jpg");
 	-fx-background-size: 1920 1080;
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
@@ -9,8 +9,11 @@
 #btnPlay {
 	-fx-padding:6px 0 6px 0;
 	-fx-background-radius: 100px 0 100px 0;
-	-fx-padding: 50px 0 50px 0;
-	-fx-background-color: linear-gradient(to right, #C701CF, #6F0073);
+	-fx-padding: 30px 0 30px 0;
+	-fx-background-color: #9800AA;
+	-fx-text-fill: white;
+	-fx-font-size: 45;
+	-fx-font-style: bold;
 }
 
 #btnPlay:hover {
@@ -20,6 +23,76 @@
 }
 
 #btnPlay:pressed {
+	-fx-background-color: green;
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+    
+}
+
+#btnRules {
+	-fx-padding:6px 0 6px 0;
+	-fx-background-radius: 100px 0 100px 0;
+	-fx-padding: 30px 0 30px 0;
+	-fx-background-color: #9800AA;
+	-fx-text-fill: white;
+	-fx-font-size: 30;
+	-fx-font-style: bold;
+}
+
+#btnRules:hover {
+    -fx-background-color: #F39C12;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+#btnRules:pressed {
+	-fx-background-color: green;
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+    
+}
+
+#btnHighScore {
+	-fx-padding:6px 0 6px 0;
+	-fx-background-radius: 100px 0 100px 0;
+	-fx-padding: 30px 0 30px 0;
+	-fx-background-color: #9800AA;
+	-fx-text-fill: white;
+	-fx-font-size: 30;
+	-fx-font-style: bold;
+}
+
+#btnHighScore:hover {
+    -fx-background-color: #F39C12;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+#btnHighScore:pressed {
+	-fx-background-color: green;
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+    
+}
+
+#btnExit {
+	-fx-padding:6px 0 6px 0;
+	-fx-background-radius: 100px 0 100px 0;
+	-fx-padding: 30px 0 30px 0;
+	-fx-background-color: #9800AA;
+	-fx-text-fill: white;
+	-fx-font-size: 30;
+	-fx-font-style: bold;
+}
+
+#btnExit:hover {
+    -fx-background-color: #F39C12;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+}
+
+#btnExit:pressed {
+	-fx-background-color: green;
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
     
