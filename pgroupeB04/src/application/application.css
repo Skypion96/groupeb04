@@ -1,3 +1,7 @@
+.welM{
+	-fx-background-color: blue;
+}
+
 #btnPlay {
 	/*-fx-background-image: url("../../img/back_btn.jpg");*/
 	-fx-background-radius: 100px;
