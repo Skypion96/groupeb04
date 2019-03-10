@@ -35,18 +35,20 @@ public class Main extends Application {
 			
 
 			welM.setId("welcome");
+			gameView.setId("welcome");
 			
             menu.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
+            game.getStylesheets().add(getClass().getResource("gameview.css").toExternalForm());
+            
 			WelcomeMenu welM = new WelcomeMenu();
             AddQuestion addQ = new AddQuestion();
             welM.setId("welcome");
             
             //game music
-            AudioClip audioClip = new AudioClip(Paths.get("QVGDM.wav").toUri().toString());
+        /*    AudioClip audioClip = new AudioClip(Paths.get("QVGDM.wav").toUri().toString());
 	        int volume = 2;
 	        Platform.runLater(() -> audioClip.play(volume));
-	        Thread.sleep(10);
+	        Thread.sleep(10);*/
             
             Scene scene = new Scene(welM, 1000, 600);primaryStage.setFullScreen(true);
             primaryStage.setFullScreenExitHint("Press Esc to exit full screen");

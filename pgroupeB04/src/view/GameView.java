@@ -22,36 +22,36 @@ private Label lblStatement;
 	private ComboBox<Round> cbRound;
 	
 	
-	private Button btnOk;
+	private Label money;
 	
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(/*getTxtAuthor(), getCbRound(),*/ getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(),
-				getBtnChoice4(), getBtnOk());
+				getBtnChoice4(), getMoney());
 		
-		AnchorPane.setTopAnchor(getLblStatement(), 65.0);
-		AnchorPane.setRightAnchor(getLblStatement(), 100.0);
-		AnchorPane.setLeftAnchor(getLblStatement(), 270.0);
+		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
+		AnchorPane.setRightAnchor(getLblStatement(), 450.0);
+		AnchorPane.setLeftAnchor(getLblStatement(), 740.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice1(), 100.0);
-		AnchorPane.setRightAnchor(getBtnChoice1(), 75.0);
+		AnchorPane.setTopAnchor(getBtnChoice1(), 600.0);
+		AnchorPane.setRightAnchor(getBtnChoice1(), 800.0);
 		AnchorPane.setLeftAnchor(getBtnChoice1(), 300.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice2(), 100.0);
+		AnchorPane.setTopAnchor(getBtnChoice2(), 600.0);
 		AnchorPane.setRightAnchor(getBtnChoice2(), 300.0);
-		AnchorPane.setLeftAnchor(getBtnChoice2(), 75.0);
+		AnchorPane.setLeftAnchor(getBtnChoice2(), 800.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice3(), 130.0);
-		AnchorPane.setRightAnchor(getBtnChoice3(), 75.0);
+		AnchorPane.setTopAnchor(getBtnChoice3(), 630.0);
+		AnchorPane.setRightAnchor(getBtnChoice3(), 800.0);
 		AnchorPane.setLeftAnchor(getBtnChoice3(), 300.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice4(), 130.0);
+		AnchorPane.setTopAnchor(getBtnChoice4(), 630.0);
 		AnchorPane.setRightAnchor(getBtnChoice4(), 300.0);
-		AnchorPane.setLeftAnchor(getBtnChoice4(), 75.0);
+		AnchorPane.setLeftAnchor(getBtnChoice4(), 800.0);
 		
 		
-		AnchorPane.setBottomAnchor(getBtnOk(), 5.0);
-		AnchorPane.setRightAnchor(getBtnOk(), 5.0);
+		AnchorPane.setTopAnchor(getMoney(), 5.0);
+		AnchorPane.setRightAnchor(getMoney(), 300.0);
 		
 		//AnchorPane.setTopAnchor(getTxtAuthor(), 5.0);
 		//AnchorPane.setLeftAnchor(getTxtAuthor(), 5.0);
@@ -98,12 +98,11 @@ private Label lblStatement;
 	}
 	
 	
-	public Button getBtnOk() {
-		if(btnOk==null) {
-			btnOk = new Button();
-			btnOk.setText("Ok");
+	public Label getMoney() {
+		if(money==null) {
+			money = new Label("Money Win");
 		}
-		return btnOk;
+		return money;
 	}
 	
 	/*public TextField getTxtAuthor() {
