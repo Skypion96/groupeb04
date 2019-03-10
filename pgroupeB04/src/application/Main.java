@@ -72,4 +72,8 @@ public class Main extends Application {
 		primaryStage.setScene(game);
 		primaryStage.setFullScreen(true);
 	}
+	
+	public static void exitFrame() {
+		primaryStage.close();
+	}
 }

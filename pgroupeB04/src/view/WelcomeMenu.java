@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import application.Main;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -19,10 +20,11 @@ public class WelcomeMenu extends AnchorPane{
 	private Button btnHighScore;
 	private Button btnExit;
 	private ImageView logo;
+	private ImageView sound;
 
 	public WelcomeMenu(){
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo());
+		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
 		
 		AnchorPane.setTopAnchor(btnPlay, 300.);
 		AnchorPane.setLeftAnchor(btnPlay, 40.);
@@ -37,6 +39,9 @@ public class WelcomeMenu extends AnchorPane{
 		AnchorPane.setLeftAnchor(btnExit, 40.);
 		
 		AnchorPane.setRightAnchor(logo, -100.);
+		
+		AnchorPane.setRightAnchor(sound, -170.);
+		AnchorPane.setTopAnchor(sound, 650.);
 	}
 
 	public Button getBtnPlay() {
@@ -90,6 +95,13 @@ public class WelcomeMenu extends AnchorPane{
 			btnExit.setMinWidth(300.);
 			btnExit.setMaxWidth(300.);
 			btnExit.setId("btnExit");
+			btnExit.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					Main.exitFrame();
+				}
+			});
 		}
 		return btnExit;
 	}
@@ -112,5 +124,30 @@ public class WelcomeMenu extends AnchorPane{
 		return logo;
 	}
 	
+	public ImageView getSound() {
+		if(sound==null) {
+			File fSound = new File("music.png");
+			String localUrl = null;
+			try {
+				localUrl = fSound.toURI().toURL().toString();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Image iSound = new Image(localUrl);
+			sound = new ImageView(iSound);
+			sound.setScaleX(0.1);
+			sound.setScaleY(0.1);
+			sound.setOnMousePressed(new EventHandler<Event>() {
+
+				@Override
+				public void handle(Event event) {
+					
+					
+				}
+			});
+		}
+		return sound;
+	}
 	
 }
