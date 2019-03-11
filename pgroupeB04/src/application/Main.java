@@ -24,7 +24,7 @@ public class Main extends Application {
 	
 	private static Scene scene;
     
-    private static AudioClip audioClip = new AudioClip(Paths.get("QVGDM.wav").toUri().toString());
+    private static AudioClip audioClip = new AudioClip(Paths.get("MenuPrinc.wav").toUri().toString());
 
 	@Override
 	public void start(Stage primaryStage) {
