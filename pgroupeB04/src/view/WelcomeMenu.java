@@ -41,7 +41,7 @@ public class WelcomeMenu extends AnchorPane{
 		AnchorPane.setRightAnchor(logo, -100.);
 		
 		AnchorPane.setRightAnchor(sound, -170.);
-		AnchorPane.setTopAnchor(sound, 650.);
+		AnchorPane.setBottomAnchor(sound, -250.);
 	}
 
 	public Button getBtnPlay() {
