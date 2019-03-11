@@ -23,6 +23,8 @@ public class Main extends Application {
     
     private static Scene menu = new Scene(welM, 1000, 600);
     private static Scene game = new Scene(gameView, 1000, 600);
+    
+    private static AudioClip audioClip = new AudioClip(Paths.get("QVGDM.wav").toUri().toString());
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -45,13 +47,14 @@ public class Main extends Application {
             welM.setId("welcome");
             
             //game music
-        /*    AudioClip audioClip = new AudioClip(Paths.get("QVGDM.wav").toUri().toString());
-	        int volume = 2;
+	        int volume = 100;
 	        Platform.runLater(() -> audioClip.play(volume));
-	        Thread.sleep(10);*/
+	        Thread.sleep(10);
             
-            Scene scene = new Scene(welM, 1000, 600);primaryStage.setFullScreen(true);
-            primaryStage.setFullScreenExitHint("Press Esc to exit full screen");
+            Scene scene = new Scene(welM, 1920, 1080);primaryStage.setFullScreen(true);
+            primaryStage.setFullScreenExitHint("");
+            primaryStage.setMinHeight(1080);
+            primaryStage.setMinWidth(1920);
 
             
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

@@ -127,23 +127,30 @@ public class WelcomeMenu extends AnchorPane{
 	public ImageView getSound() {
 		if(sound==null) {
 			File fSound = new File("music.png");
-			String localUrl = null;
+			File fNoSound = new File("no_music.png");
+			String localUrl1 = null;
+			String localUrl2 = null;
 			try {
-				localUrl = fSound.toURI().toURL().toString();
+				localUrl1 = fSound.toURI().toURL().toString();
+				localUrl2 = fSound.toURI().toURL().toString();
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			Image iSound = new Image(localUrl);
+			Image iSound = new Image(localUrl1);
+			Image iNoSound = new Image(localUrl2);
 			sound = new ImageView(iSound);
 			sound.setScaleX(0.1);
 			sound.setScaleY(0.1);
 			sound.setOnMousePressed(new EventHandler<Event>() {
 
-				@Override
+				@SuppressWarnings("unlikely-arg-type")
 				public void handle(Event event) {
-					
-					
+					if(sound.equals(iSound)) {
+						sound.setImage(iNoSound);
+						sound.setScaleX(0.1);
+						sound.setScaleY(0.1);
+					}
 				}
 			});
 		}
