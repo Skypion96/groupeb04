@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import modele.Game;
 import modele.Round;
 
 public class GameView extends AnchorPane{
@@ -33,19 +34,19 @@ private Label lblStatement;
 		AnchorPane.setRightAnchor(getLblStatement(), 450.0);
 		AnchorPane.setLeftAnchor(getLblStatement(), 740.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice1(), 600.0);
+		AnchorPane.setBottomAnchor(getBtnChoice1(), 200.0);
 		AnchorPane.setRightAnchor(getBtnChoice1(), 800.0);
 		AnchorPane.setLeftAnchor(getBtnChoice1(), 300.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice2(), 600.0);
+		AnchorPane.setBottomAnchor(getBtnChoice2(), 200.0);
 		AnchorPane.setRightAnchor(getBtnChoice2(), 300.0);
 		AnchorPane.setLeftAnchor(getBtnChoice2(), 800.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice3(), 630.0);
+		AnchorPane.setBottomAnchor(getBtnChoice3(), 150.0);
 		AnchorPane.setRightAnchor(getBtnChoice3(), 800.0);
 		AnchorPane.setLeftAnchor(getBtnChoice3(), 300.0);
 		
-		AnchorPane.setTopAnchor(getBtnChoice4(), 630.0);
+		AnchorPane.setBottomAnchor(getBtnChoice4(), 150.0);
 		AnchorPane.setRightAnchor(getBtnChoice4(), 300.0);
 		AnchorPane.setLeftAnchor(getBtnChoice4(), 800.0);
 		
@@ -64,7 +65,7 @@ private Label lblStatement;
 	
 	public Label getLblStatement() {
 		if(lblStatement==null) {
-			lblStatement = new Label("Question");
+			lblStatement = new Label(/*Game.showQuestion()*/);
 		}
 		return lblStatement;
 	}
