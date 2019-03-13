@@ -3,7 +3,7 @@ package view;
 import java.io.File;
 import java.net.MalformedURLException;
 
-import application.Main;
+import application.MainApp;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -56,7 +56,7 @@ public class WelcomeMenu extends AnchorPane{
 				
 				@Override
 				public void handle(ActionEvent event) {
-					Main.showGame();
+					MainApp.showGame();
 				}
 			});
 		}
@@ -99,7 +99,7 @@ public class WelcomeMenu extends AnchorPane{
 				
 				@Override
 				public void handle(ActionEvent event) {
-					Main.exitFrame();
+					MainApp.exitFrame();
 				}
 			});
 		}

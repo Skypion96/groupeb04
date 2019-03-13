@@ -16,7 +16,7 @@ import view.AddQuestion;
 import view.GameView;
 import view.WelcomeMenu;
 
-public class Main extends Application {
+public class MainApp extends Application {
 	
 	private static WelcomeMenu welM = new WelcomeMenu();
 	private static GameView gameView = new GameView();
@@ -32,7 +32,7 @@ public class Main extends Application {
 		
 		
 		try {
-			Main.primaryStage = primaryStage;
+			MainApp.primaryStage = primaryStage;
 			primaryStage.setFullScreen(true);
 			primaryStage.setFullScreenExitHint("Press Esc to exit full screen");
 			primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
