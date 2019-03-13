@@ -27,6 +27,7 @@ public class Main {
 		Deck d1 = new Deck();
 		d1.addQuestion(q1);
 		d1.addQuestion(q2);
+		d1.addQuestion(q3);
 		Serialisation.writeDeck(d1.toJson());
 		Deck d2 = new Deck();
 		d2 = Deck.fromJson();
