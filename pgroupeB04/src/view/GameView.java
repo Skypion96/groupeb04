@@ -6,8 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import modele.Game;
-import modele.Round;
+import model.Game;
+import model.Round;
 
 public class GameView extends AnchorPane{
 	
@@ -60,6 +60,9 @@ private Label lblStatement;
 		
 		//AnchorPane.setTopAnchor(getCbRound(), 5.0);
 		//AnchorPane.setRightAnchor(getCbRound(), 5.0);
+		
+		Game game = new Game();
+		System.out.println(game.showQuestion());
 		
 	}
 	

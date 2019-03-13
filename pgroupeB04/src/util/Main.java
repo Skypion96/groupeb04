@@ -1,8 +1,8 @@
 package util;
 
-import modele.Deck;
-import modele.Question;
-import modele.Round;
+import model.Deck;
+import model.Question;
+import model.Round;
 import serialisation.Serialisation;
 
 public class Main {
@@ -19,6 +19,11 @@ public class Main {
 		q2.addChoice("Jean-Pierre Foucault", false);
 		q2.addChoice("Nicolas Sarkozy", false);
 		q2.addChoice("François Mitterrand", false);
+		Question q3 = new Question("David", Round.SECOND_ROUND, "Example second round question");
+		q3.addChoice("No", false);
+		q3.addChoice("No", false);
+		q3.addChoice("No", false);
+		q3.addChoice("Yes", true);
 		Deck d1 = new Deck();
 		d1.addQuestion(q1);
 		d1.addQuestion(q2);

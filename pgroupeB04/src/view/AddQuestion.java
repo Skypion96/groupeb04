@@ -8,7 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-import modele.Round;
+import model.Round;
 
 public class AddQuestion extends AnchorPane {
 

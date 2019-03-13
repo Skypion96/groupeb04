@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import modele.Game;
+import model.Game;
 import view.AddQuestion;
 import view.GameView;
 import view.WelcomeMenu;
@@ -59,7 +59,6 @@ public class MainApp extends Application {
             primaryStage.setTitle("Who wants to be a millionaire");
             primaryStage.setScene(scene);
             primaryStage.show();
-            System.out.println(scene.getWidth());
         } catch(Exception e) {
             e.printStackTrace();
         }
