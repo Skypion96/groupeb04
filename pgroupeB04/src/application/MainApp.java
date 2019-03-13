@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.Game;
 import view.AddQuestion;
 import view.GameView;
+import view.ScoreView;
 import view.WelcomeMenu;
 
 public class MainApp extends Application {
@@ -21,6 +22,7 @@ public class MainApp extends Application {
 	private static WelcomeMenu welM = new WelcomeMenu();
 	private static GameView gameView = new GameView();
 	private static AddQuestion addQ = new AddQuestion();
+	private static ScoreView scv = new ScoreView();
     private static Stage primaryStage;
 	
 	private static Scene scene;
@@ -41,7 +43,7 @@ public class MainApp extends Application {
 			welM.setId("welcome");
 			gameView.setId("welcome");
 			
-            scene = new Scene(welM, 1920, 1080);primaryStage.setFullScreen(true);
+            scene = new Scene(scv, 1920, 1080);primaryStage.setFullScreen(true);
             primaryStage.setFullScreenExitHint("");
 			
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
