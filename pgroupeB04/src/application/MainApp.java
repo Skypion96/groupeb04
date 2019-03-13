@@ -43,7 +43,7 @@ public class MainApp extends Application {
 			welM.setId("welcome");
 			gameView.setId("welcome");
 			
-            scene = new Scene(scv, 1920, 1080);primaryStage.setFullScreen(true);
+            scene = new Scene(welM, 1920, 1080);primaryStage.setFullScreen(true);
             primaryStage.setFullScreenExitHint("");
 			
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

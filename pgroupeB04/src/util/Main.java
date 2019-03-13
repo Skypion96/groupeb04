@@ -20,9 +20,9 @@ public class Main {
 		q2.addChoice("Nicolas Sarkozy", false);
 		q2.addChoice("François Mitterrand", false);
 		Question q3 = new Question("David", Round.SECOND_ROUND, "Example second round question");
-		q3.addChoice("No", false);
-		q3.addChoice("No", false);
-		q3.addChoice("No", false);
+		q3.addChoice("No1", false);
+		q3.addChoice("No2", false);
+		q3.addChoice("No3", false);
 		q3.addChoice("Yes", true);
 		Deck d1 = new Deck();
 		d1.addQuestion(q1);
@@ -31,7 +31,7 @@ public class Main {
 		Serialisation.writeDeck(d1.toJson());
 		Deck d2 = new Deck();
 		d2 = Deck.fromJson();
-		System.out.println(d2.getQuestions().get(1).getStatement());
+		System.out.println(d2.getQuestions().get(0).getStatement());
 		
 		System.out.println();
 		

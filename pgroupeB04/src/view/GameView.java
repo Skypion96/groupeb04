@@ -22,8 +22,9 @@ private Label lblStatement;
 	
 	private ComboBox<Round> cbRound;
 	
-	
 	private Label money;
+	
+	private static Game game;
 	
 	public GameView() {
 		this.setPadding(new Insets(10));
@@ -53,16 +54,6 @@ private Label lblStatement;
 		
 		AnchorPane.setTopAnchor(getMoney(), 5.0);
 		AnchorPane.setRightAnchor(getMoney(), 300.0);
-		
-		//AnchorPane.setTopAnchor(getTxtAuthor(), 5.0);
-		//AnchorPane.setLeftAnchor(getTxtAuthor(), 5.0);
-		//AnchorPane.setRightAnchor(getTxtAuthor(), 140.0);
-		
-		//AnchorPane.setTopAnchor(getCbRound(), 5.0);
-		//AnchorPane.setRightAnchor(getCbRound(), 5.0);
-		
-		Game game = new Game();
-		System.out.println(game.showQuestion());
 		
 	}
 	
@@ -108,21 +99,9 @@ private Label lblStatement;
 		}
 		return money;
 	}
+
+	public static void newGame() {
+		game = new Game();
+	}
 	
-	/*public TextField getTxtAuthor() {
-		if(txtAuthor==null) {
-			txtAuthor = new TextField();
-			txtAuthor.setPromptText("Enter author's name");
-		}
-		return txtAuthor;
-	}*/
-	
-/*	public ComboBox<Round> getCbRound(){
-		if(cbRound==null) {
-			cbRound = new ComboBox<Round>();
-			cbRound.getItems().setAll(Round.values());
-			cbRound.setValue(Round.FIRST_ROUND);
-		}
-		return cbRound;
-	}*/
 }

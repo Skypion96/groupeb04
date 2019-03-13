@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import model.Game;
 
 public class WelcomeMenu extends AnchorPane{
 	
@@ -21,6 +22,8 @@ public class WelcomeMenu extends AnchorPane{
 	private Button btnExit;
 	private ImageView logo;
 	private ImageView sound;
+	
+	private Game game;
 
 	public WelcomeMenu(){
 		this.setPadding(new Insets(10));
@@ -57,6 +60,7 @@ public class WelcomeMenu extends AnchorPane{
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.showGame();
+					GameView.newGame();
 				}
 			});
 		}
