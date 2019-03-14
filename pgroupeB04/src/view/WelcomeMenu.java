@@ -26,22 +26,22 @@ public class WelcomeMenu extends AnchorPane {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
 
-		AnchorPane.setTopAnchor(btnPlay, 300.);
-		AnchorPane.setLeftAnchor(btnPlay, 40.);
+		AnchorPane.setTopAnchor(btnPlay, MainApp.getSceneHeight()*0.3);
+		AnchorPane.setLeftAnchor(btnPlay, MainApp.getSceneWidth()*0.02);
 
-		AnchorPane.setTopAnchor(btnRules, 450.);
-		AnchorPane.setLeftAnchor(btnRules, 40.);
+		AnchorPane.setTopAnchor(btnRules, MainApp.getSceneHeight()*0.3 + 150.);
+		AnchorPane.setLeftAnchor(btnRules, MainApp.getSceneWidth()*0.02);
 
-		AnchorPane.setTopAnchor(btnHighScore, 580.);
-		AnchorPane.setLeftAnchor(btnHighScore, 40.);
+		AnchorPane.setTopAnchor(btnHighScore, MainApp.getSceneHeight()*0.3 + 280.);
+		AnchorPane.setLeftAnchor(btnHighScore, MainApp.getSceneWidth()*0.02);
 
-		AnchorPane.setTopAnchor(btnExit, 710.);
-		AnchorPane.setLeftAnchor(btnExit, 40.);
+		AnchorPane.setTopAnchor(btnExit, MainApp.getSceneHeight()*0.3 + 410.);
+		AnchorPane.setLeftAnchor(btnExit, MainApp.getSceneWidth()*0.02);
 
-		AnchorPane.setRightAnchor(logo, -100.);
+		AnchorPane.setRightAnchor(logo, MainApp.getSceneWidth()*0.2-552);
 
-		AnchorPane.setRightAnchor(sound, -170.);
-		AnchorPane.setBottomAnchor(sound, -250.);
+		AnchorPane.setRightAnchor(sound, MainApp.getSceneWidth()*0.02-240);
+		AnchorPane.setBottomAnchor(sound, MainApp.getSceneHeight()*0.02-310);
 	}
 
 	public Button getBtnPlay() {
