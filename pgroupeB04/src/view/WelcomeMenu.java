@@ -12,43 +12,40 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import model.Game;
 
-public class WelcomeMenu extends AnchorPane{
-	
+public class WelcomeMenu extends AnchorPane {
+
 	private Button btnPlay;
 	private Button btnRules;
 	private Button btnHighScore;
 	private Button btnExit;
 	private ImageView logo;
 	private ImageView sound;
-	
-	private Game game;
 
-	public WelcomeMenu(){
+	public WelcomeMenu() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
-		
+
 		AnchorPane.setTopAnchor(btnPlay, 300.);
 		AnchorPane.setLeftAnchor(btnPlay, 40.);
-		
+
 		AnchorPane.setTopAnchor(btnRules, 450.);
 		AnchorPane.setLeftAnchor(btnRules, 40.);
-		
+
 		AnchorPane.setTopAnchor(btnHighScore, 580.);
 		AnchorPane.setLeftAnchor(btnHighScore, 40.);
-		
+
 		AnchorPane.setTopAnchor(btnExit, 710.);
 		AnchorPane.setLeftAnchor(btnExit, 40.);
-		
+
 		AnchorPane.setRightAnchor(logo, -100.);
-		
+
 		AnchorPane.setRightAnchor(sound, -170.);
 		AnchorPane.setBottomAnchor(sound, -250.);
 	}
 
 	public Button getBtnPlay() {
-		if(btnPlay==null) {
+		if (btnPlay == null) {
 			btnPlay = new Button("Play");
 			btnPlay.setMinHeight(120.);
 			btnPlay.setMaxHeight(120.);
@@ -56,7 +53,7 @@ public class WelcomeMenu extends AnchorPane{
 			btnPlay.setMaxWidth(400.);
 			btnPlay.setId("btnPlay");
 			btnPlay.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.showGame();
@@ -68,7 +65,7 @@ public class WelcomeMenu extends AnchorPane{
 	}
 
 	public Button getBtnRules() {
-		if(btnRules==null) {
+		if (btnRules == null) {
 			btnRules = new Button("Rules");
 			btnRules.setMinHeight(100.);
 			btnRules.setMaxHeight(100.);
@@ -80,7 +77,7 @@ public class WelcomeMenu extends AnchorPane{
 	}
 
 	public Button getBtnHighScore() {
-		if(btnHighScore==null) {
+		if (btnHighScore == null) {
 			btnHighScore = new Button("High Scores");
 			btnHighScore.setMinHeight(100.);
 			btnHighScore.setMaxHeight(100.);
@@ -92,7 +89,7 @@ public class WelcomeMenu extends AnchorPane{
 	}
 
 	public Button getBtnExit() {
-		if(btnExit==null) {
+		if (btnExit == null) {
 			btnExit = new Button("Exit");
 			btnExit.setMinHeight(100.);
 			btnExit.setMaxHeight(100.);
@@ -100,7 +97,7 @@ public class WelcomeMenu extends AnchorPane{
 			btnExit.setMaxWidth(300.);
 			btnExit.setId("btnExit");
 			btnExit.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.exitFrame();
@@ -111,7 +108,7 @@ public class WelcomeMenu extends AnchorPane{
 	}
 
 	public ImageView getLogo() {
-		if(logo==null) {
+		if (logo == null) {
 			File fLogo = new File("logo.png");
 			String localUrl = null;
 			try {
@@ -127,9 +124,9 @@ public class WelcomeMenu extends AnchorPane{
 		}
 		return logo;
 	}
-	
+
 	public ImageView getSound() {
-		if(sound==null) {
+		if (sound == null) {
 			File fSound = new File("music.png");
 			File fNoSound = new File("no_music.png");
 			String localUrl1 = null;
@@ -150,7 +147,7 @@ public class WelcomeMenu extends AnchorPane{
 
 				@SuppressWarnings("unlikely-arg-type")
 				public void handle(Event event) {
-					if(sound.equals(iSound)) {
+					if (sound.equals(iSound)) {
 						sound.setImage(iNoSound);
 						sound.setScaleX(0.1);
 						sound.setScaleY(0.1);
@@ -160,5 +157,5 @@ public class WelcomeMenu extends AnchorPane{
 		}
 		return sound;
 	}
-	
+
 }

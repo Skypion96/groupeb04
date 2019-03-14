@@ -3,17 +3,17 @@
 	-fx-background-size: cover;
     -fx-background-repeat: stretch;
     -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    -fx-effect: dropshadow(three-pass-box, black, 30.0, 0.5, 0.0, 0.0); 
 }
 
 
 #btnPlay {
-	-fx-padding:6px 0 6px 0;
-	-fx-background-radius: 100px 0 100px 0;
-	-fx-padding: 30px 0 30px 0;
+	-fx-padding:6.0px 0.0 6.0px 0.0;
+	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
+	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
-	-fx-font-size: 45;
+	-fx-font-size: 45.0;
 	-fx-font-style: bold;
 }
 
@@ -31,12 +31,12 @@
 }
 
 #btnRules {
-	-fx-padding:6px 0 6px 0;
-	-fx-background-radius: 100px 0 100px 0;
-	-fx-padding: 30px 0 30px 0;
+	-fx-padding:6.0px 0.0 6.0px 0.0;
+	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
+	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
-	-fx-font-size: 30;
+	-fx-font-size: 30.0;
 	-fx-font-style: bold;
 }
 
@@ -54,12 +54,12 @@
 }
 
 #btnHighScore {
-	-fx-padding:6px 0 6px 0;
-	-fx-background-radius: 100px 0 100px 0;
-	-fx-padding: 30px 0 30px 0;
+	-fx-padding:6.0px 0.0 6.0px 0.0;
+	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
+	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
-	-fx-font-size: 30;
+	-fx-font-size: 30.0;
 	-fx-font-style: bold;
 }
 
@@ -77,12 +77,12 @@
 }
 
 #btnExit {
-	-fx-padding:6px 0 6px 0;
-	-fx-background-radius: 100px 0 100px 0;
-	-fx-padding: 30px 0 30px 0;
+	-fx-padding:6.0px 0.0 6.0px 0.0;
+	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
+	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
-	-fx-font-size: 30;
+	-fx-font-size: 30.0;
 	-fx-font-style: bold;
 }
 

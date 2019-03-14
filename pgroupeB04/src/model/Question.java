@@ -21,47 +21,48 @@ public class Question {
 
 	public boolean addChoice(String choice, Boolean correct) {
 		boolean out = false;
-		
-		//If already 4 choices then out
-		if (choices.size()==4){
-			out=true;
+
+		// If already 4 choices then out
+		if (choices.size() == 4) {
+			out = true;
 		}
-		
-		//If already 3 choices, look closer
-		if(choices.size()==3) {
+
+		// If already 3 choices, look closer
+		if (choices.size() == 3) {
 			boolean alreadyTrue = false;
-			//If the choice we want to add is not the correct answer and there is still no correct answer then out (because it's the last choice we can add)
-			if(!correct) {
-				for(Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
-					if(mapEntry.getValue()==true) {
+			// If the choice we want to add is not the correct answer and there is still no
+			// correct answer then out (because it's the last choice we can add)
+			if (!correct) {
+				for (Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
+					if (mapEntry.getValue() == true) {
 						alreadyTrue = true;
 					}
 				}
-				if(!alreadyTrue) {
-					out=true;
-				}
-			}
-		}
-				
-		
-		//If the choice we want to add is the correct answer and there is already a correct answer then out
-		if(correct) {
-			for(Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
-				if(mapEntry.getValue()==true) {
+				if (!alreadyTrue) {
 					out = true;
 				}
 			}
 		}
-		
-		//If the choice is already in the choices Map then out
-		for(Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
-			if(mapEntry.getKey().contentEquals(choice)) {
+
+		// If the choice we want to add is the correct answer and there is already a
+		// correct answer then out
+		if (correct) {
+			for (Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
+				if (mapEntry.getValue() == true) {
+					out = true;
+				}
+			}
+		}
+
+		// If the choice is already in the choices Map then out
+		for (Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
+			if (mapEntry.getKey().contentEquals(choice)) {
 				out = true;
 			}
 		}
-		
-		//If out then don't add the choice
-		if(!out) {
+
+		// If out then don't add the choice
+		if (!out) {
 			choices.put(choice, correct);
 			return true;
 		}
@@ -72,46 +73,47 @@ public class Question {
 		Gson gson = new Gson();
 		return gson.toJson(this);
 	}
-	
+
 	public String getAuthor() {
 		return author;
 	}
-	
+
 	public Round getRound() {
 		return round;
 	}
-	
+
 	public String getStatement() {
 		return statement;
 	}
-	
+
 	public boolean isValid() {
-		
-		if(choices.size()!=4) {
+
+		if (choices.size() != 4) {
 			return false;
 		}
-		
-		int nbTrue=0;
-		for(Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
-			if(mapEntry.getValue()==true) {
-				nbTrue++;;
+
+		int nbTrue = 0;
+		for (Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
+			if (mapEntry.getValue() == true) {
+				nbTrue++;
+				;
 			}
 		}
-		if(nbTrue!=1) {
+		if (nbTrue != 1) {
 			return false;
 		}
 		return true;
 	}
-	
-	public Map<String, Boolean> getChoices(){
+
+	public Map<String, Boolean> getChoices() {
 		HashMap<String, Boolean> choices = new HashMap<String, Boolean>();
 		choices.putAll(this.choices);
 		return choices;
 	}
-	
+
 	public Question clone() {
 		Question q = new Question(author, round, statement);
 		q.choices.putAll(choices);
 		return q;
-	}	
+	}
 }

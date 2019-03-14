@@ -8,7 +8,7 @@ import serialisation.Serialisation;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Question q1 = new Question("Maxime", Round.FIRST_ROUND, "What's the capital of France ?");
 		q1.addChoice("Bruxelles", false);
 		q1.addChoice("Paris", true);
@@ -30,11 +30,11 @@ public class Main {
 		d1.addQuestion(q3);
 		Serialisation.writeDeck(d1.toJson());
 		Deck d2 = new Deck();
-		d2 = Deck.fromJson();
+		d2 = Serialisation.readDeck();
 		System.out.println(d2.getQuestions().get(0).getStatement());
-		
+
 		System.out.println();
-		
+
 	}
 
 }
