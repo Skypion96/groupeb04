@@ -8,12 +8,12 @@ import model.Game;
 
 public class GameView extends AnchorPane {
 
-	private Label lblStatement;
+	private static Label lblStatement;
 
-	private Button btnChoice1;
-	private Button btnChoice2;
-	private Button btnChoice3;
-	private Button btnChoice4;
+	private static Button btnChoice1;
+	private static Button btnChoice2;
+	private static Button btnChoice3;
+	private static Button btnChoice4;
 
 	private Label money;
 
@@ -21,10 +21,10 @@ public class GameView extends AnchorPane {
 
 	public GameView() {
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(/* getTxtAuthor(), getCbRound(), */ getLblStatement(), getBtnChoice1(),
-				getBtnChoice2(), getBtnChoice3(), getBtnChoice4(), getMoney());
+		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
+				getMoney());
 
-		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
+		AnchorPane.setTopAnchor(getLblStatement(), 100.0);
 		AnchorPane.setRightAnchor(getLblStatement(), 450.0);
 		AnchorPane.setLeftAnchor(getLblStatement(), 740.0);
 
@@ -47,37 +47,39 @@ public class GameView extends AnchorPane {
 		AnchorPane.setTopAnchor(getMoney(), 5.0);
 		AnchorPane.setRightAnchor(getMoney(), 300.0);
 
+		// getBtnChoice2().setText("Test11");
+
 	}
 
-	public Label getLblStatement() {
+	public static Label getLblStatement() {
 		if (lblStatement == null) {
-			lblStatement = new Label(/* Game.showQuestion() */);
+			lblStatement = new Label();
 		}
 		return lblStatement;
 	}
 
-	public Button getBtnChoice1() {
+	public static Button getBtnChoice1() {
 		if (btnChoice1 == null) {
 			btnChoice1 = new Button();
 		}
 		return btnChoice1;
 	}
 
-	public Button getBtnChoice2() {
+	public static Button getBtnChoice2() {
 		if (btnChoice2 == null) {
 			btnChoice2 = new Button();
 		}
 		return btnChoice2;
 	}
 
-	public Button getBtnChoice3() {
+	public static Button getBtnChoice3() {
 		if (btnChoice3 == null) {
 			btnChoice3 = new Button();
 		}
 		return btnChoice3;
 	}
 
-	public Button getBtnChoice4() {
+	public static Button getBtnChoice4() {
 		if (btnChoice4 == null) {
 			btnChoice4 = new Button();
 		}
@@ -93,6 +95,11 @@ public class GameView extends AnchorPane {
 
 	public static void newGame() {
 		game = new Game();
+		GameView.getGame().newQuestion();
+	}
+
+	public static Game getGame() {
+		return game;
 	}
 
 }

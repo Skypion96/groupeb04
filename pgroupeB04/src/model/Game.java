@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import serialisation.Serialisation;
+import view.GameView;
 
 public class Game {
 
@@ -19,7 +20,6 @@ public class Game {
 		deck = Serialisation.readDeck();
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
-		newQuestion();
 	}
 
 	// Generate a new question depending of the advancement of the game
@@ -61,6 +61,13 @@ public class Game {
 			i++;
 		}
 		deck.getQuestions().remove(questionNb);
+		GameView.getLblStatement().setText(GameView.getGame().showQuestion());
+
+		GameView.getBtnChoice1().setText(GameView.getGame().showAnswer(0));
+		GameView.getBtnChoice2().setText(GameView.getGame().showAnswer(1));
+		GameView.getBtnChoice3().setText(GameView.getGame().showAnswer(2));
+		GameView.getBtnChoice4().setText(GameView.getGame().showAnswer(3));
+
 	}
 
 	// Shows the question

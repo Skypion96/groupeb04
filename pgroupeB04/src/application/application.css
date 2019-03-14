@@ -14,7 +14,6 @@
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
 	-fx-font-size: 45.0;
-	-fx-font-style: bold;
 }
 
 #btnPlay:hover {
@@ -37,7 +36,6 @@
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
 	-fx-font-size: 30.0;
-	-fx-font-style: bold;
 }
 
 #btnRules:hover {
@@ -60,7 +58,6 @@
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
 	-fx-font-size: 30.0;
-	-fx-font-style: bold;
 }
 
 #btnHighScore:hover {
@@ -83,7 +80,6 @@
 	-fx-background-color: #9800AA;
 	-fx-text-fill: white;
 	-fx-font-size: 30.0;
-	-fx-font-style: bold;
 }
 
 #btnExit:hover {
