@@ -45,7 +45,6 @@ public class MainApp extends Application {
 
 			WelcomeMenu welM = new WelcomeMenu();
 			AddQuestion addQ = new AddQuestion();
-			welM.setId("welcome");
 
 			// Game music
 			int volume = 100;
