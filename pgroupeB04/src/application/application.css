@@ -95,11 +95,55 @@
 }
 
 #lblWon{
-	
 	-fx-font-size: 100.0px;
-	-fx-font-family: 'Merriweather';
-	-fx-text-fill:  #99e600;
-	-fx-background-color: black;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 5.0px
+	
+	
+}
+
+#moneyWon{
+	-fx-font-size: 100.0px;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 5.0px
+}
+
+#lblCongratulation{
+	-fx-font-size: 100.0px;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 5.0px
+}
+
+#btnBack{
+	-fx-font-size: 30.0px;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 5.0px
+}
+
+#btnExitScore{
+	-fx-font-size: 30.0px;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 5.0px
 }
 
 #lblStatement{
