@@ -103,23 +103,19 @@
 }
 
 #lblStatement{
-	-fx-font-size: 50px;
+	-fx-font-size: 50.0px;
 	-fx-text-fill: white;
-	-fx-padding:6.0px 0.0 6.0px 0.0;
-	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
-	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 }
 
 #btnChoice1{
-	-fx-font-size: 30px;
+	-fx-font-size: 30.0px;
 	-fx-text-fill: white;
-	-fx-padding:6.0px 0.0 6.0px 0.0;
-	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
-	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 }
 
 #btnChoice1:hover {
@@ -133,11 +129,9 @@
 }
 
 #btnChoice2{
-	-fx-font-size: 30px;
+	-fx-font-size: 30.0px;
 	-fx-text-fill: white;
-	-fx-padding:6.0px 0.0 6.0px 0.0;
-	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
-	-fx-padding: 30.0px 0.0 30.0px 0.0;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
 }
@@ -153,11 +147,9 @@
 }
 
 #btnChoice3{
-	-fx-font-size: 30px;
+	-fx-font-size: 30.0px;
 	-fx-text-fill: white;
-	-fx-padding:6.0px 0.0 6.0px 0.0;
-	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
-	-fx-padding: 30.0px 0.0 30.0px 0.0;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
 }
@@ -173,11 +165,9 @@
 }
 
 #btnChoice4{
-	-fx-font-size: 30px;
+	-fx-font-size: 30.0px;
 	-fx-text-fill: white;
-	-fx-padding:6.0px 0.0 6.0px 0.0;
-	-fx-background-radius: 100.0px 0.0 100.0px 0.0;
-	-fx-padding: 30.0px 0.0 30.0px 0.0;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
 }

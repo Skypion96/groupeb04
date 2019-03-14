@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
 import model.Game;
 
 public class GameView extends AnchorPane {
@@ -14,6 +15,7 @@ public class GameView extends AnchorPane {
 	private static Button btnChoice2;
 	private static Button btnChoice3;
 	private static Button btnChoice4;
+	
 
 	private Label money;
 
