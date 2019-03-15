@@ -10,14 +10,14 @@ import view.GameView;
 
 public class Game {
 
-	private Deck deck;
 	private int currentQuestionNumber;
 	private Question currentQuestion;
+	private List<Question> questionList;
 	private List<String> currentAnswers;
 	private int correctAnswer;
 
 	public Game() {
-		deck = Serialisation.readDeck();
+		questionList = Serialisation.readDeck().getQuestions();
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
 	}
@@ -25,6 +25,7 @@ public class Game {
 	// Generate a new question depending of the advancement of the game
 	public void newQuestion() {
 		currentQuestionNumber++;
+		currentAnswers.clear();
 
 		// A random question is chosen depending of the Round the player is in which is
 		// determined by the number of the current question
@@ -38,7 +39,7 @@ public class Game {
 				round = Round.LAST_ROUND;
 			}
 		}
-		int size = deck.getQuestions().size();
+		int size = questionList.size();
 
 		// Pick a random question while not in the correct round
 		Random rand = new Random();
@@ -46,27 +47,29 @@ public class Game {
 
 		do {
 			questionNb = rand.nextInt(size);
-		} while (!deck.getQuestions().get(questionNb).getRound().equals(round));
+		} while (!questionList.get(questionNb).getRound().equals(round));
 
 		// Setting the current question
-		currentQuestion = deck.getQuestions().get(questionNb);
+		currentQuestion = questionList.get(questionNb);
 
 		// Setting the index of the correct answer
 		int i = 0;
-		for (HashMap.Entry<String, Boolean> entry : deck.getQuestions().get(questionNb).getChoices().entrySet()) {
+		for (HashMap.Entry<String, Boolean> entry : questionList.get(questionNb).getChoices().entrySet()) {
 			currentAnswers.add(entry.getKey());
 			if (entry.getValue()) {
 				correctAnswer = i;
 			}
 			i++;
 		}
-		deck.getQuestions().remove(questionNb);
+		
+		System.out.println(questionList.remove(questionNb));
+		
 		GameView.getLblStatement().setText(GameView.getGame().showQuestion());
-
-		GameView.getBtnChoice1().setText(GameView.getGame().showAnswer(0));
-		GameView.getBtnChoice2().setText(GameView.getGame().showAnswer(1));
-		GameView.getBtnChoice3().setText(GameView.getGame().showAnswer(2));
-		GameView.getBtnChoice4().setText(GameView.getGame().showAnswer(3));
+		
+		for(i=0;i<=3;i++) {
+			GameView.getButtonList().get(i).setText(GameView.getGame().showAnswer(i));
+			GameView.getButtonList().get(i).setStyle("-fx-background-color: #9800AA;");
+		}
 
 	}
 
@@ -83,6 +86,11 @@ public class Game {
 	// Checking if the chosen answer is the correct answer
 	public boolean isAnswerCorrect(int n) {
 		return n == correctAnswer;
+	}
+	
+	//Getter correct answer
+	public int getCorrectAnswer() {
+		return correctAnswer;
 	}
 
 }

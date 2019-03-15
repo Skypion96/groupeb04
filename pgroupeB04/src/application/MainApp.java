@@ -27,7 +27,7 @@ public class MainApp extends Application {
 	private static AddQuestion addQ;
 	private static ScoreView scV;
 	
-	private static int volume;
+	private static double volume;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -57,7 +57,7 @@ public class MainApp extends Application {
 			scene.setRoot(welM);
 
 			// Game music
-			volume = 100;
+			volume = 0.;
 			Platform.runLater(() -> audioClip.play(volume));
 			Thread.sleep(10);
 
@@ -70,6 +70,10 @@ public class MainApp extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static void shwowWelcome() {
+		scene.setRoot(welM);
 	}
 
 	public static void showGame() {
@@ -88,7 +92,7 @@ public class MainApp extends Application {
 		return scene.getWidth();
 	}
 	
-	public static int getVolume() {
+	public static double getVolume() {
 		return volume;
 	}
 }
