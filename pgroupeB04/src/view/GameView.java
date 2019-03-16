@@ -11,6 +11,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import model.Game;
@@ -18,6 +19,22 @@ import model.Game;
 public class GameView extends AnchorPane {
 
 	private static Label lblStatement;
+	private Label lblLevel1;
+	private Label lblLevel2;
+	private Label lblLevel3;
+	private Label lblLevel4;
+	private Label lblLevel5;
+	private Label lblLevel6;
+	private Label lblLevel7;
+	private Label lblLevel8;
+	private Label lblLevel9;
+	private Label lblLevel10;
+	private Label lblLevel11;
+	private Label lblLevel12;
+	private Label lblLevel13;
+	private Label lblLevel14;
+	private Label lblLevel15;
+	
 
 	private static Button btnChoice1;
 	private static Button btnChoice2;
@@ -25,6 +42,9 @@ public class GameView extends AnchorPane {
 	private static Button btnChoice4;
 	
 	private static ArrayList<Button> buttonList = new ArrayList<Button>();
+	private static ArrayList<Label> lblLevels = new ArrayList<Label>();
+	
+	private VBox vbLevels;
 
 	private Label money;
 
@@ -33,12 +53,28 @@ public class GameView extends AnchorPane {
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getMoney());
+				getMoney(), getVbLevels());
 		
 		buttonList.add(btnChoice1);
 		buttonList.add(btnChoice2);
 		buttonList.add(btnChoice3);
 		buttonList.add(btnChoice4);
+		
+		lblLevels.add(getLblLevel1());
+		lblLevels.add(getLblLevel2());
+		lblLevels.add(getLblLevel3());
+		lblLevels.add(getLblLevel4());
+		lblLevels.add(getLblLevel5());
+		lblLevels.add(getLblLevel6());
+		lblLevels.add(getLblLevel7());
+		lblLevels.add(getLblLevel8());
+		lblLevels.add(getLblLevel9());
+		lblLevels.add(getLblLevel10());
+		lblLevels.add(getLblLevel11());
+		lblLevels.add(getLblLevel12());
+		lblLevels.add(getLblLevel13());
+		lblLevels.add(getLblLevel14());
+		lblLevels.add(getLblLevel15());
 
 		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
 		AnchorPane.setLeftAnchor(getLblStatement(), 610.0);
@@ -57,6 +93,11 @@ public class GameView extends AnchorPane {
 
 		AnchorPane.setTopAnchor(getMoney(), 5.0);
 		AnchorPane.setRightAnchor(getMoney(), 300.0);
+		
+		getVbLevels().getChildren().addAll(getLblLevels());
+		getVbLevels().setSpacing(10);
+		AnchorPane.setTopAnchor(getVbLevels(), 0.);
+		AnchorPane.setRightAnchor(getVbLevels(), 0.);
 
 	}
 
@@ -162,6 +203,123 @@ public class GameView extends AnchorPane {
 		}
 		return money;
 	}
+	
+	public Label getLblLevel1() {
+		if(lblLevel1==null) {
+			lblLevel1 = new Label("1 - 200 €");
+		}
+		return lblLevel1;
+	}
+
+	public Label getLblLevel2() {
+		if(lblLevel2==null) {
+			lblLevel2 = new Label("2 - 300 €");
+		}
+		return lblLevel2;
+	}
+
+	public Label getLblLevel3() {
+		if(lblLevel3==null) {
+			lblLevel3 = new Label("3 - 500 €");
+		}
+		return lblLevel3;
+	}
+
+	public Label getLblLevel4() {
+		if(lblLevel4==null) {
+			lblLevel4 = new Label("4 - 800 €");
+		}
+		return lblLevel4;
+	}
+
+	public Label getLblLevel5() {
+		if(lblLevel5==null) {
+			lblLevel5 = new Label("5 - 1 500 €");
+		}
+		return lblLevel5;
+	}
+
+	public Label getLblLevel6() {
+		if(lblLevel6==null) {
+			lblLevel6 = new Label("6 - 3 000 €");
+		}
+		return lblLevel6;
+	}
+
+	public Label getLblLevel7() {
+		if(lblLevel7==null) {
+			lblLevel7 = new Label("7 - 6 000 €");
+		}
+		return lblLevel7;
+	}
+
+	public Label getLblLevel8() {
+		if(lblLevel8==null) {
+			lblLevel8 = new Label("8 - 12 000 €");
+		}
+		return lblLevel8;
+	}
+
+	public Label getLblLevel9() {
+		if(lblLevel9==null) {
+			lblLevel9 = new Label("9 - 24 000 €");
+		}
+		return lblLevel9;
+	}
+
+	public Label getLblLevel10() {
+		if(lblLevel10==null) {
+			lblLevel10 = new Label("10 - 48 000 €");
+		}
+		return lblLevel10;
+	}
+
+	public Label getLblLevel11() {
+		if(lblLevel11==null) {
+			lblLevel11 = new Label("11 - 72 000 €");
+		}
+		return lblLevel11;
+	}
+
+	public Label getLblLevel12() {
+		if(lblLevel12==null) {
+			lblLevel12 = new Label("12 - 100 000 €");
+		}
+		return lblLevel12;
+	}
+
+	public Label getLblLevel13() {
+		if(lblLevel13==null) {
+			lblLevel13 = new Label("13 - 150 000 €");
+		}
+		return lblLevel13;
+	}
+
+	public Label getLblLevel14() {
+		if(lblLevel14==null) {
+			lblLevel14 = new Label("14 - 300 000 €");
+		}
+		return lblLevel14;
+	}
+
+	public Label getLblLevel15() {
+		if(lblLevel15==null) {
+			lblLevel15 = new Label("15 - 1 000 000 €");
+		}
+		return lblLevel15;
+	}
+
+	public static ArrayList<Label> getLblLevels() {
+		return lblLevels;
+	}
+
+	public VBox getVbLevels() {
+		if(vbLevels==null) {
+			vbLevels = new VBox();
+			vbLevels.setId("vbLevels");
+		}
+		return vbLevels;
+	}
 
 	public static void newGame() {
 		game = new Game();
@@ -249,5 +407,9 @@ public class GameView extends AnchorPane {
 		correct.play();
 		correct.setOnFinished(e -> MainApp.shwowWelcome());
 	}
+
+	
+	
+	
 
 }
