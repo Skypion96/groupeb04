@@ -78,7 +78,7 @@ public class GameView extends AnchorPane {
 		lblLevelsList.add(getLblLevel1());
 
 		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
-		AnchorPane.setLeftAnchor(getLblStatement(), 610.0);
+		AnchorPane.setLeftAnchor(getLblStatement(), 310.0);
 
 		AnchorPane.setBottomAnchor(getBtnChoice1(), 300.0);
 		AnchorPane.setLeftAnchor(getBtnChoice1(), 350.0);
@@ -106,7 +106,7 @@ public class GameView extends AnchorPane {
 		if (lblStatement == null) {
 			lblStatement = new Label();
 			lblStatement.setId("lblStatement");
-			lblStatement.setMinWidth(700);
+			lblStatement.setMinWidth(1300);
 			lblStatement.setMinHeight(120);
 		}
 		return lblStatement;
@@ -116,10 +116,8 @@ public class GameView extends AnchorPane {
 		if (btnChoice1 == null) {
 			btnChoice1 = new Button();
 			btnChoice1.setId("btnChoice1");
-			btnChoice1.setMinWidth(350);
+			btnChoice1.setMinWidth(500);
 			btnChoice1.setMinHeight(100);
-			btnChoice1.setMaxWidth(350);
-			btnChoice1.setMaxHeight(100);
 			
 			btnChoice1.setOnAction(new EventHandler<ActionEvent>() {
 				
@@ -136,10 +134,8 @@ public class GameView extends AnchorPane {
 		if (btnChoice2 == null) {
 			btnChoice2 = new Button();
 			btnChoice2.setId("btnChoice2");
-			btnChoice2.setMinWidth(350);
+			btnChoice2.setMinWidth(500);
 			btnChoice2.setMinHeight(100);
-			btnChoice2.setMaxWidth(350);
-			btnChoice2.setMaxHeight(100);
 			
 			btnChoice2.setOnAction(new EventHandler<ActionEvent>() {
 				
@@ -156,10 +152,8 @@ public class GameView extends AnchorPane {
 		if (btnChoice3 == null) {
 			btnChoice3 = new Button();
 			btnChoice3.setId("btnChoice3");
-			btnChoice3.setMinWidth(350);
+			btnChoice3.setMinWidth(500);
 			btnChoice3.setMinHeight(100);
-			btnChoice3.setMaxWidth(350);
-			btnChoice3.setMaxHeight(100);
 			
 			btnChoice3.setOnAction(new EventHandler<ActionEvent>() {
 				
@@ -177,10 +171,8 @@ public class GameView extends AnchorPane {
 		if (btnChoice4 == null) {
 			btnChoice4 = new Button();
 			btnChoice4.setId("btnChoice4");
-			btnChoice4.setMinWidth(350);
+			btnChoice4.setMinWidth(500);
 			btnChoice4.setMinHeight(100);
-			btnChoice4.setMaxWidth(350);
-			btnChoice4.setMaxHeight(100);
 			
 			btnChoice4.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -210,7 +202,7 @@ public class GameView extends AnchorPane {
 	
 	public Label getLblLevel1() {
 		if(lblLevel1==null) {
-			lblLevel1 = new Label("1 - 200 €");
+			lblLevel1 = new Label("1 -                     200 €");
 			lblLevel1.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel1;
@@ -218,7 +210,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel2() {
 		if(lblLevel2==null) {
-			lblLevel2 = new Label("2 - 300 €");
+			lblLevel2 = new Label("2 -                     300 €");
 			lblLevel2.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel2;
@@ -226,7 +218,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel3() {
 		if(lblLevel3==null) {
-			lblLevel3 = new Label("3 - 500 €");
+			lblLevel3 = new Label("3 -                     500 €");
 			lblLevel3.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel3;
@@ -234,7 +226,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel4() {
 		if(lblLevel4==null) {
-			lblLevel4 = new Label("4 - 800 €");
+			lblLevel4 = new Label("4 -                     800 €");
 			lblLevel4.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel4;
@@ -242,7 +234,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel5() {
 		if(lblLevel5==null) {
-			lblLevel5 = new Label("5 - 1 500 €");
+			lblLevel5 = new Label("5 -                  1 500 €");
 			lblLevel5.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel5;
@@ -250,7 +242,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel6() {
 		if(lblLevel6==null) {
-			lblLevel6 = new Label("6 - 3 000 €");
+			lblLevel6 = new Label("6 -                  3 000 €");
 			lblLevel6.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel6;
@@ -258,7 +250,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel7() {
 		if(lblLevel7==null) {
-			lblLevel7 = new Label("7 - 6 000 €");
+			lblLevel7 = new Label("7 -                  6 000 €");
 			lblLevel7.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel7;
@@ -266,7 +258,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel8() {
 		if(lblLevel8==null) {
-			lblLevel8 = new Label("8 - 12 000 €");
+			lblLevel8 = new Label("8 -                12 000 €");
 			lblLevel8.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel8;
@@ -274,7 +266,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel9() {
 		if(lblLevel9==null) {
-			lblLevel9 = new Label("9 - 24 000 €");
+			lblLevel9 = new Label("9 -                24 000 €");
 			lblLevel9.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel9;
@@ -282,7 +274,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel10() {
 		if(lblLevel10==null) {
-			lblLevel10 = new Label("10 - 48 000 €");
+			lblLevel10 = new Label("10 -              48 000 €");
 			lblLevel10.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel10;
@@ -290,7 +282,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel11() {
 		if(lblLevel11==null) {
-			lblLevel11 = new Label("11 - 72 000 €");
+			lblLevel11 = new Label("11 -              72 000 €");
 			lblLevel11.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel11;
@@ -298,7 +290,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel12() {
 		if(lblLevel12==null) {
-			lblLevel12 = new Label("12 - 100 000 €");
+			lblLevel12 = new Label("12 -            100 000 €");
 			lblLevel12.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel12;
@@ -306,7 +298,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel13() {
 		if(lblLevel13==null) {
-			lblLevel13 = new Label("13 - 150 000 €");
+			lblLevel13 = new Label("13 -            150 000 €");
 			lblLevel13.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel13;
@@ -314,7 +306,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel14() {
 		if(lblLevel14==null) {
-			lblLevel14 = new Label("14 - 300 000 €");
+			lblLevel14 = new Label("14 -            300 000 €");
 			lblLevel14.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel14;
@@ -322,7 +314,7 @@ public class GameView extends AnchorPane {
 
 	public Label getLblLevel15() {
 		if(lblLevel15==null) {
-			lblLevel15 = new Label("15 - 1 000 000 €");
+			lblLevel15 = new Label("15 -         1 000 000 €");
 			lblLevel15.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel15;
@@ -336,6 +328,7 @@ public class GameView extends AnchorPane {
 		if(vbLevels==null) {
 			vbLevels = new VBox();
 			vbLevels.setId("vbLevels");
+			vbLevels.setMinWidth(150.);
 		}
 		return vbLevels;
 	}

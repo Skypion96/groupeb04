@@ -147,7 +147,7 @@
 }
 
 #lblStatement{
-	-fx-font-size: 50.0px;
+	-fx-font-size: 40.0px;
 	-fx-text-fill: white;
 	-fx-background-color: #9800AA;
 	-fx-alignment: center;
@@ -244,13 +244,16 @@
 
 .label:common-level{
 	-fx-text-fill: #F39C12;
+	-fx-font-size: 18;
 }
 
 .label:anchor-level{
 	-fx-text-fill: white;
+	-fx-font-size: 18;
 }
 
 .label:current-level{
 	-fx-text-fill: black;
 	-fx-background-color: #F39C12;
+	-fx-font-size: 18;
 }
