@@ -238,19 +238,19 @@
 
 #vbLevels{
 	-fx-background-color: black;
-	-fx-border-color: #F39C12;
+	-fx-border-color: #696969;
 	-fx-border-width: 5px;
 }
 
-.node-type:common-level{
+.label:common-level{
 	-fx-text-fill: #F39C12;
 }
 
-.node-type:anchor-level{
+.label:anchor-level{
 	-fx-text-fill: white;
 }
 
-.node-type:current-level{
+.label:current-level{
 	-fx-text-fill: black;
 	-fx-background-color: #F39C12;
 }

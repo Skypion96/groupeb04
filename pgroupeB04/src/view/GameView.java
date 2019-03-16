@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import application.MainApp;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -42,7 +43,7 @@ public class GameView extends AnchorPane {
 	private static Button btnChoice4;
 	
 	private static ArrayList<Button> buttonList = new ArrayList<Button>();
-	private static ArrayList<Label> lblLevels = new ArrayList<Label>();
+	private static ArrayList<Label> lblLevelsList = new ArrayList<Label>();
 	
 	private VBox vbLevels;
 
@@ -60,21 +61,21 @@ public class GameView extends AnchorPane {
 		buttonList.add(btnChoice3);
 		buttonList.add(btnChoice4);
 		
-		lblLevels.add(getLblLevel1());
-		lblLevels.add(getLblLevel2());
-		lblLevels.add(getLblLevel3());
-		lblLevels.add(getLblLevel4());
-		lblLevels.add(getLblLevel5());
-		lblLevels.add(getLblLevel6());
-		lblLevels.add(getLblLevel7());
-		lblLevels.add(getLblLevel8());
-		lblLevels.add(getLblLevel9());
-		lblLevels.add(getLblLevel10());
-		lblLevels.add(getLblLevel11());
-		lblLevels.add(getLblLevel12());
-		lblLevels.add(getLblLevel13());
-		lblLevels.add(getLblLevel14());
-		lblLevels.add(getLblLevel15());
+		lblLevelsList.add(getLblLevel15());
+		lblLevelsList.add(getLblLevel14());
+		lblLevelsList.add(getLblLevel13());
+		lblLevelsList.add(getLblLevel12());
+		lblLevelsList.add(getLblLevel11());
+		lblLevelsList.add(getLblLevel10());
+		lblLevelsList.add(getLblLevel9());
+		lblLevelsList.add(getLblLevel8());
+		lblLevelsList.add(getLblLevel7());
+		lblLevelsList.add(getLblLevel6());
+		lblLevelsList.add(getLblLevel5());
+		lblLevelsList.add(getLblLevel4());
+		lblLevelsList.add(getLblLevel3());
+		lblLevelsList.add(getLblLevel2());
+		lblLevelsList.add(getLblLevel1());
 
 		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
 		AnchorPane.setLeftAnchor(getLblStatement(), 610.0);
@@ -94,7 +95,7 @@ public class GameView extends AnchorPane {
 		AnchorPane.setTopAnchor(getMoney(), 5.0);
 		AnchorPane.setRightAnchor(getMoney(), 300.0);
 		
-		getVbLevels().getChildren().addAll(getLblLevels());
+		getVbLevels().getChildren().addAll(getLblLevelsList());
 		getVbLevels().setSpacing(10);
 		AnchorPane.setTopAnchor(getVbLevels(), 0.);
 		AnchorPane.setRightAnchor(getVbLevels(), 0.);
@@ -204,9 +205,13 @@ public class GameView extends AnchorPane {
 		return money;
 	}
 	
+	PseudoClass common = PseudoClass.getPseudoClass("common-level");
+	PseudoClass anchor = PseudoClass.getPseudoClass("anchor-level");
+	
 	public Label getLblLevel1() {
 		if(lblLevel1==null) {
 			lblLevel1 = new Label("1 - 200 €");
+			lblLevel1.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel1;
 	}
@@ -214,6 +219,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel2() {
 		if(lblLevel2==null) {
 			lblLevel2 = new Label("2 - 300 €");
+			lblLevel2.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel2;
 	}
@@ -221,6 +227,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel3() {
 		if(lblLevel3==null) {
 			lblLevel3 = new Label("3 - 500 €");
+			lblLevel3.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel3;
 	}
@@ -228,6 +235,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel4() {
 		if(lblLevel4==null) {
 			lblLevel4 = new Label("4 - 800 €");
+			lblLevel4.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel4;
 	}
@@ -235,6 +243,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel5() {
 		if(lblLevel5==null) {
 			lblLevel5 = new Label("5 - 1 500 €");
+			lblLevel5.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel5;
 	}
@@ -242,6 +251,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel6() {
 		if(lblLevel6==null) {
 			lblLevel6 = new Label("6 - 3 000 €");
+			lblLevel6.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel6;
 	}
@@ -249,6 +259,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel7() {
 		if(lblLevel7==null) {
 			lblLevel7 = new Label("7 - 6 000 €");
+			lblLevel7.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel7;
 	}
@@ -256,6 +267,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel8() {
 		if(lblLevel8==null) {
 			lblLevel8 = new Label("8 - 12 000 €");
+			lblLevel8.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel8;
 	}
@@ -263,6 +275,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel9() {
 		if(lblLevel9==null) {
 			lblLevel9 = new Label("9 - 24 000 €");
+			lblLevel9.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel9;
 	}
@@ -270,6 +283,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel10() {
 		if(lblLevel10==null) {
 			lblLevel10 = new Label("10 - 48 000 €");
+			lblLevel10.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel10;
 	}
@@ -277,6 +291,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel11() {
 		if(lblLevel11==null) {
 			lblLevel11 = new Label("11 - 72 000 €");
+			lblLevel11.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel11;
 	}
@@ -284,6 +299,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel12() {
 		if(lblLevel12==null) {
 			lblLevel12 = new Label("12 - 100 000 €");
+			lblLevel12.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel12;
 	}
@@ -291,6 +307,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel13() {
 		if(lblLevel13==null) {
 			lblLevel13 = new Label("13 - 150 000 €");
+			lblLevel13.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel13;
 	}
@@ -298,6 +315,7 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel14() {
 		if(lblLevel14==null) {
 			lblLevel14 = new Label("14 - 300 000 €");
+			lblLevel14.pseudoClassStateChanged(common, true);
 		}
 		return lblLevel14;
 	}
@@ -305,12 +323,13 @@ public class GameView extends AnchorPane {
 	public Label getLblLevel15() {
 		if(lblLevel15==null) {
 			lblLevel15 = new Label("15 - 1 000 000 €");
+			lblLevel15.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel15;
 	}
 
-	public static ArrayList<Label> getLblLevels() {
-		return lblLevels;
+	public static ArrayList<Label> getLblLevelsList() {
+		return lblLevelsList;
 	}
 
 	public VBox getVbLevels() {

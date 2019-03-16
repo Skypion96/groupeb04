@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import javafx.css.PseudoClass;
 import serialisation.Serialisation;
 import view.GameView;
 
@@ -15,11 +16,15 @@ public class Game {
 	private List<Question> questionList;
 	private List<String> currentAnswers;
 	private int correctAnswer;
+	private PseudoClass current = PseudoClass.getPseudoClass("current-level");
 
 	public Game() {
 		questionList = Serialisation.readDeck().getQuestions();
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
+		for(int i = 1;i<=15;i++) {
+			GameView.getLblLevelsList().get(15-i).pseudoClassStateChanged(current, false);
+		}
 	}
 
 	// Generate a new question depending of the advancement of the game
@@ -62,7 +67,7 @@ public class Game {
 			i++;
 		}
 		
-		System.out.println(questionList.remove(questionNb));
+		questionList.remove(questionNb);
 		
 		GameView.getLblStatement().setText(GameView.getGame().showQuestion());
 		
@@ -70,6 +75,12 @@ public class Game {
 			GameView.getButtonList().get(i).setText(GameView.getGame().showAnswer(i));
 			GameView.getButtonList().get(i).setStyle("-fx-background-color: #9800AA;");
 		}
+		
+		if(currentQuestionNumber!=1) {
+			GameView.getLblLevelsList().get(16-currentQuestionNumber).pseudoClassStateChanged(current, false);
+		}
+		
+		GameView.getLblLevelsList().get(15-currentQuestionNumber).pseudoClassStateChanged(current, true);
 
 	}
 
