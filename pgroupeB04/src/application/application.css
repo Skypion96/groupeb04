@@ -243,14 +243,14 @@
 }
 
 .node-type:common-level{
-	-fx-font: #F39C12;
+	-fx-text-fill: #F39C12;
 }
 
 .node-type:anchor-level{
-	-fx-font: white;
+	-fx-text-fill: white;
 }
 
 .node-type:current-level{
-	-fx-font: black;
+	-fx-text-fill: black;
 	-fx-background-color: #F39C12;
 }
