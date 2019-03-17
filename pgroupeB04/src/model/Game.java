@@ -22,8 +22,8 @@ public class Game {
 		questionList = Serialisation.readDeck().getQuestions();
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
-		for(int i = 1;i<=15;i++) {
-			GameView.getLblLevelsList().get(15-i).pseudoClassStateChanged(current, false);
+		for (int i = 1; i <= 15; i++) {
+			GameView.getLblLevelsList().get(15 - i).pseudoClassStateChanged(current, false);
 		}
 	}
 
@@ -66,21 +66,25 @@ public class Game {
 			}
 			i++;
 		}
-		
+
+		// Remove the chosen question from the question list to avoid to get the same
+		// question twice
 		questionList.remove(questionNb);
-		
+
+		// Showing the question's statement and choices on screen + colours
 		GameView.getLblStatement().setText(GameView.getGame().showQuestion());
-		
-		for(i=0;i<=3;i++) {
+
+		for (i = 0; i <= 3; i++) {
 			GameView.getButtonList().get(i).setText(GameView.getGame().showAnswer(i));
 			GameView.getButtonList().get(i).setStyle("-fx-background-color: #9800AA;");
 		}
-		
-		if(currentQuestionNumber!=1) {
-			GameView.getLblLevelsList().get(16-currentQuestionNumber).pseudoClassStateChanged(current, false);
+
+		// Showing the tree that shows where the player is
+		if (currentQuestionNumber != 1) {
+			GameView.getLblLevelsList().get(16 - currentQuestionNumber).pseudoClassStateChanged(current, false);
 		}
-		
-		GameView.getLblLevelsList().get(15-currentQuestionNumber).pseudoClassStateChanged(current, true);
+
+		GameView.getLblLevelsList().get(15 - currentQuestionNumber).pseudoClassStateChanged(current, true);
 
 	}
 
@@ -98,8 +102,8 @@ public class Game {
 	public boolean isAnswerCorrect(int n) {
 		return n == correctAnswer;
 	}
-	
-	//Getter correct answer
+
+	// Getter correct answer
 	public int getCorrectAnswer() {
 		return correctAnswer;
 	}

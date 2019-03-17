@@ -35,32 +35,29 @@ public class GameView extends AnchorPane {
 	private Label lblLevel13;
 	private Label lblLevel14;
 	private Label lblLevel15;
-	
 
 	private static Button btnChoice1;
 	private static Button btnChoice2;
 	private static Button btnChoice3;
 	private static Button btnChoice4;
-	
+
 	private static ArrayList<Button> buttonList = new ArrayList<Button>();
 	private static ArrayList<Label> lblLevelsList = new ArrayList<Label>();
-	
+
 	private VBox vbLevels;
 
-	private Label money;
-
 	private static Game game;
-	
+
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getMoney(), getVbLevels());
-		
+				getVbLevels());
+
 		buttonList.add(btnChoice1);
 		buttonList.add(btnChoice2);
 		buttonList.add(btnChoice3);
 		buttonList.add(btnChoice4);
-		
+
 		lblLevelsList.add(getLblLevel15());
 		lblLevelsList.add(getLblLevel14());
 		lblLevelsList.add(getLblLevel13());
@@ -92,9 +89,6 @@ public class GameView extends AnchorPane {
 		AnchorPane.setBottomAnchor(getBtnChoice4(), 150.0);
 		AnchorPane.setRightAnchor(getBtnChoice4(), 350.0);
 
-		AnchorPane.setTopAnchor(getMoney(), 5.0);
-		AnchorPane.setRightAnchor(getMoney(), 300.0);
-		
 		getVbLevels().getChildren().addAll(getLblLevelsList());
 		getVbLevels().setSpacing(10);
 		AnchorPane.setTopAnchor(getVbLevels(), 0.);
@@ -102,6 +96,7 @@ public class GameView extends AnchorPane {
 
 	}
 
+	// Getter for the label with the statement of the current question
 	public static Label getLblStatement() {
 		if (lblStatement == null) {
 			lblStatement = new Label();
@@ -112,15 +107,16 @@ public class GameView extends AnchorPane {
 		return lblStatement;
 	}
 
+	// All individual button getters
 	public static Button getBtnChoice1() {
 		if (btnChoice1 == null) {
 			btnChoice1 = new Button();
 			btnChoice1.setId("btnChoice1");
 			btnChoice1.setMinWidth(500);
 			btnChoice1.setMinHeight(100);
-			
+
 			btnChoice1.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent event) {
 					buttonClick(0);
@@ -136,9 +132,9 @@ public class GameView extends AnchorPane {
 			btnChoice2.setId("btnChoice2");
 			btnChoice2.setMinWidth(500);
 			btnChoice2.setMinHeight(100);
-			
+
 			btnChoice2.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent event) {
 					buttonClick(1);
@@ -154,9 +150,9 @@ public class GameView extends AnchorPane {
 			btnChoice3.setId("btnChoice3");
 			btnChoice3.setMinWidth(500);
 			btnChoice3.setMinHeight(100);
-			
+
 			btnChoice3.setOnAction(new EventHandler<ActionEvent>() {
-				
+
 				@Override
 				public void handle(ActionEvent event) {
 					buttonClick(2);
@@ -173,7 +169,7 @@ public class GameView extends AnchorPane {
 			btnChoice4.setId("btnChoice4");
 			btnChoice4.setMinWidth(500);
 			btnChoice4.setMinHeight(100);
-			
+
 			btnChoice4.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
@@ -181,27 +177,23 @@ public class GameView extends AnchorPane {
 					buttonClick(3);
 				}
 			});
-			
+
 		}
 		return btnChoice4;
 	}
-	
-	public static ArrayList<Button> getButtonList(){
+
+	// Getter for the button list, used to iterate easier between the answer buttons
+	public static ArrayList<Button> getButtonList() {
 		return buttonList;
 	}
 
-	public Label getMoney() {
-		if (money == null) {
-			money = new Label("Money Win");
-		}
-		return money;
-	}
-	
+	// Pseudoclasses used for the CSS
 	PseudoClass common = PseudoClass.getPseudoClass("common-level");
 	PseudoClass anchor = PseudoClass.getPseudoClass("anchor-level");
-	
+
+	// All individuals level getters
 	public Label getLblLevel1() {
-		if(lblLevel1==null) {
+		if (lblLevel1 == null) {
 			lblLevel1 = new Label("1 -                     200 €");
 			lblLevel1.pseudoClassStateChanged(common, true);
 		}
@@ -209,7 +201,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel2() {
-		if(lblLevel2==null) {
+		if (lblLevel2 == null) {
 			lblLevel2 = new Label("2 -                     300 €");
 			lblLevel2.pseudoClassStateChanged(common, true);
 		}
@@ -217,7 +209,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel3() {
-		if(lblLevel3==null) {
+		if (lblLevel3 == null) {
 			lblLevel3 = new Label("3 -                     500 €");
 			lblLevel3.pseudoClassStateChanged(common, true);
 		}
@@ -225,7 +217,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel4() {
-		if(lblLevel4==null) {
+		if (lblLevel4 == null) {
 			lblLevel4 = new Label("4 -                     800 €");
 			lblLevel4.pseudoClassStateChanged(common, true);
 		}
@@ -233,7 +225,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel5() {
-		if(lblLevel5==null) {
+		if (lblLevel5 == null) {
 			lblLevel5 = new Label("5 -                  1 500 €");
 			lblLevel5.pseudoClassStateChanged(anchor, true);
 		}
@@ -241,7 +233,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel6() {
-		if(lblLevel6==null) {
+		if (lblLevel6 == null) {
 			lblLevel6 = new Label("6 -                  3 000 €");
 			lblLevel6.pseudoClassStateChanged(common, true);
 		}
@@ -249,7 +241,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel7() {
-		if(lblLevel7==null) {
+		if (lblLevel7 == null) {
 			lblLevel7 = new Label("7 -                  6 000 €");
 			lblLevel7.pseudoClassStateChanged(common, true);
 		}
@@ -257,7 +249,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel8() {
-		if(lblLevel8==null) {
+		if (lblLevel8 == null) {
 			lblLevel8 = new Label("8 -                12 000 €");
 			lblLevel8.pseudoClassStateChanged(common, true);
 		}
@@ -265,7 +257,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel9() {
-		if(lblLevel9==null) {
+		if (lblLevel9 == null) {
 			lblLevel9 = new Label("9 -                24 000 €");
 			lblLevel9.pseudoClassStateChanged(common, true);
 		}
@@ -273,7 +265,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel10() {
-		if(lblLevel10==null) {
+		if (lblLevel10 == null) {
 			lblLevel10 = new Label("10 -              48 000 €");
 			lblLevel10.pseudoClassStateChanged(anchor, true);
 		}
@@ -281,7 +273,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel11() {
-		if(lblLevel11==null) {
+		if (lblLevel11 == null) {
 			lblLevel11 = new Label("11 -              72 000 €");
 			lblLevel11.pseudoClassStateChanged(common, true);
 		}
@@ -289,7 +281,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel12() {
-		if(lblLevel12==null) {
+		if (lblLevel12 == null) {
 			lblLevel12 = new Label("12 -            100 000 €");
 			lblLevel12.pseudoClassStateChanged(common, true);
 		}
@@ -297,7 +289,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel13() {
-		if(lblLevel13==null) {
+		if (lblLevel13 == null) {
 			lblLevel13 = new Label("13 -            150 000 €");
 			lblLevel13.pseudoClassStateChanged(common, true);
 		}
@@ -305,7 +297,7 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel14() {
-		if(lblLevel14==null) {
+		if (lblLevel14 == null) {
 			lblLevel14 = new Label("14 -            300 000 €");
 			lblLevel14.pseudoClassStateChanged(common, true);
 		}
@@ -313,19 +305,22 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblLevel15() {
-		if(lblLevel15==null) {
+		if (lblLevel15 == null) {
 			lblLevel15 = new Label("15 -         1 000 000 €");
 			lblLevel15.pseudoClassStateChanged(anchor, true);
 		}
 		return lblLevel15;
 	}
 
+	// Getter for the levels list, used to iterate easier between the 15 levels
 	public static ArrayList<Label> getLblLevelsList() {
 		return lblLevelsList;
 	}
 
+	// Getters for the VBox used to make the winning tree int the top right of the
+	// screen
 	public VBox getVbLevels() {
-		if(vbLevels==null) {
+		if (vbLevels == null) {
 			vbLevels = new VBox();
 			vbLevels.setId("vbLevels");
 			vbLevels.setMinWidth(150.);
@@ -333,95 +328,94 @@ public class GameView extends AnchorPane {
 		return vbLevels;
 	}
 
+	// Creates a new game
 	public static void newGame() {
 		game = new Game();
 		GameView.getGame().newQuestion();
 	}
 
+	// Getter for the current game
 	public static Game getGame() {
 		return game;
 	}
-	
+
+	// Action when clicking a button then tests if it is the correct answer
+	// Setting the background of the chosen answer orange for the "suspense"
 	public static void buttonClick(int n) {
 		Timeline orange = new Timeline(
 
-			    new KeyFrame(Duration.seconds(0.01), e -> {
-			        // use "flash" color
-			    	buttonList.get(n).setStyle("-fx-background-color:#FF8C00");
-			    }),
-			    
-			    new KeyFrame(Duration.seconds(3), e -> {
-			        // wait
-			    })
-			    
-			    
-			);
+				new KeyFrame(Duration.seconds(0.01), e -> {
+					// use "flash" color
+					buttonList.get(n).setStyle("-fx-background-color:#FF8C00");
+				}),
+
+				new KeyFrame(Duration.seconds(3), e -> {
+					// wait
+				})
+
+		);
 		orange.setCycleCount(1);
 		orange.play();
-		
-		if(game.isAnswerCorrect(n)) {
+
+		if (game.isAnswerCorrect(n)) {
 			orange.setOnFinished(e -> correctChoice(n));
-		}
-		else {
+		} else {
 			orange.setOnFinished(e -> wrongChoice(n));
 		}
-		
+
 	}
-	
+
+	// Setting the background of the chosen answer blinking green as it is the
+	// correct answer
 	public static void correctChoice(int n) {
 		Timeline correct = new Timeline(
 
-			    new KeyFrame(Duration.seconds(0.1), e -> {
-			        // use "flash" color
-			    	buttonList.get(n).setStyle("-fx-background-color:#008000");
-			    }),
+				new KeyFrame(Duration.seconds(0.1), e -> {
+					// use "flash" color
+					buttonList.get(n).setStyle("-fx-background-color:#008000");
+				}),
 
-			    new KeyFrame(Duration.seconds(0.2), e -> {
-			        // revert to regular color
-			    	buttonList.get(n).setStyle("-fx-background-color: #9800AA;");
-			    })
-			);
+				new KeyFrame(Duration.seconds(0.2), e -> {
+					// revert to regular color
+					buttonList.get(n).setStyle("-fx-background-color: #9800AA;");
+				}));
 		correct.setCycleCount(20);
 		correct.play();
-		
+
 		correct.setOnFinished(e -> game.newQuestion());
-		
+
 	}
-	
+
+	// Setting the background of the chosen answer red as it is a wrong answer
 	public static void wrongChoice(int n) {
 		int correctIndex = game.getCorrectAnswer();
 		Timeline incorrect = new Timeline(
-				
+
 				new KeyFrame(Duration.seconds(0.01), e -> {
-			        // use "flash" color
-			    	buttonList.get(n).setStyle("-fx-background-color:red");
-			    })
-				
-			);
-		
+					// use "flash" color
+					buttonList.get(n).setStyle("-fx-background-color:red");
+				})
+
+		);
+
 		Timeline correct = new Timeline(
 
-			    new KeyFrame(Duration.seconds(0.1), e -> {
-			        // use "flash" color
-			    	buttonList.get(correctIndex).setStyle("-fx-background-color:#008000");
-			    }),
+				new KeyFrame(Duration.seconds(0.1), e -> {
+					// use "flash" color
+					buttonList.get(correctIndex).setStyle("-fx-background-color:#008000");
+				}),
 
-			    new KeyFrame(Duration.seconds(0.2), e -> {
-			        // revert to regular color
-			    	buttonList.get(correctIndex).setStyle("-fx-background-color: #9800AA;");
-			    })
-			);
-		
+				new KeyFrame(Duration.seconds(0.2), e -> {
+					// revert to regular color
+					buttonList.get(correctIndex).setStyle("-fx-background-color: #9800AA;");
+				}));
+
 		incorrect.setCycleCount(1);
 		incorrect.play();
-		
+
 		correct.setCycleCount(20);
 		correct.play();
 		correct.setOnFinished(e -> MainApp.shwowWelcome());
 	}
-
-	
-	
-	
 
 }

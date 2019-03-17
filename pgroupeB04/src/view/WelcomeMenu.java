@@ -26,24 +26,25 @@ public class WelcomeMenu extends AnchorPane {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
 
-		AnchorPane.setTopAnchor(btnPlay, MainApp.getSceneHeight()*0.3);
-		AnchorPane.setLeftAnchor(btnPlay, MainApp.getSceneWidth()*0.02);
+		AnchorPane.setTopAnchor(btnPlay, MainApp.getSceneHeight() * 0.3);
+		AnchorPane.setLeftAnchor(btnPlay, MainApp.getSceneWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnRules, MainApp.getSceneHeight()*0.3 + 150.);
-		AnchorPane.setLeftAnchor(btnRules, MainApp.getSceneWidth()*0.02);
+		AnchorPane.setTopAnchor(btnRules, MainApp.getSceneHeight() * 0.3 + 150.);
+		AnchorPane.setLeftAnchor(btnRules, MainApp.getSceneWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnHighScore, MainApp.getSceneHeight()*0.3 + 280.);
-		AnchorPane.setLeftAnchor(btnHighScore, MainApp.getSceneWidth()*0.02);
+		AnchorPane.setTopAnchor(btnHighScore, MainApp.getSceneHeight() * 0.3 + 280.);
+		AnchorPane.setLeftAnchor(btnHighScore, MainApp.getSceneWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnExit, MainApp.getSceneHeight()*0.3 + 410.);
-		AnchorPane.setLeftAnchor(btnExit, MainApp.getSceneWidth()*0.02);
+		AnchorPane.setTopAnchor(btnExit, MainApp.getSceneHeight() * 0.3 + 410.);
+		AnchorPane.setLeftAnchor(btnExit, MainApp.getSceneWidth() * 0.02);
 
-		AnchorPane.setRightAnchor(logo, MainApp.getSceneWidth()*0.2-552);
+		AnchorPane.setRightAnchor(logo, MainApp.getSceneWidth() * 0.2 - 552);
 
-		AnchorPane.setRightAnchor(sound, MainApp.getSceneWidth()*0.02-240);
-		AnchorPane.setBottomAnchor(sound, MainApp.getSceneHeight()*0.02-310);
+		AnchorPane.setRightAnchor(sound, MainApp.getSceneWidth() * 0.02 - 240);
+		AnchorPane.setBottomAnchor(sound, MainApp.getSceneHeight() * 0.02 - 310);
 	}
 
+	// Getter for the play button which creates a new game
 	public Button getBtnPlay() {
 		if (btnPlay == null) {
 			btnPlay = new Button("Play");
@@ -64,6 +65,7 @@ public class WelcomeMenu extends AnchorPane {
 		return btnPlay;
 	}
 
+	// Getter for the rules button, not used yet
 	public Button getBtnRules() {
 		if (btnRules == null) {
 			btnRules = new Button("Rules");
@@ -76,6 +78,7 @@ public class WelcomeMenu extends AnchorPane {
 		return btnRules;
 	}
 
+	// Getter for the high scores button, not used yet
 	public Button getBtnHighScore() {
 		if (btnHighScore == null) {
 			btnHighScore = new Button("High Scores");
@@ -88,6 +91,7 @@ public class WelcomeMenu extends AnchorPane {
 		return btnHighScore;
 	}
 
+	// Getter for the exit button
 	public Button getBtnExit() {
 		if (btnExit == null) {
 			btnExit = new Button("Exit");
@@ -107,6 +111,7 @@ public class WelcomeMenu extends AnchorPane {
 		return btnExit;
 	}
 
+	// Getter for the logo "Who wants to be a millionnaire?"
 	public ImageView getLogo() {
 		if (logo == null) {
 			File fLogo = new File("logo.png");
@@ -125,6 +130,7 @@ public class WelcomeMenu extends AnchorPane {
 		return logo;
 	}
 
+	// Getter for the sound logo, not used yet
 	public ImageView getSound() {
 		if (sound == null) {
 			File fSound = new File("music.png");
