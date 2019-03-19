@@ -1,7 +1,6 @@
 package view;
 
-import java.io.File;
-import java.net.MalformedURLException;
+import java.net.URL;
 
 import application.MainApp;
 import javafx.event.ActionEvent;
@@ -114,15 +113,8 @@ public class WelcomeMenu extends AnchorPane {
 	// Getter for the logo "Who wants to be a millionnaire?"
 	public ImageView getLogo() {
 		if (logo == null) {
-			File fLogo = new File("logo.png");
-			String localUrl = null;
-			try {
-				localUrl = fLogo.toURI().toURL().toString();
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Image iLogo = new Image(localUrl);
+			URL urlLogo = getClass().getResource("/logo.png");
+			Image iLogo = new Image(urlLogo.toString());
 			logo = new ImageView(iLogo);
 			logo.setScaleX(0.6);
 			logo.setScaleY(0.6);
@@ -133,19 +125,11 @@ public class WelcomeMenu extends AnchorPane {
 	// Getter for the sound logo, not used yet
 	public ImageView getSound() {
 		if (sound == null) {
-			File fSound = new File("music.png");
-			File fNoSound = new File("no_music.png");
-			String localUrl1 = null;
-			String localUrl2 = null;
-			try {
-				localUrl1 = fSound.toURI().toURL().toString();
-				localUrl2 = fSound.toURI().toURL().toString();
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Image iSound = new Image(localUrl1);
-			Image iNoSound = new Image(localUrl2);
+			URL localUrl1 = getClass().getResource("/music.png");;
+			URL localUrl2 = getClass().getResource("/no_music.png");;
+
+			Image iSound = new Image(localUrl1.toString());
+			Image iNoSound = new Image(localUrl2.toString());
 			sound = new ImageView(iSound);
 			sound.setScaleX(0.1);
 			sound.setScaleY(0.1);
