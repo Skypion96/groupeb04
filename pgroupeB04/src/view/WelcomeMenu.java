@@ -25,19 +25,20 @@ public class WelcomeMenu extends AnchorPane {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
 
-		AnchorPane.setTopAnchor(btnPlay, MainApp.getScreenHeight() * 0.3);
+		AnchorPane.setTopAnchor(btnPlay, MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(btnPlay, MainApp.getScreenWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnRules, MainApp.getScreenHeight() * 0.3 + 150.);
+		AnchorPane.setTopAnchor(btnRules, MainApp.getScreenHeight() * 0.30 + 150.);
 		AnchorPane.setLeftAnchor(btnRules, MainApp.getScreenWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnHighScore, MainApp.getScreenHeight() * 0.3 + 280.);
+		AnchorPane.setTopAnchor(btnHighScore, MainApp.getScreenHeight() * 0.30 + 280.);
 		AnchorPane.setLeftAnchor(btnHighScore, MainApp.getScreenWidth() * 0.02);
 
-		AnchorPane.setTopAnchor(btnExit, MainApp.getScreenHeight() * 0.3 + 410.);
+		AnchorPane.setTopAnchor(btnExit, MainApp.getScreenHeight() * 0.30 + 410.);
 		AnchorPane.setLeftAnchor(btnExit, MainApp.getScreenWidth() * 0.02);
 
-		AnchorPane.setRightAnchor(logo, MainApp.getScreenWidth() * 0.2 - 552);
+		AnchorPane.setTopAnchor(logo, MainApp.getScreenHeight() * 0.5 - 565);
+		AnchorPane.setRightAnchor(logo, MainApp.getScreenWidth() * 0.2 - 565);
 
 		AnchorPane.setRightAnchor(sound, MainApp.getScreenWidth() * 0.02 - 240);
 		AnchorPane.setBottomAnchor(sound, MainApp.getScreenHeight() * 0.02 - 310);
@@ -125,8 +126,10 @@ public class WelcomeMenu extends AnchorPane {
 	// Getter for the sound logo, not used yet
 	public ImageView getSound() {
 		if (sound == null) {
-			URL localUrl1 = getClass().getResource("/music.png");;
-			URL localUrl2 = getClass().getResource("/no_music.png");;
+			URL localUrl1 = getClass().getResource("/music.png");
+			;
+			URL localUrl2 = getClass().getResource("/no_music.png");
+			;
 
 			Image iSound = new Image(localUrl1.toString());
 			Image iNoSound = new Image(localUrl2.toString());

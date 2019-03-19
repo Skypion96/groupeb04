@@ -25,7 +25,7 @@ public class MainApp extends Application {
 	private static Scene scene;;
 
 	private static Stage primaryStage;
-	
+
 	private static Rectangle2D screen = Screen.getPrimary().getBounds();
 
 	// Music
@@ -44,28 +44,29 @@ public class MainApp extends Application {
 
 		try {
 			// Deck / Json
-			Question q1 = new Question("Maxime", Round.FIRST_ROUND, "What's the capital of France ?");
-			q1.addChoice("Bruxelles", false);
-			q1.addChoice("Paris", true);
-			q1.addChoice("Luxembourg", false);
+			Question q1 = new Question("Maxime", Round.FIRST_ROUND, "What is the capital of Switzerland ?");
+			q1.addChoice("Geneva", false);
 			q1.addChoice("Berlin", false);
-			Question q2 = new Question("Vincent", Round.FIRST_ROUND, "Who build the Eiffel Tower ?");
-			q2.addChoice("Gustave Eiffel", true);
-			q2.addChoice("Jean-Pierre Foucault", false);
-			q2.addChoice("Nicolas Sarkozy", false);
-			q2.addChoice("François Mitterrand", false);
-			Question q3 = new Question("Vincent", Round.FIRST_ROUND,
+			q1.addChoice("Zurich", false);
+			q1.addChoice("Bern", true);
+			Question q2 = new Question("Vincent", Round.FIRST_ROUND,
 					"Which United States president was assassinated in Dallas in 1963 ?");
-			q3.addChoice("John Fitzgerald Kennedy", true);
-			q3.addChoice("Richard Nixon", false);
-			q3.addChoice("Ronald Reagan", false);
-			q3.addChoice("Lyndon B. Johnson", false);
-			Question q4 = new Question("David", Round.FIRST_ROUND, "Example FIRST round question number 2");
+			q2.addChoice("John Fitzgerald Kennedy", true);
+			q2.addChoice("Richard Nixon", false);
+			q2.addChoice("Ronald Reagan", false);
+			q2.addChoice("Lyndon B. Johnson", false);
+			Question q3 = new Question("Maxime", Round.FIRST_ROUND,
+					"In the Mendeleev's table, which acronym stands for gold ?");
+			q3.addChoice("Go", false);
+			q3.addChoice("Au", true);
+			q3.addChoice("Gd", false);
+			q3.addChoice("Or", false);
+			Question q4 = new Question("David", Round.FIRST_ROUND, "Example FIRST round question number 1");
 			q4.addChoice("No1", false);
 			q4.addChoice("No2", false);
 			q4.addChoice("No3", false);
 			q4.addChoice("Yes", true);
-			Question q5 = new Question("David", Round.FIRST_ROUND, "Example FIRST round question number 3");
+			Question q5 = new Question("David", Round.FIRST_ROUND, "Example FIRST round question number 2");
 			q5.addChoice("No1", false);
 			q5.addChoice("No2", false);
 			q5.addChoice("No3", false);
@@ -76,22 +77,23 @@ public class MainApp extends Application {
 			q6.addChoice("Mutual Defense Alliances", false);
 			q6.addChoice("Imperialism", false);
 			q6.addChoice("The increase of militarism", false);
-			Question q7 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 2");
-			q7.addChoice("No1", false);
-			q7.addChoice("No2", false);
-			q7.addChoice("No3", false);
-			q7.addChoice("Yes", true);
-			Question q8 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 3");
-			q8.addChoice("No1", false);
-			q8.addChoice("No2", false);
-			q8.addChoice("No3", false);
-			q8.addChoice("Yes", true);
-			Question q9 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 4");
+			Question q7 = new Question("Maxime", Round.SECOND_ROUND,
+					"Which beach name was a real name during the Normandy landing?");
+			q7.addChoice("Iron Beach", false);
+			q7.addChoice("Yumaha Beach", false);
+			q7.addChoice("Gold Beach", true);
+			q7.addChoice("Silver Beach", false);
+			Question q8 = new Question("David", Round.SECOND_ROUND, "Who discovered photon ?");
+			q8.addChoice("Isaac Newton", false);
+			q8.addChoice("Albert Einstein", true);
+			q8.addChoice("Nikola Tesla", false);
+			q8.addChoice("Stephen Hawking", false);
+			Question q9 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 1");
 			q9.addChoice("No1", false);
 			q9.addChoice("No2", false);
 			q9.addChoice("No3", false);
 			q9.addChoice("Yes", true);
-			Question q10 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 5");
+			Question q10 = new Question("David", Round.SECOND_ROUND, "Example SECOND round question number 2");
 			q10.addChoice("No1", false);
 			q10.addChoice("No2", false);
 			q10.addChoice("No3", false);
@@ -102,43 +104,27 @@ public class MainApp extends Application {
 			q11.addChoice("21 july 1969", false);
 			q11.addChoice("4 novembre 1952", false);
 			q11.addChoice("18 septembre 1947", false);
-			Question q12 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 2");
-			q12.addChoice("No1", false);
-			q12.addChoice("No2", false);
-			q12.addChoice("No3", false);
-			q12.addChoice("Yes", true);
-			Question q13 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 3");
-			q13.addChoice("No1", false);
-			q13.addChoice("No2", false);
-			q13.addChoice("No3", false);
-			q13.addChoice("Yes", true);
-			Question q14 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 4");
+			Question q12 = new Question("Maxime", Round.LAST_ROUND, "What’s the old name of Taiwan?");
+			q12.addChoice("Taïti", false);
+			q12.addChoice("Aqcuera", false);
+			q12.addChoice("Tortuga", false);
+			q12.addChoice("Formosa", true);
+			Question q13 = new Question("David", Round.LAST_ROUND,
+					"When did the construction of the Statue of Liberty start ?");
+			q13.addChoice("1875", true);
+			q13.addChoice("1902", false);
+			q13.addChoice("1825", false);
+			q13.addChoice("1893", false);
+			Question q14 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 1");
 			q14.addChoice("No1", false);
 			q14.addChoice("No2", false);
 			q14.addChoice("No3", false);
 			q14.addChoice("Yes", true);
-			Question q15 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 5");
+			Question q15 = new Question("David", Round.LAST_ROUND, "Example LAST round question number 2");
 			q15.addChoice("No1", false);
 			q15.addChoice("No2", false);
 			q15.addChoice("No3", false);
 			q15.addChoice("Yes", true);
-			Question q16 = new Question("Maxime", Round.FIRST_ROUND,
-					"In the Mendeleev's table, which acronym stands for gold?");
-			q15.addChoice("Go", false);
-			q15.addChoice("Au", true);
-			q15.addChoice("Gd", false);
-			q15.addChoice("Or", false);
-			Question q17 = new Question("Maxime", Round.SECOND_ROUND,
-					"Which beach name was a real name during the Normandy landing?");
-			q15.addChoice("Iron beach", false);
-			q15.addChoice("Yumaha beach", false);
-			q15.addChoice("Gold beach", true);
-			q15.addChoice("Silver beach", false);
-			Question q18 = new Question("Maxime", Round.LAST_ROUND, "What’s the old name of Taiwan?");
-			q15.addChoice("Taïti", false);
-			q15.addChoice("Aqcuera", false);
-			q15.addChoice("Tortuga", false);
-			q15.addChoice("Formosa", true);
 			Deck deck = new Deck();
 			deck.addQuestion(q1);
 			deck.addQuestion(q2);
@@ -155,9 +141,6 @@ public class MainApp extends Application {
 			deck.addQuestion(q13);
 			deck.addQuestion(q14);
 			deck.addQuestion(q15);
-			deck.addQuestion(q16);
-			deck.addQuestion(q17);
-			deck.addQuestion(q18);
 			Serialisation.writeDeck(deck.toJson());
 
 			// App
@@ -199,12 +182,8 @@ public class MainApp extends Application {
 			volume = 1.;
 			musicPlayer.setVolume(volume);
 			musicPlayer.play();
-			
-			
 
 			primaryStage.setTitle("Who wants to be a millionaire");
-		
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
