@@ -1,14 +1,15 @@
 package application;
 
 import java.net.URL;
-import java.nio.file.Paths;
 
 import javafx.application.Application;
-import javafx.application.Platform;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.Deck;
 import model.Question;
@@ -24,12 +25,13 @@ public class MainApp extends Application {
 	private static Scene scene;;
 
 	private static Stage primaryStage;
+	
+	private static Rectangle2D screen = Screen.getPrimary().getBounds();
 
 	// Music
-	URL resource = getClass().getResource("/MenuPrinc.wav");
-	private AudioClip audioClip = new AudioClip(resource.toString());
 	private static double volume;
-
+	Media music = new Media(getClass().getResource("/MenuPrinc.wav").toString());
+	MediaPlayer musicPlayer = new MediaPlayer(music);
 	private static WelcomeMenu welM;
 	private static GameView gameView;
 
@@ -194,11 +196,15 @@ public class MainApp extends Application {
 			scene.setRoot(welM);
 
 			// Game music
-			volume = 0.;
-			Platform.runLater(() -> audioClip.play(volume));
-			Thread.sleep(10);
+			volume = 1.;
+			musicPlayer.setVolume(volume);
+			musicPlayer.play();
+			
+			
 
 			primaryStage.setTitle("Who wants to be a millionaire");
+		
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -227,14 +233,14 @@ public class MainApp extends Application {
 
 	// Getter for screen Height used to make relative position of buttons depending
 	// on the screen you are using the app
-	public static double getSceneHeight() {
-		return scene.getHeight();
+	public static double getScreenHeight() {
+		return screen.getHeight();
 	}
 
 	// Getter for screen Width used to make relative position of buttons depending
 	// on the screen you are using the app
-	public static double getSceneWidth() {
-		return scene.getWidth();
+	public static double getScreenWidth() {
+		return screen.getWidth();
 	}
 
 	// Getter for the volume to allow disabling every sounds
