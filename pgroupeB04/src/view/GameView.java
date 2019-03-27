@@ -1,5 +1,6 @@
 package view;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +14,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -37,6 +40,10 @@ public class GameView extends AnchorPane {
 	private Label lblLevel13;
 	private Label lblLevel14;
 	private Label lblLevel15;
+	
+	private Button j5050;
+	private Button jPublic;
+	private Button jCall;
 
 	private static Button btnChoice1;
 	private static Button btnChoice2;
@@ -53,7 +60,7 @@ public class GameView extends AnchorPane {
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels());
+				getVbLevels(),getJ5050(),getJCall(),getJPublic());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -84,7 +91,17 @@ public class GameView extends AnchorPane {
 		getVbLevels().setSpacing(10);
 		AnchorPane.setTopAnchor(getVbLevels(), 0.);
 		AnchorPane.setRightAnchor(getVbLevels(), 0.);
-
+		
+		AnchorPane.setTopAnchor(getJ5050(), 30.0);
+		AnchorPane.setLeftAnchor(getJ5050(), 50.0);
+		
+		AnchorPane.setTopAnchor(getJCall(), 30.0);
+		AnchorPane.setLeftAnchor(getJCall(), 140.0);
+		
+		
+		AnchorPane.setTopAnchor(getJPublic(), 30.0);
+		AnchorPane.setLeftAnchor(getJPublic(), 230.0);
+		
 	}
 
 	// Getter for the label with the statement of the current question
@@ -419,6 +436,59 @@ public class GameView extends AnchorPane {
 		correct.setCycleCount(20);
 		correct.play();
 		correct.setOnFinished(e -> MainApp.shwowWelcome());
+	}
+
+	//Jokers
+	
+	public Button getJ5050() {
+		if (j5050 == null) {
+			j5050=new Button();
+			URL urlJ5050 = getClass().getResource("/50_50.png");
+			String j5050Style = "-fx-background-image: url(" + urlJ5050.toString() + ");\r\n"
+					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+					+ "    -fx-background-position: center center;\r\n"
+					+ " -fx-background-color : transparent;";
+					
+			j5050.setStyle(j5050Style);
+			j5050.setScaleX(2.5);
+			j5050.setScaleY(2.5);
+			j5050.setMinWidth(32.5);
+		}
+		return j5050;
+	}
+
+	public Button getJPublic() {
+		if (jPublic == null) {
+			jPublic= new Button();
+			URL urlJPublic = getClass().getResource("/public.png");
+			String jPublicStyle = "-fx-background-image: url(" + urlJPublic.toString() + ");\r\n"
+					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+					+ "    -fx-background-position: center center;\r\n"
+					+ " -fx-background-color : transparent;";
+					
+			jPublic.setStyle(jPublicStyle);
+			jPublic.setScaleX(2.5);
+			jPublic.setScaleY(2.5);
+			jPublic.setMinWidth(32.5);
+		}
+		return jPublic;
+	}
+
+	public Button getJCall() {
+		if (jCall == null) {
+			jCall = new Button();
+			URL urlJCall = getClass().getResource("/call.png");
+			String jCallStyle = "-fx-background-image: url(" + urlJCall.toString() + ");\r\n"
+					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+					+ "    -fx-background-position: center center;\r\n"
+					+ " -fx-background-color : transparent;";
+					
+			jCall.setStyle(jCallStyle);
+			jCall.setScaleX(2.5);
+			jCall.setScaleY(2.5);
+			jCall.setMinWidth(32.5);
+		}
+		return jCall;
 	}
 
 }
