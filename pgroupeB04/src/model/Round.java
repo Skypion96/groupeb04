@@ -8,10 +8,7 @@ public enum Round {
 		this.roundName = roundName;
 	}
 
-	public String getRoundName() {
-		return roundName;
-	}
-
+	@Override
 	public String toString() {
 		return roundName;
 	}

@@ -1,6 +1,8 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import application.MainApp;
 import javafx.animation.KeyFrame;
@@ -13,9 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 import model.Game;
+import model.Levels;
 
 public class GameView extends AnchorPane {
 
@@ -41,8 +43,8 @@ public class GameView extends AnchorPane {
 	private static Button btnChoice3;
 	private static Button btnChoice4;
 
-	private static ArrayList<Button> buttonList = new ArrayList<Button>();
-	private static ArrayList<Label> lblLevelsList = new ArrayList<Label>();
+	private static List<Button> buttonList = new ArrayList<Button>();
+	private static List<Label> lblLevelsList = new ArrayList<Label>();
 
 	private VBox vbLevels;
 
@@ -53,26 +55,15 @@ public class GameView extends AnchorPane {
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
 				getVbLevels());
 
-		buttonList.add(btnChoice1);
-		buttonList.add(btnChoice2);
-		buttonList.add(btnChoice3);
-		buttonList.add(btnChoice4);
+		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
-		lblLevelsList.add(getLblLevel15());
-		lblLevelsList.add(getLblLevel14());
-		lblLevelsList.add(getLblLevel13());
-		lblLevelsList.add(getLblLevel12());
-		lblLevelsList.add(getLblLevel11());
-		lblLevelsList.add(getLblLevel10());
-		lblLevelsList.add(getLblLevel9());
-		lblLevelsList.add(getLblLevel8());
-		lblLevelsList.add(getLblLevel7());
-		lblLevelsList.add(getLblLevel6());
-		lblLevelsList.add(getLblLevel5());
-		lblLevelsList.add(getLblLevel4());
-		lblLevelsList.add(getLblLevel3());
-		lblLevelsList.add(getLblLevel2());
-		lblLevelsList.add(getLblLevel1());
+		/*
+		 * lblLevelsList.addAll(Arrays.asList(getLblLevel15(), getLblLevel14(),
+		 * getLblLevel13(), getLblLevel12(), getLblLevel11(), getLblLevel10(),
+		 * getLblLevel9(), getLblLevel8(), getLblLevel7(), getLblLevel6(),
+		 * getLblLevel5(), getLblLevel4(), getLblLevel3(), getLblLevel2(),
+		 * getLblLevel1()));
+		 */
 
 		AnchorPane.setTopAnchor(getLblStatement(), 500.0);
 		AnchorPane.setLeftAnchor(getLblStatement(), 310.0);
@@ -89,7 +80,7 @@ public class GameView extends AnchorPane {
 		AnchorPane.setBottomAnchor(getBtnChoice4(), 150.0);
 		AnchorPane.setRightAnchor(getBtnChoice4(), 350.0);
 
-		getVbLevels().getChildren().addAll(getLblLevelsList());
+		// getVbLevels().getChildren().addAll(getLblLevelsList());
 		getVbLevels().setSpacing(10);
 		AnchorPane.setTopAnchor(getVbLevels(), 0.);
 		AnchorPane.setRightAnchor(getVbLevels(), 0.);
@@ -183,7 +174,7 @@ public class GameView extends AnchorPane {
 	}
 
 	// Getter for the button list, used to iterate easier between the answer buttons
-	public static ArrayList<Button> getButtonList() {
+	public static List<Button> getButtonList() {
 		return buttonList;
 	}
 
@@ -313,7 +304,7 @@ public class GameView extends AnchorPane {
 	}
 
 	// Getter for the levels list, used to iterate easier between the 15 levels
-	public static ArrayList<Label> getLblLevelsList() {
+	public static List<Label> getLblLevelsList() {
 		return lblLevelsList;
 	}
 
@@ -324,6 +315,18 @@ public class GameView extends AnchorPane {
 			vbLevels = new VBox();
 			vbLevels.setId("vbLevels");
 			vbLevels.setMinWidth(150.);
+
+			List<Levels> levelsList = new ArrayList<>();
+			levelsList.addAll(Arrays.asList(Levels.values()));
+			for (int i = 0; i < 15; i++) {
+				lblLevelsList.add(new Label(levelsList.get(i).toString()));
+				if ((i != 0) && ((i + 1) % 5 == 0)) {
+					lblLevelsList.get(i).pseudoClassStateChanged(anchor, true);
+				} else {
+					lblLevelsList.get(i).pseudoClassStateChanged(common, true);
+				}
+			}
+			vbLevels.getChildren().addAll(lblLevelsList);
 		}
 		return vbLevels;
 	}
