@@ -108,4 +108,10 @@ public class Game {
 		return correctAnswer;
 	}
 
+	public List<String> getCurrentAnswers() {
+		return currentAnswers;
+	}
+	
+	
+
 }
