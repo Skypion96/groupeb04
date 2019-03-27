@@ -10,6 +10,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -20,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import model.Game;
+import model.J5050Strategy;
 import model.Levels;
 
 public class GameView extends AnchorPane {
@@ -356,6 +358,10 @@ public class GameView extends AnchorPane {
 
 	// Getter for the current game
 	public static Game getGame() {
+		getBtnChoice1().setDisable(false);
+		getBtnChoice2().setDisable(false);
+		getBtnChoice3().setDisable(false);
+		getBtnChoice4().setDisable(false);
 		return game;
 	}
 
@@ -453,6 +459,37 @@ public class GameView extends AnchorPane {
 			j5050.setScaleX(2.5);
 			j5050.setScaleY(2.5);
 			j5050.setMinWidth(32.5);
+			j5050.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					J5050Strategy joker = new J5050Strategy();
+					joker.useJoker(getGame());
+					
+					for(int i=0; i<=joker.getChoices().size(); i++) {
+						if(getBtnChoice1().getText() == joker.getChoices().get(i)) {
+							getBtnChoice1().setText("");
+							getBtnChoice1().setDisable(true);
+						}
+						else if(getBtnChoice2().getText() == joker.getChoices().get(i)) {
+							getBtnChoice2().setText("");
+							getBtnChoice2().setDisable(true);
+						}
+						else if(getBtnChoice3().getText() == joker.getChoices().get(i)) {
+							getBtnChoice3().setText("");
+							getBtnChoice3().setDisable(true);
+						}
+						else if(getBtnChoice4().getText() == joker.getChoices().get(i)){
+							getBtnChoice4().setText("");
+							getBtnChoice4().setDisable(true);
+						}
+						if(i>1) {
+							break;
+						}
+					}
+				}
+				
+			});
 		}
 		return j5050;
 	}

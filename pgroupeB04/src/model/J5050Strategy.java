@@ -24,13 +24,18 @@ public class J5050Strategy implements IJokerStrategy{
 		
 		choices.remove(indexCorrectAnswers);
 		Random rand = new Random();
-		int wrongAnswer = rand.nextInt(3-1+1)+1;
+		int wrongAnswer = rand.nextInt(2-0+1)+0;
 		
 		choices.remove(wrongAnswer);
 	}
 
 	public List<String> getChoices() {
 		return choices;
+	}
+
+	@Override
+	public String toString() {
+		return "J5050Strategy [choices=" + choices + "]";
 	}
 	
 	
