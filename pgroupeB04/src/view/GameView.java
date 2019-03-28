@@ -464,22 +464,25 @@ public class GameView extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 					J5050Strategy joker = new J5050Strategy();
-					joker.useJoker(getGame());
 					
-					for(int i=0; i<=joker.getChoices().size(); i++) {
-						if(getBtnChoice1().getText() == joker.getChoices().get(i)) {
+					List<String> use = new ArrayList<>();
+					joker.useJoker(getGame());
+					use = joker.getChoices();
+					
+					for(int i=0; i<=use.size()-1; i++) {
+						if(getBtnChoice1().getText() == use.get(i)) {
 							getBtnChoice1().setText("");
 							getBtnChoice1().setDisable(true);
 						}
-						else if(getBtnChoice2().getText() == joker.getChoices().get(i)) {
+						else if(getBtnChoice2().getText() == use.get(i)) {
 							getBtnChoice2().setText("");
 							getBtnChoice2().setDisable(true);
 						}
-						else if(getBtnChoice3().getText() == joker.getChoices().get(i)) {
+						else if(getBtnChoice3().getText() == use.get(i)) {
 							getBtnChoice3().setText("");
 							getBtnChoice3().setDisable(true);
 						}
-						else if(getBtnChoice4().getText() == joker.getChoices().get(i)){
+						else if(getBtnChoice4().getText() == use.get(i)){
 							getBtnChoice4().setText("");
 							getBtnChoice4().setDisable(true);
 						}
@@ -487,6 +490,7 @@ public class GameView extends AnchorPane {
 							break;
 						}
 					}
+					getJ5050().setDisable(true);
 				}
 				
 			});
