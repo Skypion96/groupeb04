@@ -19,7 +19,7 @@ public class WelcomeMenu extends AnchorPane {
 	private Button btnHighScore;
 	private Button btnExit;
 	private ImageView logo;
-	private ImageView sound;
+	private Button sound;
 
 	public WelcomeMenu() {
 		this.setPadding(new Insets(10));
@@ -40,8 +40,8 @@ public class WelcomeMenu extends AnchorPane {
 		AnchorPane.setTopAnchor(logo, MainApp.getScreenHeight() * 0.5 - 565);
 		AnchorPane.setRightAnchor(logo, MainApp.getScreenWidth() * 0.2 - 565);
 
-		AnchorPane.setRightAnchor(sound, MainApp.getScreenWidth() * 0.02 - 240);
-		AnchorPane.setBottomAnchor(sound, MainApp.getScreenHeight() * 0.02 - 310);
+		AnchorPane.setRightAnchor(sound, MainApp.getScreenWidth() * 0.02 + 75);
+		AnchorPane.setBottomAnchor(sound, MainApp.getScreenHeight() * 0.02 + 75);
 	}
 
 	// Getter for the play button which creates a new game
@@ -124,27 +124,30 @@ public class WelcomeMenu extends AnchorPane {
 	}
 
 	// Getter for the sound logo, not used yet
-	public ImageView getSound() {
+	public Button getSound() {
 		if (sound == null) {
+			sound = new Button();
 			URL localUrl1 = getClass().getResource("/music.png");
 			;
-			URL localUrl2 = getClass().getResource("/no_music.png");
-			;
-
-			Image iSound = new Image(localUrl1.toString());
-			Image iNoSound = new Image(localUrl2.toString());
-			sound = new ImageView(iSound);
-			sound.setScaleX(0.1);
-			sound.setScaleY(0.1);
-			sound.setOnMousePressed(new EventHandler<Event>() {
-
-				@SuppressWarnings("unlikely-arg-type")
-				public void handle(Event event) {
-					if (sound.equals(iSound)) {
-						sound.setImage(iNoSound);
-						sound.setScaleX(0.1);
-						sound.setScaleY(0.1);
-					}
+			String FSound = "-fx-background-image: url(" + localUrl1.toString() + ");\r\n"
+					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+					+ "    -fx-background-position: center center;\r\n"
+					+ " -fx-background-color : transparent;";
+			
+			sound.setStyle(FSound);
+			
+			sound.setMinWidth(75.);
+			sound.setMinHeight(90.);
+			
+			sound.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					
+					double volume = MainApp.getVolume() ;
+					
+					//URL localUrl2 = getClass().getResource("/no_music.png");
+					
 				}
 			});
 		}
