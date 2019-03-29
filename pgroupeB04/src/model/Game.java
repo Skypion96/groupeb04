@@ -17,6 +17,7 @@ public class Game {
 	private List<String> currentAnswers;
 	private int correctAnswer;
 	private PseudoClass current = PseudoClass.getPseudoClass("current-level");
+	private IJokerStrategy joker;
 
 	public Game() {
 		questionList = Serialisation.readDeck().getQuestions();
@@ -112,6 +113,17 @@ public class Game {
 		return currentAnswers;
 	}
 	
+	public void setStrategy(IJokerStrategy joker) {
+		this.joker = joker;
+	}
 	
+	public void useJoker() 
+	{
+		if (joker != null) 
+		{
+			joker.useJoker(this);			
+			
+		}											
+	}
 
 }

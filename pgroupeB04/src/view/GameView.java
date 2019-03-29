@@ -463,13 +463,15 @@ public class GameView extends AnchorPane {
 				
 				@Override
 				public void handle(ActionEvent event) {
-					J5050Strategy joker = new J5050Strategy();
+					
+					game.setStrategy(new J5050Strategy());
+					
 					
 					List<String> use = new ArrayList<>();
-					joker.useJoker(getGame());
-					use = joker.getChoices();
-					
-					for(int i=0; i<=use.size()-1; i++) {
+					getGame().useJoker();
+					use = getGame().getCurrentAnswers();
+					//System.out.println(use);
+					for(int i=0; i<use.size(); i++) {
 						if(getBtnChoice1().getText() == use.get(i)) {
 							getBtnChoice1().setText("");
 							getBtnChoice1().setDisable(true);

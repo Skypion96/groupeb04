@@ -11,14 +11,9 @@ public class J5050Strategy implements IJokerStrategy{
 	
 	
 	
-	public J5050Strategy() {
-		choices = new ArrayList<>();
-	}
-
-	private List<String> choices;
-	
 	public void useJoker(Game g) {
 		
+		List<String> choices = new ArrayList<>();
 		choices = g.getCurrentAnswers();
 		int indexCorrectAnswers = g.getCorrectAnswer();
 		
@@ -29,15 +24,5 @@ public class J5050Strategy implements IJokerStrategy{
 		choices.remove(wrongAnswer);
 	}
 
-	public List<String> getChoices() {
-		return choices;
-	}
-
-	@Override
-	public String toString() {
-		return "J5050Strategy [choices=" + choices + "]";
-	}
-	
-	
 
 }
