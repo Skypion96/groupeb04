@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import application.MainApp;
 import javafx.animation.KeyFrame;
@@ -23,6 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import model.Game;
 import model.J5050Strategy;
+import model.JCallStrategy;
 import model.JPublicStrategy;
 import model.Levels;
 
@@ -45,10 +47,10 @@ public class GameView extends AnchorPane {
 	private Label lblLevel14;
 	private Label lblLevel15;
 	
-	private Label lblPublic1;
-	private Label lblPublic2;
-	private Label lblPublic3;
-	private Label lblPublic4;
+	private static Label lblPublic1;
+	private static Label lblPublic2;
+	private static Label lblPublic3;
+	private static Label lblPublic4;
 	
 	private Button j5050;
 	private Button jPublic;
@@ -66,12 +68,14 @@ public class GameView extends AnchorPane {
 
 	private static Game game;
 	
-	private HBox HJPublic ;
+	private static HBox HJPublic ;
+	
+	private static Label lblCall;
 
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels(),getJ5050(),getJCall(),getJPublic(),getHJPublic());
+				getVbLevels(),getJ5050(),getJCall(),getJPublic(),getHJPublic(),getLblCall());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -118,6 +122,9 @@ public class GameView extends AnchorPane {
 		
 		AnchorPane.setTopAnchor(getHJPublic(), 100.0);
 		AnchorPane.setLeftAnchor(getHJPublic(), 200.0);
+		
+		AnchorPane.setTopAnchor(getLblCall(), 100.0);
+		AnchorPane.setLeftAnchor(getLblCall(), 200.0);
 		
 	}
 
@@ -377,6 +384,8 @@ public class GameView extends AnchorPane {
 		getBtnChoice2().setDisable(false);
 		getBtnChoice3().setDisable(false);
 		getBtnChoice4().setDisable(false);
+		getHJPublic().setVisible(false);
+		getLblCall().setVisible(false);
 		return game;
 	}
 
@@ -485,7 +494,6 @@ public class GameView extends AnchorPane {
 					List<String> use = new ArrayList<>();
 					getGame().useJoker();
 					use = getGame().getCurrentAnswers();
-					System.out.println(use);
 					for(int i=0; i<use.size(); i++) {
 						if(getBtnChoice1().getText() == use.get(i)) {
 							getBtnChoice1().setText("");
@@ -566,6 +574,7 @@ public class GameView extends AnchorPane {
 						getLblPublic1().setText(" A : "+vote.get(3)+"%");
 					}
 					jPublic.setDisable(true);
+					getHJPublic().setVisible(true);
 				}
 			});
 		}
@@ -585,11 +594,39 @@ public class GameView extends AnchorPane {
 			jCall.setScaleX(2.5);
 			jCall.setScaleY(2.5);
 			jCall.setMinWidth(32.5);
+			jCall.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					game.setStrategy(new JCallStrategy());
+					getGame().useJoker();
+					getLblCall().setVisible(true);
+					List<String> answers = new ArrayList<>();
+					answers = getGame().getCurrentAnswers();
+					int correct = getGame().getCorrectAnswer();
+					
+					String lblTxt = getGame().getrCall();
+					if(lblTxt == "I really don't know the answer. Sorry.") {
+						getLblCall().setText(lblTxt);
+					}
+					else if (lblTxt == "I'm not sure but i think it's ")
+					{
+						Random rand = new Random();
+						int ind = rand.nextInt(3-0+1);
+						getLblCall().setText(lblTxt + answers.get(ind));
+					}
+					else if (lblTxt == "I'm sure that the answer is ") {
+						getLblCall().setText(lblTxt + answers.get(correct));
+					}
+					jCall.setDisable(true);
+					getLblCall().setVisible(true);
+				}
+			});
 		}
 		return jCall;
 	}
 
-	public Label getLblPublic1() {
+	public static Label getLblPublic1() {
 		if(lblPublic1==null) {
 			lblPublic1 = new Label();
 			lblPublic1.setId("Jpublic");
@@ -597,7 +634,7 @@ public class GameView extends AnchorPane {
 		return lblPublic1;
 	}
 
-	public Label getLblPublic2() {
+	public static Label getLblPublic2() {
 		if(lblPublic2==null) {
 			lblPublic2 = new Label();
 			lblPublic2.setId("Jpublic");
@@ -605,7 +642,7 @@ public class GameView extends AnchorPane {
 		return lblPublic2;
 	}
 
-	public Label getLblPublic3() {
+	public static Label getLblPublic3() {
 		if(lblPublic3==null) {
 			lblPublic3 = new Label();
 			lblPublic3.setId("Jpublic");
@@ -613,7 +650,7 @@ public class GameView extends AnchorPane {
 		return lblPublic3;
 	}
 
-	public Label getLblPublic4() {
+	public static Label getLblPublic4() {
 		if(lblPublic4==null) {
 			lblPublic4 = new Label();
 			lblPublic4.setId("Jpublic");
@@ -621,12 +658,20 @@ public class GameView extends AnchorPane {
 		return lblPublic4;
 	}
 
-	public HBox getHJPublic() {
+	public static HBox getHJPublic() {
 		if(HJPublic == null) {
 			HJPublic = new HBox();
 			HJPublic.getChildren().addAll(getLblPublic1(),getLblPublic2(),getLblPublic3(),getLblPublic4());
 		}
 		return HJPublic;
+	}
+
+	public static Label getLblCall() {
+		if(lblCall==null) {
+			lblCall = new Label();
+			lblCall.setId("Jcall");
+		}
+		return lblCall;
 	}
 	
 	

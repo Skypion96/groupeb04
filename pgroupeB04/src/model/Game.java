@@ -19,6 +19,7 @@ public class Game {
 	private PseudoClass current = PseudoClass.getPseudoClass("current-level");
 	private IJokerStrategy joker;
 	private List<Integer> randomJoker;
+	private String rCall;
 
 	public Game() {
 		questionList = Serialisation.readDeck().getQuestions();
@@ -134,6 +135,15 @@ public class Game {
 		}											
 	}
 
+	public String getrCall() {
+		return rCall;
+	}
+
+	public void setrCall(String rCall) {
+		this.rCall = rCall;
+	}
+
+	
 
 
 }
