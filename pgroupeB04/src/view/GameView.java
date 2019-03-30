@@ -28,6 +28,7 @@ import model.JCallStrategy;
 import model.JPublicStrategy;
 import model.Levels;
 
+
 public class GameView extends AnchorPane {
 
 	private static Label lblStatement;
@@ -71,6 +72,7 @@ public class GameView extends AnchorPane {
 	private static HBox HJPublic ;
 	
 	private static Label lblCall;
+	
 
 	public GameView() {
 		this.setPadding(new Insets(10));
@@ -125,6 +127,8 @@ public class GameView extends AnchorPane {
 		
 		AnchorPane.setTopAnchor(getLblCall(), 100.0);
 		AnchorPane.setLeftAnchor(getLblCall(), 200.0);
+		
+
 		
 	}
 
@@ -386,6 +390,7 @@ public class GameView extends AnchorPane {
 		getBtnChoice4().setDisable(false);
 		getHJPublic().setVisible(false);
 		getLblCall().setVisible(false);
+
 		return game;
 	}
 
@@ -672,8 +677,6 @@ public class GameView extends AnchorPane {
 			lblCall.setId("Jcall");
 		}
 		return lblCall;
-	}
-	
-	
+	}	
 
 }

@@ -143,7 +143,6 @@ public class Game {
 		this.rCall = rCall;
 	}
 
-	
 
 
 }
