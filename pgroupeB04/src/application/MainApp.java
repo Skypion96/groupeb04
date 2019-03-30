@@ -178,6 +178,7 @@ public class MainApp extends Application {
 			welM.setStyle(backgroundStyle);
 			gameView.setStyle(backgroundStyle);
 			rlV.setStyle(backgroundStyle);
+			scV.setStyle(backgroundStyle);
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
@@ -200,7 +201,7 @@ public class MainApp extends Application {
 	}
 
 	// Shows the WelcomeMenu
-	public static void shwowWelcome() {
+	public static void showWelcome() {
 		scene.setRoot(welM);
 	}
 
@@ -212,6 +213,11 @@ public class MainApp extends Application {
 	// Shows the RulesView
 	public static void showRules() {
 		scene.setRoot(rlV);
+	}
+	
+	// Shows the ScoreView
+	public static void showScoreView() {
+		scene.setRoot(scV);
 	}
 
 	// Exit the Game (Closes the app)
@@ -234,5 +240,15 @@ public class MainApp extends Application {
 	// Getter for the volume to allow disabling every sounds
 	public static double getVolume() {
 		return volume;
+	}
+	
+	// Getter for the Gameview
+	public static GameView getGameView() {
+		return gameView;
+	}
+	
+	// Getter for ScoreView
+	public static ScoreView getScv() {
+		return scV;
 	}
 }

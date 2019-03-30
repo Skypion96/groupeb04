@@ -16,9 +16,9 @@ public class JCallStrategy implements IJokerStrategy{
 		call.add("I'm sure that the answer is ");
 		
 		Random rand = new Random();
-		int responseIndex = rand.nextInt(2-0+1);
+		int answerIndex = rand.nextInt(2-0+1);
 		
-		String response = call.get(responseIndex);
-		g.setrCall(response);
+		String answer = call.get(answerIndex);
+		g.setrCall(answer);
 	}
 }

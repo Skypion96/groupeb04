@@ -1,7 +1,6 @@
 package view;
 
 import java.net.URL;
-import java.util.Arrays;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

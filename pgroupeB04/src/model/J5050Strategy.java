@@ -2,10 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-
-import view.GameView;
 
 public class J5050Strategy implements IJokerStrategy{
 	

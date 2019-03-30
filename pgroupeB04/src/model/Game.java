@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-
-import javafx.css.PseudoClass;
 import serialisation.Serialisation;
-import view.GameView;
 
 public class Game {
 
@@ -16,7 +13,6 @@ public class Game {
 	private List<Question> questionList;
 	private List<String> currentAnswers;
 	private int correctAnswer;
-	private PseudoClass current = PseudoClass.getPseudoClass("current-level");
 	private IJokerStrategy joker;
 	private List<Integer> randomJoker;
 	private String rCall;
@@ -26,9 +22,6 @@ public class Game {
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
 		randomJoker = new ArrayList<>();
-		for (int i = 1; i <= 15; i++) {
-			GameView.getLblLevelsList().get(15 - i).pseudoClassStateChanged(current, false);
-		}
 	}
 
 	// Generate a new question depending of the advancement of the game
@@ -75,25 +68,10 @@ public class Game {
 		// question twice
 		questionList.remove(questionNb);
 
-		// Showing the question's statement and choices on screen + colours
-		GameView.getLblStatement().setText(GameView.getGame().showQuestion());
-
-		for (i = 0; i <= 3; i++) {
-			GameView.getButtonList().get(i).setText(GameView.getGame().showAnswer(i));
-			GameView.getButtonList().get(i).setStyle("-fx-background-color: #9800AA;");
-		}
-
-		// Showing the tree that shows where the player is
-		if (currentQuestionNumber != 1) {
-			GameView.getLblLevelsList().get(16 - currentQuestionNumber).pseudoClassStateChanged(current, false);
-		}
-
-		GameView.getLblLevelsList().get(15 - currentQuestionNumber).pseudoClassStateChanged(current, true);
-
 	}
 
 	// Shows the question
-	public String showQuestion() {
+	public String showStatement() {
 		return currentQuestion.getStatement();
 	}
 
@@ -114,6 +92,10 @@ public class Game {
 
 	public List<String> getCurrentAnswers() {
 		return currentAnswers;
+	}
+	
+	public int getCurrentQuestionNumber() {
+		return currentQuestionNumber;
 	}
 	
 	public void setStrategy(IJokerStrategy joker) {

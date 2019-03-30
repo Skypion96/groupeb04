@@ -4,7 +4,6 @@ import java.net.URL;
 
 import application.MainApp;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -58,7 +57,7 @@ public class WelcomeMenu extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.showGame();
-					GameView.newGame();
+					MainApp.getGameView().newGame();
 				}
 			});
 		}

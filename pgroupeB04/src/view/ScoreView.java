@@ -23,27 +23,30 @@ public class ScoreView extends AnchorPane {
 
 		this.getChildren().addAll(getLblWon(), getMoneyWon(), getLblCongratulation(),getBtnBack(),getBtnSave());
 
-		AnchorPane.setTopAnchor(getLblWon(), 200.);
-		AnchorPane.setRightAnchor(getLblWon(), 610.);
+		AnchorPane.setTopAnchor(getLblWon(), MainApp.getScreenHeight()*0.1);
+		AnchorPane.setRightAnchor(getLblWon(), MainApp.getScreenWidth()*0.2);
+		AnchorPane.setLeftAnchor(getLblWon(), MainApp.getScreenWidth()*0.2);
 
-		AnchorPane.setBottomAnchor(getMoneyWon(), 450.);
-		AnchorPane.setRightAnchor(getMoneyWon(), 660.);
+		AnchorPane.setBottomAnchor(getMoneyWon(), MainApp.getScreenHeight()*0.5);
+		AnchorPane.setRightAnchor(getMoneyWon(), MainApp.getScreenWidth()*0.25);
+		AnchorPane.setLeftAnchor(getMoneyWon(), MainApp.getScreenWidth()*0.25);
 
-		AnchorPane.setBottomAnchor(getLblCongratulation(), 100.);
-		AnchorPane.setRightAnchor(getLblCongratulation(), 350.);
+		AnchorPane.setBottomAnchor(getLblCongratulation(), MainApp.getScreenHeight()*0.2);
+		AnchorPane.setRightAnchor(getLblCongratulation(), MainApp.getScreenWidth()*0.2);
+		AnchorPane.setLeftAnchor(getLblCongratulation(), MainApp.getScreenWidth()*0.2);
 		
-		AnchorPane.setBottomAnchor(getBtnBack(), 50.);
-		AnchorPane.setRightAnchor(getBtnBack(), 50.);
+		AnchorPane.setBottomAnchor(getBtnBack(), MainApp.getScreenHeight()*0.02);
+		AnchorPane.setRightAnchor(getBtnBack(), MainApp.getScreenWidth()*0.02);
 		
-		AnchorPane.setBottomAnchor(getBtnSave(), 50.);
-		AnchorPane.setLeftAnchor(getBtnSave(), 50.);
+		AnchorPane.setBottomAnchor(getBtnSave(), MainApp.getScreenHeight()*0.02);
+		AnchorPane.setLeftAnchor(getBtnSave(), MainApp.getScreenWidth()*0.02);
 
 
 	}
 
 	public Label getLblWon() {
 		if (lblWon == null) {
-			lblWon = new Label(" You won : ");
+			lblWon = new Label("You won :");
 			lblWon.setId("lblWon");
 			lblWon.setMinWidth(700);
 
@@ -53,7 +56,7 @@ public class ScoreView extends AnchorPane {
 
 	public Label getMoneyWon() {
 		if (moneyWon == null) {
-			moneyWon = new Label(" moneyWon ");
+			moneyWon = new Label("moneyWon");
 			moneyWon.setId("moneyWon");
 			moneyWon.setMinWidth(500);
 
@@ -63,7 +66,7 @@ public class ScoreView extends AnchorPane {
 
 	public Label getLblCongratulation() {
 		if (lblCongratulation == null) {
-			lblCongratulation = new Label(" CONGRATULATIONS ! ");
+			lblCongratulation = new Label("CONGRATULATIONS !");
 			lblCongratulation.setId("lblCongratulation");
 			lblCongratulation.setMinWidth(1200);
 
@@ -73,13 +76,13 @@ public class ScoreView extends AnchorPane {
 
 	public Button getBtnBack(){
 		if (btnBack == null) {
-			btnBack = new Button(" Back menu ");
+			btnBack = new Button("Back to menu");
 			btnBack.setId("btnBack");
 			btnBack.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
 				public void handle(ActionEvent event) {
-				//	MainApp.showWelcomeMenu();
+					MainApp.showWelcome();
 				}
 			});
 		}
@@ -88,7 +91,7 @@ public class ScoreView extends AnchorPane {
 	
 	public Button getBtnSave(){
 		if (btnSave == null) {
-			btnSave = new Button(" Save ");
+			btnSave = new Button("Save");
 			btnSave.setId("btnExitScore");
 			btnSave.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -98,5 +101,9 @@ public class ScoreView extends AnchorPane {
 			});
 		}
 		return btnSave;
+	}
+	
+	public void setWinnings(String winnings) {
+		moneyWon.setText(winnings);
 	}
 }
