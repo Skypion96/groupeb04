@@ -22,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import model.Game;
 import model.J5050Strategy;
+import model.JPublicStrategy;
 import model.Levels;
 
 public class GameView extends AnchorPane {
@@ -42,6 +43,11 @@ public class GameView extends AnchorPane {
 	private Label lblLevel13;
 	private Label lblLevel14;
 	private Label lblLevel15;
+	
+	private Label lblPublic1;
+	private Label lblPublic2;
+	private Label lblPublic3;
+	private Label lblPublic4;
 	
 	private Button j5050;
 	private Button jPublic;
@@ -513,6 +519,20 @@ public class GameView extends AnchorPane {
 			jPublic.setScaleX(2.5);
 			jPublic.setScaleY(2.5);
 			jPublic.setMinWidth(32.5);
+			jPublic.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					game.setStrategy(new JPublicStrategy());
+					List<Integer> vote = new ArrayList<>();
+					List<String> answers = new ArrayList<>();
+					getGame().useJoker();
+					answers = getGame().getCurrentAnswers();
+					int indexCorrect = game.getCorrectAnswer();
+					getLblPublic1().setText(answers.get(indexCorrect)+" : ");
+					
+				}
+			});
 		}
 		return jPublic;
 	}
@@ -533,5 +553,35 @@ public class GameView extends AnchorPane {
 		}
 		return jCall;
 	}
+
+	public Label getLblPublic1() {
+		if(lblPublic1==null) {
+			lblPublic1 = new Label();
+		}
+		return lblPublic1;
+	}
+
+	public Label getLblPublic2() {
+		if(lblPublic2==null) {
+			lblPublic2 = new Label();
+		}
+		return lblPublic2;
+	}
+
+	public Label getLblPublic3() {
+		if(lblPublic3==null) {
+			lblPublic3 = new Label();
+		}
+		return lblPublic3;
+	}
+
+	public Label getLblPublic4() {
+		if(lblPublic4==null) {
+			lblPublic4 = new Label();
+		}
+		return lblPublic4;
+	}
+	
+	
 
 }
