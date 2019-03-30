@@ -74,6 +74,14 @@ public class WelcomeMenu extends AnchorPane {
 			btnRules.setMinWidth(300.);
 			btnRules.setMaxWidth(300.);
 			btnRules.setId("btnRules");
+			btnRules.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					MainApp.showRules();
+					
+				}
+			});
 		}
 		return btnRules;
 	}

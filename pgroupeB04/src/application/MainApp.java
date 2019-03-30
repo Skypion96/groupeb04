@@ -17,6 +17,7 @@ import model.Round;
 import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
+import view.RulesView;
 import view.ScoreView;
 import view.WelcomeMenu;
 
@@ -38,6 +39,7 @@ public class MainApp extends Application {
 	// Not used yet
 	private static AddQuestion addQ;
 	private static ScoreView scV;
+	private static RulesView rlV;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -164,6 +166,7 @@ public class MainApp extends Application {
 			gameView = new GameView();
 			addQ = new AddQuestion();
 			scV = new ScoreView();
+			rlV = new RulesView();
 
 			// Style for panes
 			URL urlBackGround = getClass().getResource("/backgroundMenu.jpg");
@@ -174,6 +177,7 @@ public class MainApp extends Application {
 
 			welM.setStyle(backgroundStyle);
 			gameView.setStyle(backgroundStyle);
+			rlV.setStyle(backgroundStyle);
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
@@ -203,6 +207,11 @@ public class MainApp extends Application {
 	// Shows the GameView
 	public static void showGame() {
 		scene.setRoot(gameView);
+	}
+	
+	// Shows the RulesView
+	public static void showRules() {
+		scene.setRoot(rlV);
 	}
 
 	// Exit the Game (Closes the app)

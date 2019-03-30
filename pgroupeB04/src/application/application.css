@@ -257,3 +257,18 @@
 	-fx-background-color: #F39C12;
 	-fx-font-size: 18;
 }
+
+#lbl{
+	-fx-font-size: 35;
+	-fx-text-fill : #00D3FF;
+}
+
+#Rules{
+	-fx-font-size: 70;
+	-fx-text-fill : #00D3FF;
+}
+
+#Jpublic{
+	-fx-font-size: 35;
+	-fx-text-fill : #00D3FF;
+}

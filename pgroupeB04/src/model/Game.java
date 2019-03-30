@@ -18,11 +18,13 @@ public class Game {
 	private int correctAnswer;
 	private PseudoClass current = PseudoClass.getPseudoClass("current-level");
 	private IJokerStrategy joker;
+	private List<Integer> randomJoker;
 
 	public Game() {
 		questionList = Serialisation.readDeck().getQuestions();
 		currentQuestionNumber = 0;
 		currentAnswers = new ArrayList<String>();
+		randomJoker = new ArrayList<>();
 		for (int i = 1; i <= 15; i++) {
 			GameView.getLblLevelsList().get(15 - i).pseudoClassStateChanged(current, false);
 		}
@@ -117,6 +119,12 @@ public class Game {
 		this.joker = joker;
 	}
 	
+	
+	
+	public List<Integer> getRandomJoker() {
+		return randomJoker;
+	}
+
 	public void useJoker() 
 	{
 		if (joker != null) 
@@ -125,5 +133,7 @@ public class Game {
 			
 		}											
 	}
+
+
 
 }
