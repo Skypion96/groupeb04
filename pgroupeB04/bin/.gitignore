@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /50_50.png
 /MenuPrinc.wav
 /application/
@@ -10,3 +11,8 @@
 /public.png
 /serialisation/
 /view/
+=======
+/application/
+/view/
+/model/
+>>>>>>> branch 'master' of https://OrientDavid@bitbucket.org/OrientDavid/groupeb04.git
