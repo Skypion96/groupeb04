@@ -55,6 +55,8 @@ public class GameView extends AnchorPane {
 	private HBox HJPublic;
 
 	private Label lblCall;
+	
+	private Label lblTimer;
 
 	private List<Levels> levelsList;
 
@@ -64,11 +66,14 @@ public class GameView extends AnchorPane {
 	private String anchorWinnings;
 	
 	private Button btnExit;
+	
+	private Timeline timeLine;
+	
 
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels(), getJ5050(), getJCall(), getJPublic(), getHJPublic(), getLblCall(),getBtnExit());
+				getVbLevels(), getJ5050(), getJCall(), getJPublic(), getHJPublic(), getLblCall(),getBtnExit(), getLblTimer());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -117,6 +122,9 @@ public class GameView extends AnchorPane {
 
 		AnchorPane.setTopAnchor(getLblCall(), 100.0);
 		AnchorPane.setLeftAnchor(getLblCall(), 200.0);
+		
+		AnchorPane.setTopAnchor(getLblTimer(), 100.0);
+		AnchorPane.setLeftAnchor(getLblTimer(), 200.0);
 
 	}
 
@@ -261,6 +269,7 @@ public class GameView extends AnchorPane {
 		canSelect = true;
 		actualWinnings = "0€";
 		anchorWinnings = "0€";
+		timeLine.play();
 	}
 
 	// Getter for the current game
@@ -593,6 +602,24 @@ public class GameView extends AnchorPane {
 			btnExit.setId("btnExitGV");
 		}
 		return btnExit;
+	}
+
+	public Label getLblTimer() {
+		if(lblTimer==null) {
+			lblTimer = new Label();
+			lblTimer.setId("lblTimer");
+			KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent event) {
+					for(int i = 30; i<=0; i--) {
+						lblTimer.setText(""+i);
+					}
+				};
+			});
+			
+			timeLine = new Timeline(keyFrame);
+			//timeLine.setCycleCount(Timeline.INDEFINITE);
+		}
+		return lblTimer;
 	}
 	
 	

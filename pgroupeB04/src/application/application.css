@@ -322,3 +322,8 @@
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9; 
 }
+
+#lblTimer{
+	-fx-text-fill: #F39C12;
+	-fx-font-size: 40;
+}
