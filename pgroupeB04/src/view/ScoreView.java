@@ -77,6 +77,10 @@ public class ScoreView extends AnchorPane {
 	public Button getBtnBack(){
 		if (btnBack == null) {
 			btnBack = new Button("Back to menu");
+			btnBack.setMinHeight(120.);
+			btnBack.setMaxHeight(120.);
+			btnBack.setMinWidth(400.);
+			btnBack.setMaxWidth(400.);
 			btnBack.setId("btnBack");
 			btnBack.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -92,7 +96,11 @@ public class ScoreView extends AnchorPane {
 	public Button getBtnSave(){
 		if (btnSave == null) {
 			btnSave = new Button("Save");
-			btnSave.setId("btnExitScore");
+			btnSave.setId("btnSaveScore");
+			btnSave.setMinHeight(120.);
+			btnSave.setMaxHeight(120.);
+			btnSave.setMinWidth(400.);
+			btnSave.setMaxWidth(400.);
 			btnSave.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override

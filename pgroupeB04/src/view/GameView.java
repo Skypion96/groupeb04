@@ -62,11 +62,13 @@ public class GameView extends AnchorPane {
 
 	private String actualWinnings;
 	private String anchorWinnings;
+	
+	private Button btnExit;
 
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels(), getJ5050(), getJCall(), getJPublic(), getHJPublic(), getLblCall());
+				getVbLevels(), getJ5050(), getJCall(), getJPublic(), getHJPublic(), getLblCall(),getBtnExit());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -105,6 +107,9 @@ public class GameView extends AnchorPane {
 
 		AnchorPane.setTopAnchor(getJPublic(), MainApp.getScreenHeight() * 0.02);
 		AnchorPane.setLeftAnchor(getJPublic(), MainApp.getScreenWidth() * 0.14);
+		
+		AnchorPane.setBottomAnchor(getBtnExit(), MainApp.getScreenHeight() * 0.08);
+		AnchorPane.setRightAnchor(getBtnExit(), MainApp.getScreenWidth() * 0.05);
 
 		// TODO A mettre en forme
 		AnchorPane.setTopAnchor(getHJPublic(), 100.0);
@@ -575,5 +580,19 @@ public class GameView extends AnchorPane {
 
 		getLblLevelsList().get(15 - currentQuestionNumber).pseudoClassStateChanged(current, true);
 	}
+
+	public Button getBtnExit() {
+		if (btnExit == null) {
+			btnExit = new Button(" EXIT ");
+			btnExit.setMinHeight(100.);
+			btnExit.setMaxHeight(120.);
+			btnExit.setMinWidth(200.);
+			btnExit.setMaxWidth(250.);
+			btnExit.setId("btnExitGV");
+		}
+		return btnExit;
+	}
+	
+	
 
 }
