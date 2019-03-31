@@ -184,7 +184,7 @@ public class MainApp extends Application {
 			scene.setRoot(welM);
 
 			// Game music
-			volume = 0.;
+			volume = 1.;
 			musicPlayer.setVolume(volume);
 			musicPlayer.play();
 

@@ -84,8 +84,8 @@ public class GameView extends AnchorPane {
 		getHJAudience().setVisible(false);
 
 		AnchorPane.setTopAnchor(getLblStatement(), MainApp.getScreenHeight() * 0.45);
-		AnchorPane.setLeftAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.2);
-		AnchorPane.setRightAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.2);
+		AnchorPane.setLeftAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.15);
+		AnchorPane.setRightAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.15);
 
 		AnchorPane.setBottomAnchor(getBtnChoice1(), MainApp.getScreenHeight() * 0.3);
 		AnchorPane.setLeftAnchor(getBtnChoice1(), MainApp.getScreenWidth() * 0.15);
@@ -142,6 +142,8 @@ public class GameView extends AnchorPane {
 			lblStatement.setId("lblStatement");
 			lblStatement.setMinWidth(1300);
 			lblStatement.setMinHeight(120);
+			lblStatement.setWrapText(true);
+			lblStatement.setTextAlignment(TextAlignment.CENTER);
 		}
 		return lblStatement;
 	}
@@ -153,6 +155,8 @@ public class GameView extends AnchorPane {
 			btnChoice1.setId("btnChoice1");
 			btnChoice1.setMinWidth(500);
 			btnChoice1.setMinHeight(100);
+			btnChoice1.setWrapText(true);
+			btnChoice1.setTextAlignment(TextAlignment.CENTER);
 
 			btnChoice1.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -171,6 +175,8 @@ public class GameView extends AnchorPane {
 			btnChoice2.setId("btnChoice2");
 			btnChoice2.setMinWidth(500);
 			btnChoice2.setMinHeight(100);
+			btnChoice2.setWrapText(true);
+			btnChoice2.setTextAlignment(TextAlignment.CENTER);
 
 			btnChoice2.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -189,6 +195,8 @@ public class GameView extends AnchorPane {
 			btnChoice3.setId("btnChoice3");
 			btnChoice3.setMinWidth(500);
 			btnChoice3.setMinHeight(100);
+			btnChoice3.setWrapText(true);
+			btnChoice3.setTextAlignment(TextAlignment.CENTER);
 
 			btnChoice3.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -208,7 +216,9 @@ public class GameView extends AnchorPane {
 			btnChoice4.setId("btnChoice4");
 			btnChoice4.setMinWidth(500);
 			btnChoice4.setMinHeight(100);
-
+			btnChoice4.setWrapText(true);
+			btnChoice4.setTextAlignment(TextAlignment.CENTER);
+			
 			btnChoice4.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
@@ -597,7 +607,7 @@ public class GameView extends AnchorPane {
 		if (lblCall == null) {
 			lblCall = new Label();
 			lblCall.setId("Jcall");
-			lblCall.setAlignment(Pos.CENTER);
+			lblCall.setTextAlignment(TextAlignment.CENTER);
 			lblCall.setWrapText(true);
 		}
 		return lblCall;
