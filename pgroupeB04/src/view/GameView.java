@@ -208,6 +208,12 @@ public class GameView extends AnchorPane {
 
 	// Getter for the button list, used to iterate easier between the answer buttons
 	public List<Button> getButtonList() {
+		getBtnChoice1().setDisable(false);
+		getBtnChoice2().setDisable(false);
+		getBtnChoice3().setDisable(false);
+		getBtnChoice4().setDisable(false);
+		getHJPublic().setVisible(false);
+		getLblCall().setVisible(false);
 		return buttonList;
 	}
 
@@ -245,12 +251,6 @@ public class GameView extends AnchorPane {
 
 	// Creates a new game
 	public void newGame() {
-		getBtnChoice1().setDisable(false);
-		getBtnChoice2().setDisable(false);
-		getBtnChoice3().setDisable(false);
-		getBtnChoice4().setDisable(false);
-		getHJPublic().setVisible(false);
-		getLblCall().setVisible(false);
 		game = new Game();
 		game.newQuestion();
 		showQuestion(game.getCurrentQuestionNumber());
@@ -469,6 +469,7 @@ public class GameView extends AnchorPane {
 					}
 					jPublic.setDisable(true);
 					getHJPublic().setVisible(true);
+					getLblCall().setVisible(false);
 				}
 			});
 		}
@@ -509,6 +510,7 @@ public class GameView extends AnchorPane {
 						getLblCall().setText(lblTxt + answers.get(correct));
 					}
 					jCall.setDisable(true);
+					getHJPublic().setVisible(false);
 					getLblCall().setVisible(true);
 				}
 			});
