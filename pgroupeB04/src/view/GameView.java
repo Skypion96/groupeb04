@@ -22,10 +22,12 @@ import javafx.util.Duration;
 import model.Game;
 import model.J5050Strategy;
 import model.JCallStrategy;
-import model.JPublicStrategy;
+import model.JAudienceStrategy;
 import model.Levels;
 
 public class GameView extends AnchorPane {
+
+	private Integer timeLeft;
 
 	private boolean canSelect;
 
@@ -37,7 +39,7 @@ public class GameView extends AnchorPane {
 	private Label lblPublic4;
 
 	private Button j5050;
-	private Button jPublic;
+	private Button jAudience;
 	private Button jCall;
 
 	private Button btnChoice1;
@@ -55,7 +57,7 @@ public class GameView extends AnchorPane {
 	private HBox HJPublic;
 
 	private Label lblCall;
-	
+
 	private Label lblTimer;
 
 	private List<Levels> levelsList;
@@ -64,16 +66,16 @@ public class GameView extends AnchorPane {
 
 	private String actualWinnings;
 	private String anchorWinnings;
-	
-	private Button btnExit;
-	
-	private Timeline timeLine;
-	
+
+	private Button btnLeave;
+
+	private Timeline tlTimer;
 
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels(), getJ5050(), getJCall(), getJPublic(), getHJPublic(), getLblCall(),getBtnExit(), getLblTimer());
+				getVbLevels(), getJ5050(), getJCall(), getJAudience(), getHJPublic(), getLblCall(), getBtnLeave(),
+				getLblTimer());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -110,11 +112,11 @@ public class GameView extends AnchorPane {
 		AnchorPane.setTopAnchor(getJCall(), MainApp.getScreenHeight() * 0.02);
 		AnchorPane.setLeftAnchor(getJCall(), MainApp.getScreenWidth() * 0.08);
 
-		AnchorPane.setTopAnchor(getJPublic(), MainApp.getScreenHeight() * 0.02);
-		AnchorPane.setLeftAnchor(getJPublic(), MainApp.getScreenWidth() * 0.14);
-		
-		AnchorPane.setBottomAnchor(getBtnExit(), MainApp.getScreenHeight() * 0.08);
-		AnchorPane.setRightAnchor(getBtnExit(), MainApp.getScreenWidth() * 0.05);
+		AnchorPane.setTopAnchor(getJAudience(), MainApp.getScreenHeight() * 0.02);
+		AnchorPane.setLeftAnchor(getJAudience(), MainApp.getScreenWidth() * 0.14);
+
+		AnchorPane.setBottomAnchor(getBtnLeave(), MainApp.getScreenHeight() * 0.02);
+		AnchorPane.setRightAnchor(getBtnLeave(), MainApp.getScreenWidth() * 0.02);
 
 		// TODO A mettre en forme
 		AnchorPane.setTopAnchor(getHJPublic(), 100.0);
@@ -122,9 +124,9 @@ public class GameView extends AnchorPane {
 
 		AnchorPane.setTopAnchor(getLblCall(), 100.0);
 		AnchorPane.setLeftAnchor(getLblCall(), 200.0);
-		
-		AnchorPane.setTopAnchor(getLblTimer(), 100.0);
-		AnchorPane.setLeftAnchor(getLblTimer(), 200.0);
+
+		AnchorPane.setTopAnchor(getLblTimer(), MainApp.getScreenHeight() * 0.3);
+		AnchorPane.setLeftAnchor(getLblTimer(), MainApp.getScreenWidth() * 0.5);
 
 	}
 
@@ -216,12 +218,6 @@ public class GameView extends AnchorPane {
 
 	// Getter for the button list, used to iterate easier between the answer buttons
 	public List<Button> getButtonList() {
-		getBtnChoice1().setDisable(false);
-		getBtnChoice2().setDisable(false);
-		getBtnChoice3().setDisable(false);
-		getBtnChoice4().setDisable(false);
-		getHJPublic().setVisible(false);
-		getLblCall().setVisible(false);
 		return buttonList;
 	}
 
@@ -266,10 +262,23 @@ public class GameView extends AnchorPane {
 			getLblLevelsList().get(15 - i).pseudoClassStateChanged(current, false);
 		}
 		getLblLevelsList().get(14).pseudoClassStateChanged(current, true);
+
+		getBtnChoice1().setDisable(false);
+		getBtnChoice2().setDisable(false);
+		getBtnChoice3().setDisable(false);
+		getBtnChoice4().setDisable(false);
+		getHJPublic().setVisible(false);
+		getLblCall().setVisible(false);
+
+		getJ5050().setDisable(false);
+		getJCall().setDisable(false);
+		getJAudience().setDisable(false);
+
 		canSelect = true;
 		actualWinnings = "0€";
 		anchorWinnings = "0€";
-		timeLine.play();
+		setTimer();
+		tlTimer.play();
 	}
 
 	// Getter for the current game
@@ -281,6 +290,7 @@ public class GameView extends AnchorPane {
 	// Setting the background of the chosen answer orange for the "suspense"
 	public void buttonClick(int n) {
 		if (canSelect) {
+			tlTimer.stop();
 			canSelect = false;
 			Timeline orange = new Timeline(
 
@@ -342,6 +352,15 @@ public class GameView extends AnchorPane {
 				game.newQuestion();
 				showQuestion(game.getCurrentQuestionNumber());
 				canSelect = true;
+				setTimer();
+				tlTimer.play();
+
+				getBtnChoice1().setDisable(false);
+				getBtnChoice2().setDisable(false);
+				getBtnChoice3().setDisable(false);
+				getBtnChoice4().setDisable(false);
+				getHJPublic().setVisible(false);
+				getLblCall().setVisible(false);
 			});
 		}
 	}
@@ -430,59 +449,60 @@ public class GameView extends AnchorPane {
 		return j5050;
 	}
 
-	public Button getJPublic() {
-		if (jPublic == null) {
-			jPublic = new Button();
+	public Button getJAudience() {
+		if (jAudience == null) {
+			jAudience = new Button();
 			URL urlJPublic = getClass().getResource("/public.png");
 			String jPublicStyle = "-fx-background-image: url(" + urlJPublic.toString() + ");\r\n"
 					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
 					+ "    -fx-background-position: center center;\r\n" + " -fx-background-color : transparent;";
 
-			jPublic.setStyle(jPublicStyle);
-			jPublic.setScaleX(2.5);
-			jPublic.setScaleY(2.5);
-			jPublic.setMinWidth(32.5);
-			jPublic.setOnAction(new EventHandler<ActionEvent>() {
+			jAudience.setStyle(jPublicStyle);
+			jAudience.setScaleX(2.5);
+			jAudience.setScaleY(2.5);
+			jAudience.setMinWidth(32.5);
+			jAudience.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
 				public void handle(ActionEvent event) {
-					game.setStrategy(new JPublicStrategy());
+					game.setStrategy(new JAudienceStrategy());
 					List<Integer> vote = new ArrayList<>();
 					int indexCorrect = game.getCorrectAnswer();
 					game.useJoker();
 					vote = game.getRandomJoker();
+					
 					if (indexCorrect == 0) {
 						getHJPublic().setVisible(true);
-						getLblPublic1().setText(" A : " + vote.get(0) + "%");
-						getLblPublic2().setText(" B : " + vote.get(1) + "%");
-						getLblPublic3().setText(" C : " + vote.get(2) + "%");
-						getLblPublic4().setText(" D : " + vote.get(3) + "%");
+						getLblAudience1().setText(" A : " + vote.get(0) + "%");
+						getLblAudience2().setText(" B : " + vote.get(1) + "%");
+						getLblAudience3().setText(" C : " + vote.get(2) + "%");
+						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 1) {
 						getHJPublic().setVisible(true);
-						getLblPublic2().setText(" B : " + vote.get(0) + "%");
-						getLblPublic1().setText(" A : " + vote.get(1) + "%");
-						getLblPublic3().setText(" C : " + vote.get(2) + "%");
-						getLblPublic4().setText(" D : " + vote.get(3) + "%");
+						getLblAudience2().setText(" B : " + vote.get(0) + "%");
+						getLblAudience1().setText(" A : " + vote.get(1) + "%");
+						getLblAudience3().setText(" C : " + vote.get(2) + "%");
+						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 2) {
 						getHJPublic().setVisible(true);
-						getLblPublic3().setText(" C : " + vote.get(0) + "%");
-						getLblPublic2().setText(" B : " + vote.get(1) + "%");
-						getLblPublic1().setText(" A : " + vote.get(2) + "%");
-						getLblPublic4().setText(" D : " + vote.get(3) + "%");
+						getLblAudience3().setText(" C : " + vote.get(0) + "%");
+						getLblAudience2().setText(" B : " + vote.get(1) + "%");
+						getLblAudience1().setText(" A : " + vote.get(2) + "%");
+						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 3) {
 						getHJPublic().setVisible(true);
-						getLblPublic4().setText(" D : " + vote.get(0) + "%");
-						getLblPublic2().setText(" B : " + vote.get(1) + "%");
-						getLblPublic3().setText(" C : " + vote.get(2) + "%");
-						getLblPublic1().setText(" A : " + vote.get(3) + "%");
+						getLblAudience4().setText(" D : " + vote.get(0) + "%");
+						getLblAudience2().setText(" B : " + vote.get(1) + "%");
+						getLblAudience3().setText(" C : " + vote.get(2) + "%");
+						getLblAudience1().setText(" A : " + vote.get(3) + "%");
 					}
-					jPublic.setDisable(true);
+					jAudience.setDisable(true);
 					getHJPublic().setVisible(true);
 					getLblCall().setVisible(false);
 				}
 			});
 		}
-		return jPublic;
+		return jAudience;
 	}
 
 	public Button getJCall() {
@@ -527,7 +547,7 @@ public class GameView extends AnchorPane {
 		return jCall;
 	}
 
-	public Label getLblPublic1() {
+	public Label getLblAudience1() {
 		if (lblPublic1 == null) {
 			lblPublic1 = new Label();
 			lblPublic1.setId("Jpublic");
@@ -535,7 +555,7 @@ public class GameView extends AnchorPane {
 		return lblPublic1;
 	}
 
-	public Label getLblPublic2() {
+	public Label getLblAudience2() {
 		if (lblPublic2 == null) {
 			lblPublic2 = new Label();
 			lblPublic2.setId("Jpublic");
@@ -543,7 +563,7 @@ public class GameView extends AnchorPane {
 		return lblPublic2;
 	}
 
-	public Label getLblPublic3() {
+	public Label getLblAudience3() {
 		if (lblPublic3 == null) {
 			lblPublic3 = new Label();
 			lblPublic3.setId("Jpublic");
@@ -551,7 +571,7 @@ public class GameView extends AnchorPane {
 		return lblPublic3;
 	}
 
-	public Label getLblPublic4() {
+	public Label getLblAudience4() {
 		if (lblPublic4 == null) {
 			lblPublic4 = new Label();
 			lblPublic4.setId("Jpublic");
@@ -562,7 +582,7 @@ public class GameView extends AnchorPane {
 	public HBox getHJPublic() {
 		if (HJPublic == null) {
 			HJPublic = new HBox();
-			HJPublic.getChildren().addAll(getLblPublic1(), getLblPublic2(), getLblPublic3(), getLblPublic4());
+			HJPublic.getChildren().addAll(getLblAudience1(), getLblAudience2(), getLblAudience3(), getLblAudience4());
 		}
 		return HJPublic;
 	}
@@ -592,36 +612,73 @@ public class GameView extends AnchorPane {
 		getLblLevelsList().get(15 - currentQuestionNumber).pseudoClassStateChanged(current, true);
 	}
 
-	public Button getBtnExit() {
-		if (btnExit == null) {
-			btnExit = new Button(" EXIT ");
-			btnExit.setMinHeight(100.);
-			btnExit.setMaxHeight(120.);
-			btnExit.setMinWidth(200.);
-			btnExit.setMaxWidth(250.);
-			btnExit.setId("btnExitGV");
+	public Button getBtnLeave() {
+		if (btnLeave == null) {
+			btnLeave = new Button("Leave with winnings");
+			btnLeave.setMinHeight(100.);
+			btnLeave.setMaxHeight(120.);
+			btnLeave.setMinWidth(300.);
+			btnLeave.setMaxWidth(300.);
+			btnLeave.setId("btnExitGV");
+			btnLeave.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					if(canSelect) {
+						tlTimer.stop();
+						MainApp.getScv().setWinnings(actualWinnings);
+						MainApp.showScoreView();
+					}	
+				}
+			});
 		}
-		return btnExit;
+		return btnLeave;
 	}
 
 	public Label getLblTimer() {
-		if(lblTimer==null) {
+		if (lblTimer == null) {
 			lblTimer = new Label();
 			lblTimer.setId("lblTimer");
-			KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-				public void handle(ActionEvent event) {
-					for(int i = 30; i<=0; i--) {
-						lblTimer.setText(""+i);
-					}
-				};
-			});
-			
-			timeLine = new Timeline(keyFrame);
-			//timeLine.setCycleCount(Timeline.INDEFINITE);
 		}
 		return lblTimer;
 	}
-	
-	
+
+	public void setTimer() {
+		timeLeft = 30;
+
+		tlTimer = new Timeline(
+
+				new KeyFrame(Duration.seconds(1), e -> {
+					lblTimer.setText(timeLeft.toString());
+					timeLeft--;
+				}));
+
+		tlTimer.setCycleCount(31);
+		tlTimer.setOnFinished(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				canSelect = false;
+				Timeline correct = new Timeline(
+
+						new KeyFrame(Duration.seconds(0.2), e -> {
+							// use "flash" color
+							buttonList.get(game.getCorrectAnswer()).setStyle("-fx-background-color:#008000");
+						}),
+
+						new KeyFrame(Duration.seconds(0.4), e -> {
+							// revert to regular color
+							buttonList.get(game.getCorrectAnswer()).setStyle("-fx-background-color: #9800AA;");
+						}));
+
+				MainApp.getScv().setWinnings(anchorWinnings);
+
+				correct.setCycleCount(10);
+				correct.play();
+				correct.setOnFinished(e -> MainApp.showScoreView());
+
+			}
+		});
+	}
 
 }

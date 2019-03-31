@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public class JPublicStrategy implements IJokerStrategy{
+public class JAudienceStrategy implements IJokerStrategy{
 
 	public void useJoker(Game g) {
 		
