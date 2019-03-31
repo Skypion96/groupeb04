@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import model.Game;
 import model.J5050Strategy;
@@ -126,8 +127,8 @@ public class GameView extends AnchorPane {
 
 
 		AnchorPane.setTopAnchor(getLblCall(), MainApp.getScreenHeight() * 0.30);
-		AnchorPane.setLeftAnchor(getLblCall(), MainApp.getScreenWidth() * 0.2);
-		AnchorPane.setRightAnchor(getLblCall(), MainApp.getScreenWidth() * 0.2);
+		AnchorPane.setLeftAnchor(getLblCall(), MainApp.getScreenWidth() * 0.4);
+		AnchorPane.setRightAnchor(getLblCall(), MainApp.getScreenWidth() * 0.4);
 		
 		AnchorPane.setTopAnchor(getLblTimer(), MainApp.getScreenHeight() * 0.1);
 		AnchorPane.setLeftAnchor(getLblTimer(), MainApp.getScreenWidth() * 0.02);
@@ -597,6 +598,7 @@ public class GameView extends AnchorPane {
 			lblCall = new Label();
 			lblCall.setId("Jcall");
 			lblCall.setAlignment(Pos.CENTER);
+			lblCall.setWrapText(true);
 		}
 		return lblCall;
 	}
