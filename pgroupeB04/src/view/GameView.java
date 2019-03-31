@@ -13,6 +13,7 @@ import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -33,10 +34,10 @@ public class GameView extends AnchorPane {
 
 	private Label lblStatement;
 
-	private Label lblPublic1;
-	private Label lblPublic2;
-	private Label lblPublic3;
-	private Label lblPublic4;
+	private Label lblAudience1;
+	private Label lblAudience2;
+	private Label lblAudience3;
+	private Label lblAudience4;
 
 	private Button j5050;
 	private Button jAudience;
@@ -54,7 +55,7 @@ public class GameView extends AnchorPane {
 
 	private Game game;
 
-	private HBox HJPublic;
+	private HBox HJAudience;
 
 	private Label lblCall;
 
@@ -74,16 +75,16 @@ public class GameView extends AnchorPane {
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
-				getVbLevels(), getJ5050(), getJCall(), getJAudience(), getHJPublic(), getLblCall(), getBtnLeave(),
+				getVbLevels(), getJ5050(), getJCall(), getJAudience(), getHJAudience(), getLblCall(), getBtnLeave(),
 				getLblTimer());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
-		getHJPublic().setVisible(false);
+		getHJAudience().setVisible(false);
 
 		AnchorPane.setTopAnchor(getLblStatement(), MainApp.getScreenHeight() * 0.45);
-		AnchorPane.setLeftAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.1);
-		AnchorPane.setRightAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.1);
+		AnchorPane.setLeftAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.2);
+		AnchorPane.setRightAnchor(getLblStatement(), MainApp.getScreenWidth() * 0.2);
 
 		AnchorPane.setBottomAnchor(getBtnChoice1(), MainApp.getScreenHeight() * 0.3);
 		AnchorPane.setLeftAnchor(getBtnChoice1(), MainApp.getScreenWidth() * 0.15);
@@ -119,14 +120,17 @@ public class GameView extends AnchorPane {
 		AnchorPane.setRightAnchor(getBtnLeave(), MainApp.getScreenWidth() * 0.02);
 
 		// TODO A mettre en forme
-		AnchorPane.setTopAnchor(getHJPublic(), 100.0);
-		AnchorPane.setLeftAnchor(getHJPublic(), 200.0);
+		AnchorPane.setTopAnchor(getHJAudience(), MainApp.getScreenHeight() * 0.30);
+		AnchorPane.setLeftAnchor(getHJAudience(), MainApp.getScreenWidth() * 0.35);
+		AnchorPane.setRightAnchor(getHJAudience(), MainApp.getScreenWidth() * 0.35);
 
-		AnchorPane.setTopAnchor(getLblCall(), 100.0);
-		AnchorPane.setLeftAnchor(getLblCall(), 200.0);
 
-		AnchorPane.setTopAnchor(getLblTimer(), MainApp.getScreenHeight() * 0.3);
-		AnchorPane.setLeftAnchor(getLblTimer(), MainApp.getScreenWidth() * 0.5);
+		AnchorPane.setTopAnchor(getLblCall(), MainApp.getScreenHeight() * 0.30);
+		AnchorPane.setLeftAnchor(getLblCall(), MainApp.getScreenWidth() * 0.2);
+		AnchorPane.setRightAnchor(getLblCall(), MainApp.getScreenWidth() * 0.2);
+		
+		AnchorPane.setTopAnchor(getLblTimer(), MainApp.getScreenHeight() * 0.1);
+		AnchorPane.setLeftAnchor(getLblTimer(), MainApp.getScreenWidth() * 0.02);
 
 	}
 
@@ -267,7 +271,7 @@ public class GameView extends AnchorPane {
 		getBtnChoice2().setDisable(false);
 		getBtnChoice3().setDisable(false);
 		getBtnChoice4().setDisable(false);
-		getHJPublic().setVisible(false);
+		getHJAudience().setVisible(false);
 		getLblCall().setVisible(false);
 
 		getJ5050().setDisable(false);
@@ -359,7 +363,7 @@ public class GameView extends AnchorPane {
 				getBtnChoice2().setDisable(false);
 				getBtnChoice3().setDisable(false);
 				getBtnChoice4().setDisable(false);
-				getHJPublic().setVisible(false);
+				getHJAudience().setVisible(false);
 				getLblCall().setVisible(false);
 			});
 		}
@@ -472,32 +476,32 @@ public class GameView extends AnchorPane {
 					vote = game.getRandomJoker();
 					
 					if (indexCorrect == 0) {
-						getHJPublic().setVisible(true);
+						getHJAudience().setVisible(true);
 						getLblAudience1().setText(" A : " + vote.get(0) + "%");
 						getLblAudience2().setText(" B : " + vote.get(1) + "%");
 						getLblAudience3().setText(" C : " + vote.get(2) + "%");
 						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 1) {
-						getHJPublic().setVisible(true);
+						getHJAudience().setVisible(true);
 						getLblAudience2().setText(" B : " + vote.get(0) + "%");
 						getLblAudience1().setText(" A : " + vote.get(1) + "%");
 						getLblAudience3().setText(" C : " + vote.get(2) + "%");
 						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 2) {
-						getHJPublic().setVisible(true);
+						getHJAudience().setVisible(true);
 						getLblAudience3().setText(" C : " + vote.get(0) + "%");
 						getLblAudience2().setText(" B : " + vote.get(1) + "%");
 						getLblAudience1().setText(" A : " + vote.get(2) + "%");
 						getLblAudience4().setText(" D : " + vote.get(3) + "%");
 					} else if (indexCorrect == 3) {
-						getHJPublic().setVisible(true);
+						getHJAudience().setVisible(true);
 						getLblAudience4().setText(" D : " + vote.get(0) + "%");
 						getLblAudience2().setText(" B : " + vote.get(1) + "%");
 						getLblAudience3().setText(" C : " + vote.get(2) + "%");
 						getLblAudience1().setText(" A : " + vote.get(3) + "%");
 					}
 					jAudience.setDisable(true);
-					getHJPublic().setVisible(true);
+					getHJAudience().setVisible(true);
 					getLblCall().setVisible(false);
 				}
 			});
@@ -539,7 +543,7 @@ public class GameView extends AnchorPane {
 						getLblCall().setText(lblTxt + answers.get(correct));
 					}
 					jCall.setDisable(true);
-					getHJPublic().setVisible(false);
+					getHJAudience().setVisible(false);
 					getLblCall().setVisible(true);
 				}
 			});
@@ -548,49 +552,51 @@ public class GameView extends AnchorPane {
 	}
 
 	public Label getLblAudience1() {
-		if (lblPublic1 == null) {
-			lblPublic1 = new Label();
-			lblPublic1.setId("Jpublic");
+		if (lblAudience1 == null) {
+			lblAudience1 = new Label();
+			lblAudience1.setId("Jpublic");
 		}
-		return lblPublic1;
+		return lblAudience1;
 	}
 
 	public Label getLblAudience2() {
-		if (lblPublic2 == null) {
-			lblPublic2 = new Label();
-			lblPublic2.setId("Jpublic");
+		if (lblAudience2 == null) {
+			lblAudience2 = new Label();
+			lblAudience2.setId("Jpublic");
 		}
-		return lblPublic2;
+		return lblAudience2;
 	}
 
 	public Label getLblAudience3() {
-		if (lblPublic3 == null) {
-			lblPublic3 = new Label();
-			lblPublic3.setId("Jpublic");
+		if (lblAudience3 == null) {
+			lblAudience3 = new Label();
+			lblAudience3.setId("Jpublic");
 		}
-		return lblPublic3;
+		return lblAudience3;
 	}
 
 	public Label getLblAudience4() {
-		if (lblPublic4 == null) {
-			lblPublic4 = new Label();
-			lblPublic4.setId("Jpublic");
+		if (lblAudience4 == null) {
+			lblAudience4 = new Label();
+			lblAudience4.setId("Jpublic");
 		}
-		return lblPublic4;
+		return lblAudience4;
 	}
 
-	public HBox getHJPublic() {
-		if (HJPublic == null) {
-			HJPublic = new HBox();
-			HJPublic.getChildren().addAll(getLblAudience1(), getLblAudience2(), getLblAudience3(), getLblAudience4());
+	public HBox getHJAudience() {
+		if (HJAudience == null) {
+			HJAudience = new HBox();
+			HJAudience.getChildren().addAll(getLblAudience1(), getLblAudience2(), getLblAudience3(), getLblAudience4());
+			HJAudience.setAlignment(Pos.CENTER);
 		}
-		return HJPublic;
+		return HJAudience;
 	}
 
 	public Label getLblCall() {
 		if (lblCall == null) {
 			lblCall = new Label();
 			lblCall.setId("Jcall");
+			lblCall.setAlignment(Pos.CENTER);
 		}
 		return lblCall;
 	}
