@@ -638,6 +638,8 @@ public class GameView extends AnchorPane {
 			btnLeave.setMinWidth(300.);
 			btnLeave.setMaxWidth(300.);
 			btnLeave.setId("btnExitGV");
+			btnLeave.setTextAlignment(TextAlignment.CENTER);
+			btnLeave.setWrapText(true);
 			btnLeave.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
