@@ -74,7 +74,7 @@ public class MainApp extends Application {
 			q5.addChoice("No3", false);
 			q5.addChoice("Yes", true);
 			Question q6 = new Question("Vincent", Round.SECOND_ROUND,
-					"What was the direct cause of the First World War  ?");
+					"What was the immediate cause of the First World War  ?");
 			q6.addChoice("The assassination of Archduke Franz Ferdinand", true);
 			q6.addChoice("Mutual Defense Alliances", false);
 			q6.addChoice("Imperialism", false);
@@ -101,7 +101,7 @@ public class MainApp extends Application {
 			q10.addChoice("No3", false);
 			q10.addChoice("Yes", true);
 			Question q11 = new Question("Vincent", Round.LAST_ROUND,
-					"When was created the Federal Bureau of Investigation ?");
+					"When was the Federal Bureau of Investigation created ?");
 			q11.addChoice("26 july 1908", true);
 			q11.addChoice("21 july 1969", false);
 			q11.addChoice("4 novembre 1952", false);
