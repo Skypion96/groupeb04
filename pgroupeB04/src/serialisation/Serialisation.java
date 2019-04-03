@@ -29,12 +29,16 @@ public class Serialisation {
 
 	public static Deck readDeck() {
 		BufferedReader br = null;
-		String s = "";
+		String deckJson = "";
+		String line = "";
 		try {
 			FileReader fr = new FileReader("Deck/deck.json");
 			br = new BufferedReader(fr);
-			s = br.readLine();
-			return Deck.fromJson(s);
+			deckJson = br.readLine();
+			while ((line = br.readLine()) != null) {
+				deckJson += line;
+			}
+			return Deck.fromJson(deckJson);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
