@@ -26,16 +26,16 @@ public class RulesView extends AnchorPane{
 		AnchorPane.setTopAnchor(getLblTitle(), 100.0);
 		AnchorPane.setLeftAnchor(getLblTitle(), 100.0);
 		
-		AnchorPane.setTopAnchor(getLblAnswerQuest(), 250.0);
+		AnchorPane.setTopAnchor(getLblAnswerQuest(), 200.0);
 		AnchorPane.setLeftAnchor(getLblAnswerQuest(), 100.0);
 
-		AnchorPane.setBottomAnchor(getLblJ5050(), 450.0);
+		AnchorPane.setTopAnchor(getLblJ5050(), 450.0);
 		AnchorPane.setLeftAnchor(getLblJ5050(), 100.0);
 
 		AnchorPane.setBottomAnchor(getLblJCall(), 250.0);
 		AnchorPane.setLeftAnchor(getLblJCall(), 100.0);
 
-		AnchorPane.setBottomAnchor(getLblJPublic(), 50.0);
+		AnchorPane.setBottomAnchor(getLblJPublic(), 150.0);
 		AnchorPane.setLeftAnchor(getLblJPublic(), 100.0);
 
 		AnchorPane.setTopAnchor(getImgJ5050(), 350.0);
@@ -67,7 +67,7 @@ public class RulesView extends AnchorPane{
 	public Label getLblAnswerQuest() {
 		if(lblAnswerQuest == null) {
 			lblAnswerQuest = new Label("You will answer questions with four choices but only one is true.\n If it's correct you continue to play.\n "
-					+ "else if your answer is wrong the game stop and you keep the gains of the last bearing that you passed");
+					+ "else the game stop and you keep the gains of the last bearing that you passed");
 			lblAnswerQuest.setId("lbl");
 		}
 		return lblAnswerQuest;
@@ -76,7 +76,7 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJ5050() {
 		if(lblJ5050 == null) {
-			lblJ5050 = new Label(" Warning : only one use ! This joker remove two wrong answer of choices");
+			lblJ5050 = new Label("                  Warning : only one use ! This joker remove two wrong answer of choices");
 			lblJ5050.setId("lbl");
 		}
 		return lblJ5050;
@@ -85,7 +85,7 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJPublic() {
 		if(lblJPublic == null) {
-			lblJPublic = new Label(" Warning : only one use ! This joker show you ");
+			lblJPublic = new Label("                  Warning : only one use ! This joker show you in percent what does the public think");
 			lblJPublic.setId("lbl");
 		}
 		return lblJPublic;
@@ -94,7 +94,8 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJCall() {
 		if(lblJCall == null) {
-			lblJCall = new Label(" Warning : only one use ! ");
+			lblJCall = new Label("                  Warning : only one use ! There is three types of answers :\n                  - The people know the answer.\n "
+					+ "                 - The people think to know the answer.\n                  - The people don't know the answer.");
 			lblJCall.setId("lbl");
 		}
 		return lblJCall;
