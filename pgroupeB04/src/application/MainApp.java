@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.Deck;
 import model.Question;
 import model.Round;
+import model.Sound;
 import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
@@ -29,10 +30,7 @@ public class MainApp extends Application {
 
 	private static Rectangle2D screen = Screen.getPrimary().getBounds();
 
-	// Music
-	private static double volume;
-	Media music = new Media(getClass().getResource("/MenuPrinc.wav").toString());
-	MediaPlayer musicPlayer = new MediaPlayer(music);
+	
 	private static WelcomeMenu welM;
 	private static GameView gameView;
 
@@ -40,6 +38,8 @@ public class MainApp extends Application {
 	private static AddQuestion addQ;
 	private static ScoreView scV;
 	private static RulesView rlV;
+	
+	private static Sound sound;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -82,11 +82,9 @@ public class MainApp extends Application {
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
-
-			// Game music
-			volume = 1.;
-			musicPlayer.setVolume(volume);
-			musicPlayer.play();
+			
+			sound = new Sound();
+			sound.playSound();
 
 			primaryStage.setTitle("Who wants to be a millionaire");
 
@@ -136,11 +134,6 @@ public class MainApp extends Application {
 	public static double getScreenWidth() {
 		return screen.getWidth();
 	}
-
-	// Getter for the volume to allow disabling every sounds
-	public static double getVolume() {
-		return volume;
-	}
 	
 	// Getter for the Gameview
 	public static GameView getGameView() {
@@ -151,4 +144,10 @@ public class MainApp extends Application {
 	public static ScoreView getScv() {
 		return scV;
 	}
+
+	public static Sound getSound() {
+		return sound;
+	}
+
+	
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import model.Sound;
 
 public class WelcomeMenu extends AnchorPane {
 
@@ -135,6 +136,7 @@ public class WelcomeMenu extends AnchorPane {
 		if (sound == null) {
 			sound = new Button();
 			URL localUrl1 = getClass().getResource("/music.png");
+			URL localUrl2 = getClass().getResource("/no_music.png");
 			;
 			String FSound = "-fx-background-image: url(" + localUrl1.toString() + ");\r\n"
 					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
@@ -151,9 +153,20 @@ public class WelcomeMenu extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 					
-					double volume = MainApp.getVolume() ;
+					double volume = MainApp.getSound().getVolume();
 					
-					//URL localUrl2 = getClass().getResource("/no_music.png");
+					if(volume!=0) {
+						String FNoSound = "-fx-background-image: url(" + localUrl2.toString() + ");\r\n"
+								+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+								+ "    -fx-background-position: center center;\r\n"
+								+ " -fx-background-color : transparent;";
+						sound.setStyle(FNoSound);
+						MainApp.getSound().setVolume(0);
+					}
+					if(volume==0) {
+						sound.setStyle(FSound);
+						MainApp.getSound().setVolume(1.);
+					}
 					
 				}
 			});
