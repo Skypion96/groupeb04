@@ -14,12 +14,12 @@ import javafx.stage.Stage;
 import model.Deck;
 import model.Question;
 import model.Round;
-import model.Sound;
 import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
 import view.RulesView;
 import view.ScoreView;
+import view.Sound;
 import view.WelcomeMenu;
 
 public class MainApp extends Application {
