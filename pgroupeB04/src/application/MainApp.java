@@ -74,10 +74,17 @@ public class MainApp extends Application {
 					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
 					+ "    -fx-background-position: center center;\r\n"
 					+ "    -fx-effect: dropshadow(three-pass-box, black, 30.0, 0.5, 0.0, 0.0); ";
-
+			
+			//Style for RulesView
+			URL urlBackGround2 = getClass().getResource("/black.jpg");
+			String backgroundStyle2 = "-fx-background-image: url(" + urlBackGround2.toString() + ");\r\n"
+					+ "	-fx-background-size: cover;\r\n" + "    -fx-background-repeat: stretch;\r\n"
+					+ "    -fx-background-position: center center;\r\n"
+					+ "    -fx-effect: dropshadow(three-pass-box, black, 30.0, 0.5, 0.0, 0.0); ";
+			
 			welM.setStyle(backgroundStyle);
 			gameView.setStyle(backgroundStyle);
-			rlV.setStyle(backgroundStyle);
+			rlV.setStyle(backgroundStyle2);
 			scV.setStyle(backgroundStyle);
 
 			// Setting welM as ROOT

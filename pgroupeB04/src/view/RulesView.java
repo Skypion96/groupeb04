@@ -2,7 +2,11 @@ package view;
 
 import java.net.URL;
 
+import application.MainApp;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,10 +22,11 @@ public class RulesView extends AnchorPane{
 	private ImageView imgJ5050;
 	private ImageView imgJPublic;
 	private ImageView imgJCall;
+	private Button btnBack;
 	
 	public RulesView() {
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(getLblTitle(),getLblAnswerQuest(),getLblJ5050(),getLblJCall(),getLblJPublic(),getImgJ5050(),getImgJCall(),getImgJPublic());
+		this.getChildren().addAll(getLblTitle(),getLblAnswerQuest(),getLblJ5050(),getLblJCall(),getLblJPublic(),getImgJ5050(),getImgJCall(),getImgJPublic(),getBtnBack());
 
 		AnchorPane.setTopAnchor(getLblTitle(), 100.0);
 		AnchorPane.setLeftAnchor(getLblTitle(), 100.0);
@@ -47,7 +52,8 @@ public class RulesView extends AnchorPane{
 		AnchorPane.setBottomAnchor(getImgJPublic(), 50.0);
 		AnchorPane.setLeftAnchor(getImgJPublic(), 0.0);
 		
-		
+		AnchorPane.setBottomAnchor(getBtnBack(), MainApp.getScreenHeight()*0.02);
+		AnchorPane.setRightAnchor(getBtnBack(), MainApp.getScreenWidth()*0.02);
 	}
 	
 	
@@ -137,7 +143,28 @@ public class RulesView extends AnchorPane{
 		}
 		return imgJCall;
 	}
-	
+
+
+
+
+	public Button getBtnBack(){
+		if (btnBack == null) {
+			btnBack = new Button("Back to menu");
+			btnBack.setMinHeight(120.);
+			btnBack.setMaxHeight(120.);
+			btnBack.setMinWidth(400.);
+			btnBack.setMaxWidth(400.);
+			btnBack.setId("btnBack");
+			btnBack.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					MainApp.showWelcome();
+				}
+			});
+		}
+		return btnBack;
+	}
 	
 
 }
