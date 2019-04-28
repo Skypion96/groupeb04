@@ -6,8 +6,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class TestJUnit {
+import model.Question;
+import model.Round;
 
+class TestJUnit {
+	
+	Question q = new Question("Vincent", Round.FIRST_ROUND, "Test");
+	
 	@BeforeEach
 	void setUp() throws Exception {
 	}
@@ -16,9 +21,18 @@ class TestJUnit {
 	void tearDown() throws Exception {
 	}
 
+	// Test clone method
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testClone() {
+		q.clone();
 	}
 
+	// Test addChoice  method
+	@Test 
+	void AddAnswer() {
+		q.addChoice("vrai", true);
+		q.addChoice("faux1", false);
+		q.addChoice("faux2", false);
+		q.addChoice("faux3", false);
+	}
 }
