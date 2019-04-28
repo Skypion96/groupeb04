@@ -90,6 +90,7 @@ public class MainApp extends Application {
 			rlV.setStyle(backgroundStyle2);
 			scV.setStyle(backgroundStyle);
 			login.setStyle(backgroundStyle2);
+			addQ.setStyle(backgroundStyle2);
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
@@ -163,5 +164,10 @@ public class MainApp extends Application {
 	// Shows the LoginAP
 	public static void showLoginAP() {
 		scene.setRoot(login);
+	}
+	
+	// Shows the AddQuestion
+	public static void showAddQuestion() {
+		scene.setRoot(addQ);
 	}
 }
