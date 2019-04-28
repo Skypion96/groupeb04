@@ -17,6 +17,7 @@ import model.Round;
 import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
+import view.LoginAP;
 import view.RulesView;
 import view.ScoreView;
 import view.Sound;
@@ -38,6 +39,7 @@ public class MainApp extends Application {
 	private static AddQuestion addQ;
 	private static ScoreView scV;
 	private static RulesView rlV;
+	private static LoginAP login;
 	
 	private static Sound sound;
 
@@ -67,6 +69,7 @@ public class MainApp extends Application {
 			addQ = new AddQuestion();
 			scV = new ScoreView();
 			rlV = new RulesView();
+			login = new LoginAP();
 
 			// Style for panes
 			URL urlBackGround = getClass().getResource("/backgroundMenu.jpg");
@@ -86,6 +89,7 @@ public class MainApp extends Application {
 			gameView.setStyle(backgroundStyle);
 			rlV.setStyle(backgroundStyle2);
 			scV.setStyle(backgroundStyle);
+			login.setStyle(backgroundStyle2);
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
@@ -156,5 +160,8 @@ public class MainApp extends Application {
 		return sound;
 	}
 
-	
+	// Shows the LoginAP
+	public static void showLoginAP() {
+		scene.setRoot(login);
+	}
 }

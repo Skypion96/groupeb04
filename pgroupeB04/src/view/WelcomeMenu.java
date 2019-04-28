@@ -19,10 +19,11 @@ public class WelcomeMenu extends AnchorPane {
 	private Button btnExit;
 	private ImageView logo;
 	private Button sound;
+	private Button login;
 
 	public WelcomeMenu() {
 		this.setPadding(new Insets(10));
-		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound());
+		this.getChildren().addAll(getBtnPlay(), getBtnRules(), getBtnHighScore(), getBtnExit(), getLogo(), getSound(),getLogin());
 
 		AnchorPane.setTopAnchor(btnPlay, MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(btnPlay, MainApp.getScreenWidth() * 0.02);
@@ -41,6 +42,9 @@ public class WelcomeMenu extends AnchorPane {
 
 		AnchorPane.setRightAnchor(sound, MainApp.getScreenWidth() * 0.02 + 75);
 		AnchorPane.setBottomAnchor(sound, MainApp.getScreenHeight() * 0.02 + 75);
+		
+		AnchorPane.setTopAnchor(login, MainApp.getScreenHeight() * 0.05);
+		AnchorPane.setLeftAnchor(login, MainApp.getScreenWidth() * 0.01);
 	}
 
 	// Getter for the play button which creates a new game
@@ -172,5 +176,26 @@ public class WelcomeMenu extends AnchorPane {
 		}
 		return sound;
 	}
+
+	public Button getLogin() {
+		if (login == null) {
+			login = new Button("Login");
+			login.setMinHeight(80.);
+			login.setMaxHeight(80.);
+			login.setMinWidth(150.);
+			login.setMaxWidth(150.);
+			login.setId("btnLogin");
+			login.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					MainApp.showLoginAP();
+				}
+			});
+		}
+		return login;
+	}
+	
+	
 
 }
