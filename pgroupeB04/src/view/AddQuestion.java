@@ -1,5 +1,8 @@
 package view;
 
+import application.MainApp;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -28,32 +31,33 @@ public class AddQuestion extends AnchorPane {
 	private RadioButton rbChoice4;
 
 	private Button btnOk;
+	private Button btnBack;
 
 	public AddQuestion() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getTxtAuthor(), getCbRound(), getTxtStatement(), getTxtChoice1(), getTxtChoice2(),
 				getTxtChoice3(), getTxtChoice4(), getRbChoice1(), getRbChoice2(), getRbChoice3(), getRbChoice4(),
-				getBtnOk());
+				getBtnOk(),getBtnBack());
 
-		AnchorPane.setTopAnchor(getTxtStatement(), 35.0);
-		AnchorPane.setRightAnchor(getTxtStatement(), 5.0);
-		AnchorPane.setLeftAnchor(getTxtStatement(), 5.0);
+		AnchorPane.setTopAnchor(getTxtStatement(), MainApp.getScreenHeight()*0.25);
+		AnchorPane.setRightAnchor(getTxtStatement(),  MainApp.getScreenWidth()*0.40);
+		AnchorPane.setLeftAnchor(getTxtStatement(),  MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getTxtChoice1(), 70.0);
-		AnchorPane.setRightAnchor(getTxtChoice1(), 75.0);
-		AnchorPane.setLeftAnchor(getTxtChoice1(), 15.0);
+		AnchorPane.setTopAnchor(getTxtChoice1(), MainApp.getScreenHeight()*0.30);
+		AnchorPane.setRightAnchor(getTxtChoice1(), MainApp.getScreenWidth()*0.35);
+		AnchorPane.setLeftAnchor(getTxtChoice1(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getTxtChoice2(), 100.0);
-		AnchorPane.setRightAnchor(getTxtChoice2(), 75.0);
-		AnchorPane.setLeftAnchor(getTxtChoice2(), 15.0);
+		AnchorPane.setTopAnchor(getTxtChoice2(), MainApp.getScreenHeight()*0.35);
+		AnchorPane.setRightAnchor(getTxtChoice2(), MainApp.getScreenWidth()*0.35);
+		AnchorPane.setLeftAnchor(getTxtChoice2(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getTxtChoice3(), 130.0);
-		AnchorPane.setRightAnchor(getTxtChoice3(), 75.0);
-		AnchorPane.setLeftAnchor(getTxtChoice3(), 15.0);
+		AnchorPane.setTopAnchor(getTxtChoice3(), MainApp.getScreenHeight()*0.40);
+		AnchorPane.setRightAnchor(getTxtChoice3(), MainApp.getScreenWidth()*0.35);
+		AnchorPane.setLeftAnchor(getTxtChoice3(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getTxtChoice4(), 160.0);
-		AnchorPane.setRightAnchor(getTxtChoice4(), 75.0);
-		AnchorPane.setLeftAnchor(getTxtChoice4(), 15.0);
+		AnchorPane.setTopAnchor(getTxtChoice4(), MainApp.getScreenHeight()*0.45);
+		AnchorPane.setRightAnchor(getTxtChoice4(), MainApp.getScreenWidth()*0.35);
+		AnchorPane.setLeftAnchor(getTxtChoice4(), MainApp.getScreenWidth()*0.30);
 
 		ToggleGroup group = new ToggleGroup();
 		getRbChoice1().setToggleGroup(group);
@@ -61,27 +65,30 @@ public class AddQuestion extends AnchorPane {
 		getRbChoice3().setToggleGroup(group);
 		getRbChoice4().setToggleGroup(group);
 
-		AnchorPane.setTopAnchor(getRbChoice1(), 75.0);
-		AnchorPane.setRightAnchor(getRbChoice1(), 5.0);
+		AnchorPane.setTopAnchor(getRbChoice1(), MainApp.getScreenHeight()*0.30);
+		AnchorPane.setRightAnchor(getRbChoice1(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getRbChoice2(), 105.0);
-		AnchorPane.setRightAnchor(getRbChoice2(), 5.0);
+		AnchorPane.setTopAnchor(getRbChoice2(), MainApp.getScreenHeight()*0.35);
+		AnchorPane.setRightAnchor(getRbChoice2(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getRbChoice3(), 135.0);
-		AnchorPane.setRightAnchor(getRbChoice3(), 5.0);
+		AnchorPane.setTopAnchor(getRbChoice3(), MainApp.getScreenHeight()*0.40);
+		AnchorPane.setRightAnchor(getRbChoice3(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setTopAnchor(getRbChoice4(), 165.0);
-		AnchorPane.setRightAnchor(getRbChoice4(), 5.0);
+		AnchorPane.setTopAnchor(getRbChoice4(), MainApp.getScreenHeight()*0.45);
+		AnchorPane.setRightAnchor(getRbChoice4(), MainApp.getScreenWidth()*0.30);
 
-		AnchorPane.setBottomAnchor(getBtnOk(), 5.0);
-		AnchorPane.setRightAnchor(getBtnOk(), 5.0);
+		AnchorPane.setBottomAnchor(getBtnOk(), MainApp.getScreenHeight()*0.35);
+		AnchorPane.setRightAnchor(getBtnOk(), MainApp.getScreenWidth()*0.35);
 
-		AnchorPane.setTopAnchor(getTxtAuthor(), 5.0);
-		AnchorPane.setLeftAnchor(getTxtAuthor(), 5.0);
-		AnchorPane.setRightAnchor(getTxtAuthor(), 140.0);
+		AnchorPane.setTopAnchor(getTxtAuthor(),MainApp.getScreenHeight()*0.20);
+		AnchorPane.setLeftAnchor(getTxtAuthor(), MainApp.getScreenWidth()*0.30);
+		AnchorPane.setRightAnchor(getTxtAuthor(), MainApp.getScreenWidth()*0.40);
 
-		AnchorPane.setTopAnchor(getCbRound(), 5.0);
-		AnchorPane.setRightAnchor(getCbRound(), 5.0);
+		AnchorPane.setTopAnchor(getCbRound(), MainApp.getScreenHeight()*0.20);
+		AnchorPane.setRightAnchor(getCbRound(), MainApp.getScreenWidth()*0.30);
+		
+		AnchorPane.setBottomAnchor(getBtnBack(), MainApp.getScreenHeight()*0.02);
+		AnchorPane.setRightAnchor(getBtnBack(), MainApp.getScreenWidth()*0.02);
 
 	}
 
@@ -129,6 +136,7 @@ public class AddQuestion extends AnchorPane {
 		if (rbChoice1 == null) {
 			rbChoice1 = new RadioButton();
 			rbChoice1.setText("True");
+			rbChoice1.setStyle("-fx-text-fill: white;");
 		}
 		return rbChoice1;
 	}
@@ -137,6 +145,7 @@ public class AddQuestion extends AnchorPane {
 		if (rbChoice2 == null) {
 			rbChoice2 = new RadioButton();
 			rbChoice2.setText("True");
+			rbChoice2.setStyle("-fx-text-fill: white;");
 		}
 		return rbChoice2;
 	}
@@ -145,6 +154,7 @@ public class AddQuestion extends AnchorPane {
 		if (rbChoice3 == null) {
 			rbChoice3 = new RadioButton();
 			rbChoice3.setText("True");
+			rbChoice3.setStyle("-fx-text-fill: white;");
 		}
 		return rbChoice3;
 	}
@@ -153,6 +163,7 @@ public class AddQuestion extends AnchorPane {
 		if (rbChoice4 == null) {
 			rbChoice4 = new RadioButton();
 			rbChoice4.setText("True");
+			rbChoice4.setStyle("-fx-text-fill: white;");
 		}
 		return rbChoice4;
 	}
@@ -161,6 +172,11 @@ public class AddQuestion extends AnchorPane {
 		if (btnOk == null) {
 			btnOk = new Button();
 			btnOk.setText("Ok");
+			btnOk.setId("btnLogin");
+			btnOk.setMinHeight(80.);
+			btnOk.setMaxHeight(80.);
+			btnOk.setMinWidth(200.);
+			btnOk.setMaxWidth(200.);
 		}
 		return btnOk;
 	}
@@ -182,4 +198,22 @@ public class AddQuestion extends AnchorPane {
 		return cbRound;
 	}
 
+	public Button getBtnBack(){
+		if (btnBack == null) {
+			btnBack = new Button("Back to menu");
+			btnBack.setMinHeight(120.);
+			btnBack.setMaxHeight(120.);
+			btnBack.setMinWidth(400.);
+			btnBack.setMaxWidth(400.);
+			btnBack.setId("btnBack");
+			btnBack.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					MainApp.showWelcome();
+				}
+			});
+		}
+		return btnBack;
+	}
 }
