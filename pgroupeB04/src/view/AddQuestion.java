@@ -1,5 +1,10 @@
 package view;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import application.MainApp;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,7 +15,10 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import model.Deck;
+import model.Question;
 import model.Round;
+import serialisation.Serialisation;
 
 public class AddQuestion extends AnchorPane {
 
@@ -177,6 +185,66 @@ public class AddQuestion extends AnchorPane {
 			btnOk.setMaxHeight(80.);
 			btnOk.setMinWidth(200.);
 			btnOk.setMaxWidth(200.);
+			btnOk.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					String author = getTxtAuthor().getText();
+					 Round round = getCbRound().getValue();
+					 String statement = getTxtStatement().getText();
+					 Question qAdd = new Question(author, round, statement);
+					 boolean test;
+					 Map<String, Boolean> choices = new HashMap<>();
+					 
+					 for(int i =1;i<=4;i++) {
+						 if(i==1) {
+							 if(getRbChoice1().isSelected()) {
+								 test = true;
+							 }
+							 else {
+								 test=false;
+							 }
+							 qAdd.addChoice(getTxtChoice1().getText(), test);
+						 }
+						 else if(i==2) {
+							 if(getRbChoice2().isSelected()) {
+								 test = true;
+							 }
+							 else {
+								 test=false;
+							 }
+						 
+							 qAdd.addChoice(getTxtChoice2().getText(), test);
+						 }
+						 else if(i==3) {
+							 if(getRbChoice3().isSelected()) {
+								 test = true;
+							 }
+							 else {
+								 test=false;
+							 }
+							 
+							 qAdd.addChoice(getTxtChoice3().getText(), test);
+						 }
+						 else {
+							 if(getRbChoice4().isSelected()) {
+								 test = true;
+							 }
+							 else {
+								 test=false;
+							 }
+							 qAdd.addChoice(getTxtChoice4().getText(), test);
+						 }
+					 }
+					 Deck dAdd = new Deck();
+					 dAdd = Serialisation.readDeck();
+					 dAdd.addQuestion(qAdd);
+					 Serialisation.writeDeck(dAdd.toJson());
+					
+					 
+					
+				}
+			});
 		}
 		return btnOk;
 	}
