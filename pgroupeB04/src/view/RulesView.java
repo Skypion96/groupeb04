@@ -73,7 +73,7 @@ public class RulesView extends AnchorPane{
 	public Label getLblAnswerQuest() {
 		if(lblAnswerQuest == null) {
 			lblAnswerQuest = new Label("You will answer questions with four choices but only one is true.\n If it's correct you continue to play.\n "
-					+ "else the game stop and you keep the gains of the last bearing that you passed");
+					+ "If it's not, the game stop and you keep the gains of the last bearing that you passed.");
 			lblAnswerQuest.setId("lbl");
 		}
 		return lblAnswerQuest;
@@ -82,7 +82,7 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJ5050() {
 		if(lblJ5050 == null) {
-			lblJ5050 = new Label("                  Warning : only one use ! This joker remove two wrong answer of choices");
+			lblJ5050 = new Label("                  Warning : only one use ! This joker remove two wrong answers.");
 			lblJ5050.setId("lbl");
 		}
 		return lblJ5050;
