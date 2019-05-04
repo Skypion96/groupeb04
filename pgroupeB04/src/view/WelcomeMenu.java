@@ -101,6 +101,14 @@ public class WelcomeMenu extends AnchorPane {
 			btnHighScore.setMinWidth(300.);
 			btnHighScore.setMaxWidth(300.);
 			btnHighScore.setId("btnHighScore");
+			btnHighScore.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) {
+					MainApp.showTableView();
+					
+				}
+			});
 		}
 		return btnHighScore;
 	}

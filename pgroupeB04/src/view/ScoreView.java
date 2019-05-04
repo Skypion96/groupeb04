@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 
 public class ScoreView extends AnchorPane {
@@ -105,6 +107,7 @@ public class ScoreView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
+					MainApp.showRegistration();
 				}
 			});
 		}
@@ -114,4 +117,10 @@ public class ScoreView extends AnchorPane {
 	public void setWinnings(String winnings) {
 		moneyWon.setText(winnings);
 	}
+	
+	public String getWinnings(String winnings) {
+		return winnings;
+	}
+	
+	
 }

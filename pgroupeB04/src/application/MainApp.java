@@ -4,6 +4,7 @@ import java.net.URL;
 
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
@@ -18,9 +19,11 @@ import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
 import view.LoginAP;
+import view.Registration;
 import view.RulesView;
 import view.ScoreView;
 import view.Sound;
+import view.TableViewHighScore;
 import view.WelcomeMenu;
 
 public class MainApp extends Application {
@@ -40,6 +43,8 @@ public class MainApp extends Application {
 	private static ScoreView scV;
 	private static RulesView rlV;
 	private static LoginAP login;
+	private static TableViewHighScore tvHS;
+	private static Registration regist;
 	
 	private static Sound sound;
 
@@ -70,6 +75,8 @@ public class MainApp extends Application {
 			scV = new ScoreView();
 			rlV = new RulesView();
 			login = new LoginAP();
+			tvHS = new TableViewHighScore();
+			regist = new Registration();
 
 			// Style for panes
 			URL urlBackGround = getClass().getResource("/backgroundMenu.jpg");
@@ -91,6 +98,8 @@ public class MainApp extends Application {
 			scV.setStyle(backgroundStyle);
 			login.setStyle(backgroundStyle2);
 			addQ.setStyle(backgroundStyle2);
+			tvHS.setStyle(backgroundStyle);
+			regist.setStyle(backgroundStyle);
 
 			// Setting welM as ROOT
 			scene.setRoot(welM);
@@ -130,6 +139,14 @@ public class MainApp extends Application {
 		scene.setRoot(scV);
 	}
 
+	public static void showTableView() {
+		scene.setRoot(tvHS);
+	}
+	
+	public static void showRegistration() {
+		scene.setRoot(regist);
+	}
+	
 	// Exit the Game (Closes the app)
 	public static void exitFrame() {
 		primaryStage.close();
