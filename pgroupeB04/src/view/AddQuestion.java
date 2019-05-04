@@ -179,7 +179,7 @@ public class AddQuestion extends AnchorPane {
 	public Button getBtnOk() {
 		if (btnOk == null) {
 			btnOk = new Button();
-			btnOk.setText("Ok");
+			btnOk.setText("ADD");
 			btnOk.setId("btnLogin");
 			btnOk.setMinHeight(80.);
 			btnOk.setMaxHeight(80.);
