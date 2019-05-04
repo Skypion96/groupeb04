@@ -116,6 +116,16 @@
 	-fx-border-width: 5.0px;
 }
 
+#pseudo{
+	-fx-font-size: 50.0px;
+	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
+	-fx-background-color: #9800AA;
+	-fx-text-fill:  orange;
+	-fx-alignment: center;
+	-fx-border-color: orange;
+	-fx-border-width: 2.0px;
+}
+
 #lblCongratulation{
 	-fx-font-size: 100.0px;
 	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";

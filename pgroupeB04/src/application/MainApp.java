@@ -169,9 +169,19 @@ public class MainApp extends Application {
 		return gameView;
 	}
 	
+	// Getter for the TableViewHighScore
+	public static TableViewHighScore getTableViewHighScore() {
+		return tvHS;
+	}
+	
 	// Getter for ScoreView
 	public static ScoreView getScv() {
 		return scV;
+	}
+	
+	// Getter for Registration
+	public static Registration getRg() {
+		return regist;
 	}
 
 	public static Sound getSound() {

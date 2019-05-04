@@ -18,6 +18,8 @@ public class ScoreView extends AnchorPane {
 
 	private Button btnBack;
 	private Button btnSave;
+	
+	private String win;
 
 	public ScoreView() {
 
@@ -107,6 +109,7 @@ public class ScoreView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
+					MainApp.getRg().setWinnings(win);
 					MainApp.showRegistration();
 				}
 			});
@@ -116,11 +119,7 @@ public class ScoreView extends AnchorPane {
 	
 	public void setWinnings(String winnings) {
 		moneyWon.setText(winnings);
+		win = winnings;
 	}
-	
-	public String getWinnings(String winnings) {
-		return winnings;
-	}
-	
 	
 }

@@ -8,30 +8,39 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import model.Pseudo;
+import model.ScoreList;
+import serialisation.Serialisation;
 
 public class TableViewHighScore extends BorderPane{
 	
-	private TableView<String> tvScores;
+	private TableView<Pseudo> tvScores;
 	
 	private Button btnBack;
+	
+	private ScoreList scorel = new ScoreList();
 
 	public TableViewHighScore() {
 		super();
 		this.setCenter(getTvScores());
 		this.setBottom(getBtnBack());
+		this.scorel = Serialisation.readScore();
+		
 	}
 
-	public TableView<String> getTvScores() {
+	public TableView<Pseudo> getTvScores() {
 		if(tvScores==null) {
-			tvScores = new TableView<String>();
-			tvScores.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-			TableColumn<String, Integer> colName = new TableColumn<>("Name");
-			TableColumn<String, Integer> colScore = new TableColumn<>("Score");
 			
-			colName.setCellValueFactory(new PropertyValueFactory<String, Integer>("Name"));
-			colScore.setCellValueFactory(new PropertyValueFactory<String, Integer>("Score"));
+			tvScores = new TableView<Pseudo>();
+			tvScores.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+			TableColumn<Pseudo, String> colName = new TableColumn<>("Name");
+			TableColumn<Pseudo, String> colScore = new TableColumn<>("Score");
+			
+			colName.setCellValueFactory(new PropertyValueFactory<Pseudo, String>("name"));
+			colScore.setCellValueFactory(new PropertyValueFactory<Pseudo, String>("score"));
 			
 			tvScores.getColumns().addAll(colName, colScore);
+			
 		}
 		return tvScores;
 	}
@@ -51,4 +60,9 @@ public class TableViewHighScore extends BorderPane{
 		return btnBack;
 	}
 
+	public ScoreList getScorel() {
+		return scorel;
+	}
+
+	
 }
