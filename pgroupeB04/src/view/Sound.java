@@ -16,8 +16,8 @@ public class Sound {
 		super();
 		music = new Media(getClass().getResource("/MenuPrinc.wav").toString());
 		musicPlayer = new MediaPlayer(music);
-		//musicGame = new Media(getClass().getResource("/gameSound.wav").toString());
-		//musicPlayerGame = new MediaPlayer(musicGame);
+		musicGame = new Media(getClass().getResource("/gameSound.wav").toString());
+		musicPlayerGame = new MediaPlayer(musicGame);
 	}
 	
 	public void playSound() {

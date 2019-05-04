@@ -20,6 +20,7 @@ public class WelcomeMenu extends AnchorPane {
 	private ImageView logo;
 	private Button sound;
 	private Button login;
+	private Sound nextSound;
 
 	public WelcomeMenu() {
 		this.setPadding(new Insets(10));
@@ -62,6 +63,9 @@ public class WelcomeMenu extends AnchorPane {
 				public void handle(ActionEvent event) {
 					MainApp.showGame();
 					MainApp.getGameView().newGame();
+					nextSound = new Sound();
+					nextSound.stopPlaySound();
+					nextSound.playSoundGame();
 				}
 			});
 		}
