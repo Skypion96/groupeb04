@@ -72,6 +72,7 @@ public class GameView extends AnchorPane {
 	private Button btnLeave;
 
 	private Timeline tlTimer;
+	
 
 	public GameView() {
 		this.setPadding(new Insets(10));
@@ -294,6 +295,7 @@ public class GameView extends AnchorPane {
 		anchorWinnings = "0€";
 		setTimer();
 		tlTimer.play();
+		
 	}
 
 	// Getter for the current game
