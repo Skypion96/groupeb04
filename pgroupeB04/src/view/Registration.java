@@ -1,7 +1,5 @@
 package view;
 
-import javax.sql.rowset.serial.SerialStruct;
-
 import application.MainApp;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -101,7 +99,6 @@ public class Registration extends AnchorPane{
 						MainApp.getTableViewHighScore().getScorel().add(ps);
 						Serialisation.writeScore(MainApp.getTableViewHighScore().getScorel().toJson());
 						MainApp.showWelcome();
-					
 					
 				}
 			});

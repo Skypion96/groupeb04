@@ -1,6 +1,8 @@
 package view;
 
 import application.MainApp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -22,14 +24,16 @@ public class TableViewHighScore extends BorderPane{
 
 	public TableViewHighScore() {
 		super();
-		this.setCenter(getTvScores());
-		this.setBottom(getBtnBack());
 		this.scorel = Serialisation.readScore();
-		
+		this.setCenter(getTvScores());
+		this.setBottom(getBtnBack());	
 	}
 
 	public TableView<Pseudo> getTvScores() {
 		if(tvScores==null) {
+			
+			ObservableList<Pseudo> data = FXCollections.observableArrayList();
+			data.addAll(scorel.getScoreList());
 			
 			tvScores = new TableView<Pseudo>();
 			tvScores.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -41,6 +45,7 @@ public class TableViewHighScore extends BorderPane{
 			
 			tvScores.getColumns().addAll(colName, colScore);
 			
+			tvScores.setItems(data);			
 		}
 		return tvScores;
 	}
