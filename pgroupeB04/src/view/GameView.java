@@ -71,14 +71,21 @@ public class GameView extends AnchorPane {
 
 	private Button btnLeave;
 
+	private VBox vbConfirm;
+	private Button btnConfirmYes;
+	private Button btnConfirmNo;
+
+	private VBox vbLeave;
+	private Button btnLeaveYes;
+	private Button btnLeaveNo;
+
 	private Timeline tlTimer;
-	
 
 	public GameView() {
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblStatement(), getBtnChoice1(), getBtnChoice2(), getBtnChoice3(), getBtnChoice4(),
 				getVbLevels(), getJ5050(), getJCall(), getJAudience(), getHJAudience(), getLblCall(), getBtnLeave(),
-				getLblTimer());
+				getLblTimer(), getVbConfirm(), getVbLeave());
 
 		buttonList.addAll(Arrays.asList(btnChoice1, btnChoice2, btnChoice3, btnChoice4));
 
@@ -121,18 +128,24 @@ public class GameView extends AnchorPane {
 		AnchorPane.setBottomAnchor(getBtnLeave(), MainApp.getScreenHeight() * 0.02);
 		AnchorPane.setRightAnchor(getBtnLeave(), MainApp.getScreenWidth() * 0.02);
 
-		// TODO A mettre en forme
 		AnchorPane.setTopAnchor(getHJAudience(), MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(getHJAudience(), MainApp.getScreenWidth() * 0.35);
 		AnchorPane.setRightAnchor(getHJAudience(), MainApp.getScreenWidth() * 0.35);
 
-
 		AnchorPane.setTopAnchor(getLblCall(), MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(getLblCall(), MainApp.getScreenWidth() * 0.4);
 		AnchorPane.setRightAnchor(getLblCall(), MainApp.getScreenWidth() * 0.4);
-		
+
 		AnchorPane.setTopAnchor(getLblTimer(), MainApp.getScreenHeight() * 0.1);
 		AnchorPane.setLeftAnchor(getLblTimer(), MainApp.getScreenWidth() * 0.02);
+
+		AnchorPane.setTopAnchor(getVbConfirm(), MainApp.getScreenHeight() * 0.30);
+		AnchorPane.setLeftAnchor(getVbConfirm(), MainApp.getScreenWidth() * 0.35);
+		AnchorPane.setRightAnchor(getVbConfirm(), MainApp.getScreenWidth() * 0.35);
+		
+		AnchorPane.setTopAnchor(getVbLeave(), MainApp.getScreenHeight() * 0.30);
+		AnchorPane.setLeftAnchor(getVbLeave(), MainApp.getScreenWidth() * 0.35);
+		AnchorPane.setRightAnchor(getVbLeave(), MainApp.getScreenWidth() * 0.35);
 
 	}
 
@@ -163,7 +176,7 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					buttonClick(0);
+					confirmChoice(0);
 				}
 			});
 		}
@@ -183,7 +196,7 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					buttonClick(1);
+					confirmChoice(1);
 				}
 			});
 		}
@@ -203,7 +216,7 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					buttonClick(2);
+					confirmChoice(2);
 				}
 			});
 
@@ -219,12 +232,12 @@ public class GameView extends AnchorPane {
 			btnChoice4.setMinHeight(100);
 			btnChoice4.setWrapText(true);
 			btnChoice4.setTextAlignment(TextAlignment.CENTER);
-			
+
 			btnChoice4.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override
 				public void handle(ActionEvent event) {
-					buttonClick(3);
+					confirmChoice(3);
 				}
 			});
 
@@ -295,7 +308,9 @@ public class GameView extends AnchorPane {
 		anchorWinnings = "0€";
 		setTimer();
 		tlTimer.play();
-		
+		vbConfirm.setVisible(false);
+		vbLeave.setVisible(false);
+
 	}
 
 	// Getter for the current game
@@ -306,31 +321,78 @@ public class GameView extends AnchorPane {
 	// Action when clicking a button then tests if it is the correct answer
 	// Setting the background of the chosen answer orange for the "suspense"
 	public void buttonClick(int n) {
-		if (canSelect) {
-			tlTimer.stop();
-			canSelect = false;
-			Timeline orange = new Timeline(
+		tlTimer.stop();
+		Timeline orange = new Timeline(
 
-					new KeyFrame(Duration.seconds(0.01), e -> {
-						// use "flash" color
-						buttonList.get(n).setStyle("-fx-background-color:#FF8C00");
-					}),
+				new KeyFrame(Duration.seconds(0.01), e -> {
+					// use "flash" color
+					buttonList.get(n).setStyle("-fx-background-color:#FF8C00");
+				}),
 
-					new KeyFrame(Duration.seconds(3), e -> {
-						// wait
-					})
+				new KeyFrame(Duration.seconds(3), e -> {
+					// wait
+				})
 
-			);
-			orange.setCycleCount(1);
-			orange.play();
+		);
+		orange.setCycleCount(1);
+		orange.play();
 
-			if (game.isAnswerCorrect(n)) {
-				orange.setOnFinished(e -> correctChoice(n));
-			} else {
-				orange.setOnFinished(e -> wrongChoice(n));
-			}
+		if (game.isAnswerCorrect(n)) {
+			orange.setOnFinished(e -> correctChoice(n));
+		} else {
+			orange.setOnFinished(e -> wrongChoice(n));
 		}
+	}
 
+	public void confirmChoice(int n) {
+		if (canSelect) {
+			canSelect = false;
+			getVbConfirm().setVisible(true);
+			btnConfirmYes.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					buttonClick(n);
+					vbConfirm.setVisible(false);
+				}
+			});
+			btnConfirmNo.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					vbConfirm.setVisible(false);
+					canSelect = true;
+
+				}
+			});
+
+		}
+	}
+
+	public void confirmLeave() {
+		if (canSelect) {
+			canSelect = false;
+			getVbLeave().setVisible(true);
+			btnLeaveYes.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					vbLeave.setVisible(false);
+					tlTimer.stop();
+					MainApp.getScv().setWinnings(actualWinnings);
+					MainApp.showScoreView();
+				}
+			});
+			btnLeaveNo.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					vbLeave.setVisible(false);
+					canSelect = true;
+
+				}
+			});
+		}
 	}
 
 	// Setting the background of the chosen answer blinking green as it is the
@@ -435,30 +497,32 @@ public class GameView extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 
-					game.setStrategy(new J5050Strategy());
+					if (canSelect) {
+						game.setStrategy(new J5050Strategy());
 
-					List<String> use = new ArrayList<>();
-					getGame().useJoker();
-					use = getGame().getCurrentAnswers();
-					for (int i = 0; i < use.size(); i++) {
-						if (getBtnChoice1().getText() == use.get(i)) {
-							getBtnChoice1().setText("");
-							getBtnChoice1().setDisable(true);
-						} else if (getBtnChoice2().getText() == use.get(i)) {
-							getBtnChoice2().setText("");
-							getBtnChoice2().setDisable(true);
-						} else if (getBtnChoice3().getText() == use.get(i)) {
-							getBtnChoice3().setText("");
-							getBtnChoice3().setDisable(true);
-						} else if (getBtnChoice4().getText() == use.get(i)) {
-							getBtnChoice4().setText("");
-							getBtnChoice4().setDisable(true);
+						List<String> use = new ArrayList<>();
+						getGame().useJoker();
+						use = getGame().getCurrentAnswers();
+						for (int i = 0; i < use.size(); i++) {
+							if (getBtnChoice1().getText() == use.get(i)) {
+								getBtnChoice1().setText("");
+								getBtnChoice1().setDisable(true);
+							} else if (getBtnChoice2().getText() == use.get(i)) {
+								getBtnChoice2().setText("");
+								getBtnChoice2().setDisable(true);
+							} else if (getBtnChoice3().getText() == use.get(i)) {
+								getBtnChoice3().setText("");
+								getBtnChoice3().setDisable(true);
+							} else if (getBtnChoice4().getText() == use.get(i)) {
+								getBtnChoice4().setText("");
+								getBtnChoice4().setDisable(true);
+							}
+							if (i > 1) {
+								break;
+							}
 						}
-						if (i > 1) {
-							break;
-						}
+						getJ5050().setDisable(true);
 					}
-					getJ5050().setDisable(true);
 				}
 
 			});
@@ -482,40 +546,42 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					game.setStrategy(new JAudienceStrategy());
-					List<Integer> vote = new ArrayList<>();
-					int indexCorrect = game.getCorrectAnswer();
-					game.useJoker();
-					vote = game.getRandomJoker();
-					
-					if (indexCorrect == 0) {
+					if (canSelect) {
+						game.setStrategy(new JAudienceStrategy());
+						List<Integer> vote = new ArrayList<>();
+						int indexCorrect = game.getCorrectAnswer();
+						game.useJoker();
+						vote = game.getRandomJoker();
+
+						if (indexCorrect == 0) {
+							getHJAudience().setVisible(true);
+							getLblAudience1().setText(" A : " + vote.get(0) + "%");
+							getLblAudience2().setText(" B : " + vote.get(1) + "%");
+							getLblAudience3().setText(" C : " + vote.get(2) + "%");
+							getLblAudience4().setText(" D : " + vote.get(3) + "%");
+						} else if (indexCorrect == 1) {
+							getHJAudience().setVisible(true);
+							getLblAudience2().setText(" B : " + vote.get(0) + "%");
+							getLblAudience1().setText(" A : " + vote.get(1) + "%");
+							getLblAudience3().setText(" C : " + vote.get(2) + "%");
+							getLblAudience4().setText(" D : " + vote.get(3) + "%");
+						} else if (indexCorrect == 2) {
+							getHJAudience().setVisible(true);
+							getLblAudience3().setText(" C : " + vote.get(0) + "%");
+							getLblAudience2().setText(" B : " + vote.get(1) + "%");
+							getLblAudience1().setText(" A : " + vote.get(2) + "%");
+							getLblAudience4().setText(" D : " + vote.get(3) + "%");
+						} else if (indexCorrect == 3) {
+							getHJAudience().setVisible(true);
+							getLblAudience4().setText(" D : " + vote.get(0) + "%");
+							getLblAudience2().setText(" B : " + vote.get(1) + "%");
+							getLblAudience3().setText(" C : " + vote.get(2) + "%");
+							getLblAudience1().setText(" A : " + vote.get(3) + "%");
+						}
+						jAudience.setDisable(true);
 						getHJAudience().setVisible(true);
-						getLblAudience1().setText(" A : " + vote.get(0) + "%");
-						getLblAudience2().setText(" B : " + vote.get(1) + "%");
-						getLblAudience3().setText(" C : " + vote.get(2) + "%");
-						getLblAudience4().setText(" D : " + vote.get(3) + "%");
-					} else if (indexCorrect == 1) {
-						getHJAudience().setVisible(true);
-						getLblAudience2().setText(" B : " + vote.get(0) + "%");
-						getLblAudience1().setText(" A : " + vote.get(1) + "%");
-						getLblAudience3().setText(" C : " + vote.get(2) + "%");
-						getLblAudience4().setText(" D : " + vote.get(3) + "%");
-					} else if (indexCorrect == 2) {
-						getHJAudience().setVisible(true);
-						getLblAudience3().setText(" C : " + vote.get(0) + "%");
-						getLblAudience2().setText(" B : " + vote.get(1) + "%");
-						getLblAudience1().setText(" A : " + vote.get(2) + "%");
-						getLblAudience4().setText(" D : " + vote.get(3) + "%");
-					} else if (indexCorrect == 3) {
-						getHJAudience().setVisible(true);
-						getLblAudience4().setText(" D : " + vote.get(0) + "%");
-						getLblAudience2().setText(" B : " + vote.get(1) + "%");
-						getLblAudience3().setText(" C : " + vote.get(2) + "%");
-						getLblAudience1().setText(" A : " + vote.get(3) + "%");
+						getLblCall().setVisible(false);
 					}
-					jAudience.setDisable(true);
-					getHJAudience().setVisible(true);
-					getLblCall().setVisible(false);
 				}
 			});
 		}
@@ -538,26 +604,28 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					game.setStrategy(new JCallStrategy());
-					getGame().useJoker();
-					getLblCall().setVisible(true);
-					List<String> answers = new ArrayList<>();
-					answers = getGame().getCurrentAnswers();
-					int correct = getGame().getCorrectAnswer();
+					if (canSelect) {
+						game.setStrategy(new JCallStrategy());
+						getGame().useJoker();
+						getLblCall().setVisible(true);
+						List<String> answers = new ArrayList<>();
+						answers = getGame().getCurrentAnswers();
+						int correct = getGame().getCorrectAnswer();
 
-					String lblTxt = getGame().getrCall();
-					if (lblTxt == "I really don't know the answer. Sorry.") {
-						getLblCall().setText(lblTxt);
-					} else if (lblTxt == "I'm not sure but i think it's ") {
-						Random rand = new Random();
-						int ind = rand.nextInt(3 - 0 + 1);
-						getLblCall().setText(lblTxt + answers.get(ind));
-					} else if (lblTxt == "I'm sure that the answer is ") {
-						getLblCall().setText(lblTxt + answers.get(correct));
+						String lblTxt = getGame().getrCall();
+						if (lblTxt == "I really don't know the answer. Sorry.") {
+							getLblCall().setText(lblTxt);
+						} else if (lblTxt == "I'm not sure but i think it's ") {
+							Random rand = new Random();
+							int ind = rand.nextInt(3 - 0 + 1);
+							getLblCall().setText(lblTxt + answers.get(ind));
+						} else if (lblTxt == "I'm sure that the answer is ") {
+							getLblCall().setText(lblTxt + answers.get(correct));
+						}
+						jCall.setDisable(true);
+						getHJAudience().setVisible(false);
+						getLblCall().setVisible(true);
 					}
-					jCall.setDisable(true);
-					getHJAudience().setVisible(false);
-					getLblCall().setVisible(true);
 				}
 			});
 		}
@@ -646,11 +714,7 @@ public class GameView extends AnchorPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-					if(canSelect) {
-						tlTimer.stop();
-						MainApp.getScv().setWinnings(actualWinnings);
-						MainApp.showScoreView();
-					}	
+					confirmLeave();
 				}
 			});
 		}
@@ -701,6 +765,38 @@ public class GameView extends AnchorPane {
 
 			}
 		});
+	}
+
+	public VBox getVbConfirm() {
+		if (vbConfirm == null) {
+			vbConfirm = new VBox();
+			vbConfirm.setStyle("-fx-background-color: #9800AA;");
+			vbConfirm.setAlignment(Pos.CENTER);
+			Label labelConfirm = new Label("Are you sure about that choice ?");
+			HBox hbConfirm = new HBox();
+			hbConfirm.setAlignment(Pos.CENTER);
+			btnConfirmYes = new Button("Yes");
+			btnConfirmNo = new Button("No");
+			hbConfirm.getChildren().addAll(btnConfirmYes, btnConfirmNo);
+			vbConfirm.getChildren().addAll(labelConfirm, hbConfirm);
+		}
+		return vbConfirm;
+	}
+
+	public VBox getVbLeave() {
+		if (vbLeave == null) {
+			vbLeave = new VBox();
+			vbLeave.setStyle("-fx-background-color: #9800AA;");
+			vbLeave.setAlignment(Pos.CENTER);
+			Label labelLeave = new Label("Are you sure you want to leave ?");
+			HBox hbLeave = new HBox();
+			hbLeave.setAlignment(Pos.CENTER);
+			btnLeaveYes = new Button("Yes");
+			btnLeaveNo = new Button("No");
+			hbLeave.getChildren().addAll(btnLeaveYes, btnLeaveNo);
+			vbLeave.getChildren().addAll(labelLeave, hbLeave);
+		}
+		return vbLeave;
 	}
 
 }
