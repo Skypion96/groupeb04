@@ -63,8 +63,7 @@ public class WelcomeMenu extends AnchorPane {
 				public void handle(ActionEvent event) {
 					MainApp.showGame();
 					MainApp.getGameView().newGame();
-					nextSound = new Sound();
-					nextSound.playSoundGame();
+					MainApp.getSound().playSoundGame();
 				}
 			});
 		}
