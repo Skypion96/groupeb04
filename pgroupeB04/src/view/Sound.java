@@ -27,6 +27,7 @@ public class Sound {
 	}
 	
 	public void playSoundGame() {
+		musicPlayer.stop();
 		musicPlayerGame.setVolume(volume);
 		//musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayerGame.play();
@@ -40,6 +41,7 @@ public class Sound {
 	public void setVolume(double volume) {
 		this.volume = volume;
 		musicPlayer.setVolume(volume);
+		musicPlayerGame.setVolume(volume);
 	}
 
 	public double getVolume() {
