@@ -770,14 +770,18 @@ public class GameView extends AnchorPane {
 	public VBox getVbConfirm() {
 		if (vbConfirm == null) {
 			vbConfirm = new VBox();
-			vbConfirm.setStyle("-fx-background-color: #9800AA;");
+			vbConfirm.setStyle("-fx-background-color: #9800AA; -fx-border-color: #4D006C; -fx-border-width: 4px;");
 			vbConfirm.setAlignment(Pos.CENTER);
 			Label labelConfirm = new Label("Are you sure about that choice ?");
+			labelConfirm.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
 			HBox hbConfirm = new HBox();
 			hbConfirm.setAlignment(Pos.CENTER);
 			btnConfirmYes = new Button("Yes");
+			btnConfirmYes.setStyle("-fx-background-color: #4D006C; -fx-text-fill: white; -fx-font-size: 20px;");
 			btnConfirmNo = new Button("No");
+			btnConfirmNo.setStyle("-fx-background-color: #4D006C; -fx-text-fill: white; -fx-font-size: 20px;");
 			hbConfirm.getChildren().addAll(btnConfirmYes, btnConfirmNo);
+			hbConfirm.setSpacing(10);
 			vbConfirm.getChildren().addAll(labelConfirm, hbConfirm);
 		}
 		return vbConfirm;
@@ -786,14 +790,18 @@ public class GameView extends AnchorPane {
 	public VBox getVbLeave() {
 		if (vbLeave == null) {
 			vbLeave = new VBox();
-			vbLeave.setStyle("-fx-background-color: #9800AA;");
+			vbLeave.setStyle("-fx-background-color: #9800AA; -fx-border-color: #4D006C; -fx-border-width: 4px;");
 			vbLeave.setAlignment(Pos.CENTER);
 			Label labelLeave = new Label("Are you sure you want to leave ?");
+			labelLeave.setStyle("-fx-text-fill: white; -fx-font-size: 20px;");
 			HBox hbLeave = new HBox();
 			hbLeave.setAlignment(Pos.CENTER);
 			btnLeaveYes = new Button("Yes");
+			btnLeaveYes.setStyle("-fx-background-color: #4D006C; -fx-text-fill: white; -fx-font-size: 20px;");
 			btnLeaveNo = new Button("No");
+			btnLeaveNo.setStyle("-fx-background-color: #4D006C; -fx-text-fill: white; -fx-font-size: 20px;");
 			hbLeave.getChildren().addAll(btnLeaveYes, btnLeaveNo);
+			hbLeave.setSpacing(10);
 			vbLeave.getChildren().addAll(labelLeave, hbLeave);
 		}
 		return vbLeave;
