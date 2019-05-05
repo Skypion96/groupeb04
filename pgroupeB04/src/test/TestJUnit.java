@@ -43,6 +43,8 @@ class TestJUnit {
 		q3 = null;
 		d = null;
 		g = null;
+		ps = null;
+		scorel = null;
 	}
 
 	// Test clone method
@@ -276,6 +278,27 @@ class TestJUnit {
 	void pseudoSetScore() {
 		ps.setScore("1000€");
 		System.out.println(ps.getScore());
+	}
+	
+	@Test
+	void toJsonScorel() {
+		System.out.println(scorel.toJson());
+	}
+	
+	@Test
+	void fromJsonScorel() {
+		scorel = ScoreList.fromJson(scorel.toJson());
+	}
+	
+	@Test
+	void addPseudo() {
+		scorel.add(ps);
+	}
+	
+	@Test
+	void getScoreList() {
+		scorel.add(ps);
+		System.out.println(scorel.getScoreList());
 	}
 
 }
