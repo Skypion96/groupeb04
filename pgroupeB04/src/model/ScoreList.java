@@ -30,9 +30,4 @@ public class ScoreList {
 	public List<Pseudo> getScoreList() {
 		return scoreList;
 	}
-
-	@Override
-	public String toString() {
-		return "ScoreList [scoreList=" + scoreList + "]";
-	}
 }

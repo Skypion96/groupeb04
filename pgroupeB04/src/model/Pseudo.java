@@ -1,7 +1,5 @@
 package model;
 
-import com.google.gson.Gson;
-
 public class Pseudo {
 
 	private String name;
@@ -19,11 +17,6 @@ public class Pseudo {
 
 	public String getScore() {
 		return score;
-	}
-
-	@Override
-	public String toString() {
-		return "Pseudo [name=" + name + ", gain=" + score + "]";
 	}
 
 	public void setName(String name) {

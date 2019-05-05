@@ -88,21 +88,10 @@ public class Question {
 
 	public boolean isValid() {
 
-		if (choices.size() != 4) {
-			return false;
+		if (choices.size() == 4) {
+			return true;
 		}
-
-		int nbTrue = 0;
-		for (Map.Entry<String, Boolean> mapEntry : choices.entrySet()) {
-			if (mapEntry.getValue() == true) {
-				nbTrue++;
-				;
-			}
-		}
-		if (nbTrue != 1) {
-			return false;
-		}
-		return true;
+		return false;
 	}
 
 	public Map<String, Boolean> getChoices() {
