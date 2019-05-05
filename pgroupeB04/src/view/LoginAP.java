@@ -95,7 +95,7 @@ public class LoginAP extends AnchorPane{
 				
 				@Override
 				public void handle(ActionEvent event) {
-					if(txtLogin.getText().contentEquals("admin") && pwdPassword.getText().contentEquals("admin")) {
+					if(txtLogin.getText().contentEquals("admin") && pwdPassword.getText().contentEquals("helha")) {
 						MainApp.showAddQuestion();
 					
 					}
