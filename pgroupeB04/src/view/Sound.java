@@ -27,20 +27,21 @@ public class Sound {
 	public void playSound() {
 		musicPlayerWon.stop();
 		musicPlayer.setVolume(volume);
-		//musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
+		musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayer.play();
 	}
 	
 	public void playSoundGame() {
 		musicPlayer.stop();
 		musicPlayerGame.setVolume(volume);
-		//musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
+		musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayerGame.play();
 	}
 	
 	public void playSoundWon() {
 		musicPlayerGame.stop();
 		musicPlayerWon.setVolume(volume);
+		musicPlayerWon.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayerWon.play();
 	}
 	
