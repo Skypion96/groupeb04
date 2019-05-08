@@ -11,6 +11,8 @@ public class Sound {
 	private MediaPlayer musicPlayer;
 	private Media musicGame;
 	private MediaPlayer musicPlayerGame;
+	private Media musicWon;
+	private MediaPlayer musicPlayerWon;
 	
 	public Sound() {
 		super();
@@ -18,9 +20,12 @@ public class Sound {
 		musicPlayer = new MediaPlayer(music);
 		musicGame = new Media(getClass().getResource("/gameSound.wav").toString());
 		musicPlayerGame = new MediaPlayer(musicGame);
+		musicWon = new Media(getClass().getResource("/winSound.wav").toString());
+		musicPlayerWon = new MediaPlayer(musicWon);
 	}
 	
 	public void playSound() {
+		musicPlayerWon.stop();
 		musicPlayer.setVolume(volume);
 		//musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayer.play();
@@ -31,6 +36,12 @@ public class Sound {
 		musicPlayerGame.setVolume(volume);
 		//musicPlayerGame.setCycleCount(MediaPlayer.INDEFINITE);
 		musicPlayerGame.play();
+	}
+	
+	public void playSoundWon() {
+		musicPlayerGame.stop();
+		musicPlayerWon.setVolume(volume);
+		musicPlayerWon.play();
 	}
 	
 	public void stopPlaySound() {

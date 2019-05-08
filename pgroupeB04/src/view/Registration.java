@@ -80,6 +80,7 @@ public class Registration extends AnchorPane{
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.showWelcome();
+					MainApp.getSound().playSound();
 				}
 			});
 		}
@@ -99,6 +100,7 @@ public class Registration extends AnchorPane{
 						MainApp.getTableViewHighScore().getScorel().add(ps);
 						Serialisation.writeScore(MainApp.getTableViewHighScore().getScorel().toJson());
 						MainApp.showWelcome();
+						MainApp.getSound().playSound();
 					
 				}
 			});

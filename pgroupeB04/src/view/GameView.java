@@ -381,6 +381,7 @@ public class GameView extends AnchorPane {
 					tlTimer.stop();
 					MainApp.getScv().setWinnings(actualWinnings);
 					MainApp.showScoreView();
+					MainApp.getSound().playSoundWon();
 				}
 			});
 			btnLeaveNo.setOnAction(new EventHandler<ActionEvent>() {

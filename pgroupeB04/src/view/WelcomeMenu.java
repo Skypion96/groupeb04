@@ -20,7 +20,6 @@ public class WelcomeMenu extends AnchorPane {
 	private ImageView logo;
 	private Button sound;
 	private Button login;
-	private Sound nextSound;
 
 	public WelcomeMenu() {
 		this.setPadding(new Insets(10));

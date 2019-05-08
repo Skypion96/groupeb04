@@ -20,6 +20,7 @@ public class ScoreView extends AnchorPane {
 	private Button btnSave;
 	
 	private String win;
+	
 
 	public ScoreView() {
 
@@ -91,6 +92,7 @@ public class ScoreView extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 					MainApp.showWelcome();
+					MainApp.getSound().playSound();
 				}
 			});
 		}
