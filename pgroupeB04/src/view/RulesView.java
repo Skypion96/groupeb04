@@ -28,32 +28,32 @@ public class RulesView extends AnchorPane{
 		this.setPadding(new Insets(10));
 		this.getChildren().addAll(getLblTitle(),getLblAnswerQuest(),getLblJ5050(),getLblJCall(),getLblJPublic(),getImgJ5050(),getImgJCall(),getImgJPublic(),getBtnBack());
 
-		AnchorPane.setTopAnchor(getLblTitle(), 100.0);
-		AnchorPane.setLeftAnchor(getLblTitle(), 100.0);
+		AnchorPane.setTopAnchor(getLblTitle(), MainApp.getScreenHeight()*0.05);
+		AnchorPane.setLeftAnchor(getLblTitle(), MainApp.getScreenWidth()*0.05);
 		
-		AnchorPane.setTopAnchor(getLblAnswerQuest(), 200.0);
-		AnchorPane.setLeftAnchor(getLblAnswerQuest(), 100.0);
+		AnchorPane.setTopAnchor(getLblAnswerQuest(), MainApp.getScreenHeight()*0.15);
+		AnchorPane.setLeftAnchor(getLblAnswerQuest(), MainApp.getScreenWidth()*0.01);
 
-		AnchorPane.setTopAnchor(getLblJ5050(), 450.0);
-		AnchorPane.setLeftAnchor(getLblJ5050(), 100.0);
+		AnchorPane.setTopAnchor(getLblJ5050(), MainApp.getScreenHeight()*0.35);
+		AnchorPane.setLeftAnchor(getLblJ5050(), MainApp.getScreenWidth()*0.10);
 
-		AnchorPane.setBottomAnchor(getLblJCall(), 250.0);
-		AnchorPane.setLeftAnchor(getLblJCall(), 100.0);
+		AnchorPane.setBottomAnchor(getLblJCall(), MainApp.getScreenHeight()*0.30);
+		AnchorPane.setLeftAnchor(getLblJCall(), MainApp.getScreenWidth()*0.10);
 
-		AnchorPane.setBottomAnchor(getLblJPublic(), 150.0);
-		AnchorPane.setLeftAnchor(getLblJPublic(), 100.0);
+		AnchorPane.setBottomAnchor(getLblJPublic(), MainApp.getScreenHeight()*0.20);
+		AnchorPane.setLeftAnchor(getLblJPublic(), MainApp.getScreenWidth()*0.10);
 
-		AnchorPane.setTopAnchor(getImgJ5050(), 350.0);
-		AnchorPane.setLeftAnchor(getImgJ5050(), 0.0);
+		AnchorPane.setTopAnchor(getImgJ5050(), MainApp.getScreenHeight()*0.25);
+		AnchorPane.setLeftAnchor(getImgJ5050(), MainApp.getScreenWidth()*0.01);
 		
-		AnchorPane.setBottomAnchor(getImgJCall(), 250.0);
-		AnchorPane.setLeftAnchor(getImgJCall(), 0.0);
+		AnchorPane.setBottomAnchor(getImgJCall(), MainApp.getScreenHeight()*0.30);
+		AnchorPane.setLeftAnchor(getImgJCall(), MainApp.getScreenWidth()*0.01);
 		
-		AnchorPane.setBottomAnchor(getImgJPublic(), 50.0);
-		AnchorPane.setLeftAnchor(getImgJPublic(), 0.0);
+		AnchorPane.setBottomAnchor(getImgJPublic(), MainApp.getScreenHeight()*0.10);
+		AnchorPane.setLeftAnchor(getImgJPublic(), MainApp.getScreenWidth()*0.01);
 		
 		AnchorPane.setBottomAnchor(getBtnBack(), MainApp.getScreenHeight()*0.02);
-		AnchorPane.setRightAnchor(getBtnBack(), MainApp.getScreenWidth()*0.02);
+		AnchorPane.setRightAnchor(getBtnBack(), MainApp.getScreenWidth()*0.10);
 	}
 	
 	
