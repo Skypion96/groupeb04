@@ -98,7 +98,7 @@ public class MainApp extends Application {
 			scV.setStyle(backgroundStyle);
 			login.setStyle(backgroundStyle2);
 			addQ.setStyle(backgroundStyle2);
-			tvHS.setStyle(backgroundStyle);
+			tvHS.setStyle(backgroundStyle2);
 			regist.setStyle(backgroundStyle);
 
 			// Setting welM as ROOT

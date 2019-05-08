@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +25,7 @@ public class TableViewHighScore extends BorderPane{
 
 	public TableViewHighScore() {
 		super();
+		this.setPadding(new Insets(20));
 		this.scorel = Serialisation.readScore();
 		this.setCenter(getTvScores());
 		this.setBottom(getBtnBack());	
@@ -53,6 +55,11 @@ public class TableViewHighScore extends BorderPane{
 	public Button getBtnBack() {
 		if(btnBack==null) {
 			btnBack = new Button("Back");
+			btnBack.setMinHeight(120.);
+			btnBack.setMaxHeight(120.);
+			btnBack.setMinWidth(400.);
+			btnBack.setMaxWidth(400.);
+			btnBack.setId("btnBack");
 			btnBack.setOnAction(new EventHandler<ActionEvent>() {
 				
 				@Override
