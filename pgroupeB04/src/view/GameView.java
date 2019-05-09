@@ -553,31 +553,163 @@ public class GameView extends AnchorPane {
 						int indexCorrect = game.getCorrectAnswer();
 						game.useJoker();
 						vote = game.getRandomJoker();
+						getLblAudience1().setText("");
+						getLblAudience2().setText("");
+						getLblAudience3().setText("");
+						getLblAudience4().setText("");
+						if (getJ5050().isDisable() == false)
+						{
+							if (indexCorrect == 0) {
+								getHJAudience().setVisible(true);
+								getLblAudience1().setText(" A : " + vote.get(0) + "%");
+								getLblAudience2().setText(" B : " + vote.get(1) + "%");
+								getLblAudience3().setText(" C : " + vote.get(2) + "%");
+								getLblAudience4().setText(" D : " + vote.get(3) + "%");
+							} else if (indexCorrect == 1) {
+								getHJAudience().setVisible(true);
+								getLblAudience2().setText(" B : " + vote.get(0) + "%");
+								getLblAudience1().setText(" A : " + vote.get(1) + "%");
+								getLblAudience3().setText(" C : " + vote.get(2) + "%");
+								getLblAudience4().setText(" D : " + vote.get(3) + "%");
+							} else if (indexCorrect == 2) {
+								getHJAudience().setVisible(true);
+								getLblAudience3().setText(" C : " + vote.get(0) + "%");
+								getLblAudience2().setText(" B : " + vote.get(1) + "%");
+								getLblAudience1().setText(" A : " + vote.get(2) + "%");
+								getLblAudience4().setText(" D : " + vote.get(3) + "%");
+							} else if (indexCorrect == 3) {
+								getHJAudience().setVisible(true);
+								getLblAudience4().setText(" D : " + vote.get(0) + "%");
+								getLblAudience2().setText(" B : " + vote.get(1) + "%");
+								getLblAudience3().setText(" C : " + vote.get(2) + "%");
+								getLblAudience1().setText(" A : " + vote.get(3) + "%");
+							}
+						}
+						else {
+							if (indexCorrect == 0) {
+								getHJAudience().setVisible(true);
+								getLblAudience1().setText(" A : " + vote.get(0) + "%");
+								
+								if(getBtnChoice2().isDisable()) {
+									if(getBtnChoice3().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+								}
+								
+								else if(getBtnChoice3().isDisable()){
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+								
+								else if(getBtnChoice4().isDisable()) {
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+								
+							} else if (indexCorrect == 1) {
+								getHJAudience().setVisible(true);
+								getLblAudience2().setText(" B : " + vote.get(0) + "%");
 
-						if (indexCorrect == 0) {
-							getHJAudience().setVisible(true);
-							getLblAudience1().setText(" A : " + vote.get(0) + "%");
-							getLblAudience2().setText(" B : " + vote.get(1) + "%");
-							getLblAudience3().setText(" C : " + vote.get(2) + "%");
-							getLblAudience4().setText(" D : " + vote.get(3) + "%");
-						} else if (indexCorrect == 1) {
-							getHJAudience().setVisible(true);
-							getLblAudience2().setText(" B : " + vote.get(0) + "%");
-							getLblAudience1().setText(" A : " + vote.get(1) + "%");
-							getLblAudience3().setText(" C : " + vote.get(2) + "%");
-							getLblAudience4().setText(" D : " + vote.get(3) + "%");
-						} else if (indexCorrect == 2) {
-							getHJAudience().setVisible(true);
-							getLblAudience3().setText(" C : " + vote.get(0) + "%");
-							getLblAudience2().setText(" B : " + vote.get(1) + "%");
-							getLblAudience1().setText(" A : " + vote.get(2) + "%");
-							getLblAudience4().setText(" D : " + vote.get(3) + "%");
-						} else if (indexCorrect == 3) {
-							getHJAudience().setVisible(true);
-							getLblAudience4().setText(" D : " + vote.get(0) + "%");
-							getLblAudience2().setText(" B : " + vote.get(1) + "%");
-							getLblAudience3().setText(" C : " + vote.get(2) + "%");
-							getLblAudience1().setText(" A : " + vote.get(3) + "%");
+								if(getBtnChoice1().isDisable()) {
+									if(getBtnChoice3().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+								}
+								
+								else if(getBtnChoice3().isDisable()){
+									if(getBtnChoice1().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience1().setText(" A : " + vote.get(1) + "%");
+									}
+								}
+								
+								else if(getBtnChoice4().isDisable()) {
+									if(getBtnChoice1().isDisable()) {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+									else {
+										getLblAudience1().setText(" A : " + vote.get(1) + "%");
+									}
+								}
+								
+							} else if (indexCorrect == 2) {
+								getHJAudience().setVisible(true);
+								getLblAudience3().setText(" C : " + vote.get(0) + "%");
+
+								if(getBtnChoice2().isDisable()) {
+									if(getBtnChoice1().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience1().setText(" A : " + vote.get(2) + "%");
+									}
+								}
+								
+								else if(getBtnChoice1().isDisable()){
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience4().setText(" D : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+								
+								else if(getBtnChoice4().isDisable()) {
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience1().setText(" A : " + vote.get(2) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+							} else if (indexCorrect == 3) {
+								getHJAudience().setVisible(true);
+								getLblAudience4().setText(" D : " + vote.get(0) + "%");
+
+								if(getBtnChoice2().isDisable()) {
+									if(getBtnChoice3().isDisable()) {
+										getLblAudience1().setText(" A : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+								}
+								
+								else if(getBtnChoice3().isDisable()){
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience1().setText(" A : " + vote.get(3) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+								
+								else if(getBtnChoice1().isDisable()) {
+									if(getBtnChoice2().isDisable()) {
+										getLblAudience3().setText(" C : " + vote.get(2) + "%");
+									}
+									else {
+										getLblAudience2().setText(" B : " + vote.get(1) + "%");
+									}
+								}
+							}
+							
 						}
 						jAudience.setDisable(true);
 						getHJAudience().setVisible(true);
