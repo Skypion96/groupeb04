@@ -142,7 +142,7 @@ public class GameView extends AnchorPane {
 		AnchorPane.setTopAnchor(getVbConfirm(), MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(getVbConfirm(), MainApp.getScreenWidth() * 0.35);
 		AnchorPane.setRightAnchor(getVbConfirm(), MainApp.getScreenWidth() * 0.35);
-		
+
 		AnchorPane.setTopAnchor(getVbLeave(), MainApp.getScreenHeight() * 0.30);
 		AnchorPane.setLeftAnchor(getVbLeave(), MainApp.getScreenWidth() * 0.35);
 		AnchorPane.setRightAnchor(getVbLeave(), MainApp.getScreenWidth() * 0.35);
@@ -557,8 +557,7 @@ public class GameView extends AnchorPane {
 						getLblAudience2().setText("");
 						getLblAudience3().setText("");
 						getLblAudience4().setText("");
-						if (getJ5050().isDisable() == false)
-						{
+						if (getJ5050().isDisable() == false) {
 							if (indexCorrect == 0) {
 								getHJAudience().setVisible(true);
 								getLblAudience1().setText(" A : " + vote.get(0) + "%");
@@ -584,132 +583,6 @@ public class GameView extends AnchorPane {
 								getLblAudience3().setText(" C : " + vote.get(2) + "%");
 								getLblAudience1().setText(" A : " + vote.get(3) + "%");
 							}
-						}
-						else {
-							if (indexCorrect == 0) {
-								getHJAudience().setVisible(true);
-								getLblAudience1().setText(" A : " + vote.get(0) + "%");
-								
-								if(getBtnChoice2().isDisable()) {
-									if(getBtnChoice3().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-								}
-								
-								else if(getBtnChoice3().isDisable()){
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-								
-								else if(getBtnChoice4().isDisable()) {
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-								
-							} else if (indexCorrect == 1) {
-								getHJAudience().setVisible(true);
-								getLblAudience2().setText(" B : " + vote.get(0) + "%");
-
-								if(getBtnChoice1().isDisable()) {
-									if(getBtnChoice3().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-								}
-								
-								else if(getBtnChoice3().isDisable()){
-									if(getBtnChoice1().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience1().setText(" A : " + vote.get(1) + "%");
-									}
-								}
-								
-								else if(getBtnChoice4().isDisable()) {
-									if(getBtnChoice1().isDisable()) {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-									else {
-										getLblAudience1().setText(" A : " + vote.get(1) + "%");
-									}
-								}
-								
-							} else if (indexCorrect == 2) {
-								getHJAudience().setVisible(true);
-								getLblAudience3().setText(" C : " + vote.get(0) + "%");
-
-								if(getBtnChoice2().isDisable()) {
-									if(getBtnChoice1().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience1().setText(" A : " + vote.get(2) + "%");
-									}
-								}
-								
-								else if(getBtnChoice1().isDisable()){
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience4().setText(" D : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-								
-								else if(getBtnChoice4().isDisable()) {
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience1().setText(" A : " + vote.get(2) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-							} else if (indexCorrect == 3) {
-								getHJAudience().setVisible(true);
-								getLblAudience4().setText(" D : " + vote.get(0) + "%");
-
-								if(getBtnChoice2().isDisable()) {
-									if(getBtnChoice3().isDisable()) {
-										getLblAudience1().setText(" A : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-								}
-								
-								else if(getBtnChoice3().isDisable()){
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience1().setText(" A : " + vote.get(3) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-								
-								else if(getBtnChoice1().isDisable()) {
-									if(getBtnChoice2().isDisable()) {
-										getLblAudience3().setText(" C : " + vote.get(2) + "%");
-									}
-									else {
-										getLblAudience2().setText(" B : " + vote.get(1) + "%");
-									}
-								}
-							}
-							
 						}
 						jAudience.setDisable(true);
 						getHJAudience().setVisible(true);
@@ -738,6 +611,7 @@ public class GameView extends AnchorPane {
 				@Override
 				public void handle(ActionEvent event) {
 					if (canSelect) {
+						jCall.setDisable(true);
 						game.setStrategy(new JCallStrategy());
 						getGame().useJoker();
 						getLblCall().setVisible(true);
@@ -749,13 +623,12 @@ public class GameView extends AnchorPane {
 						if (lblTxt == "I really don't know the answer. Sorry.") {
 							getLblCall().setText(lblTxt);
 						} else if (lblTxt == "I'm not sure but i think it's ") {
-							Random rand = new Random();
-							int ind = rand.nextInt(3 - 0 + 1);
-							getLblCall().setText(lblTxt + answers.get(ind));
+								Random rand = new Random();
+								int ind = rand.nextInt(3 - 0 + 1);
+								getLblCall().setText(lblTxt + answers.get(ind));
 						} else if (lblTxt == "I'm sure that the answer is ") {
 							getLblCall().setText(lblTxt + answers.get(correct));
 						}
-						jCall.setDisable(true);
 						getHJAudience().setVisible(false);
 						getLblCall().setVisible(true);
 					}
