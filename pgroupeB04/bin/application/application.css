@@ -127,7 +127,7 @@
 }
 
 #lblCongratulation{
-	-fx-font-size: 100.0px;
+	-fx-font-size: 75.0px;
 	-fx-shape: "M 150 350 L 200 300 L 600 300 L 650 350 L 600 400 L 200 400 Z";
 	-fx-background-color: #9800AA;
 	-fx-text-fill:  orange;
@@ -320,7 +320,7 @@
 	-fx-padding: 30.0px 0.0 30.0px 0.0;
 	-fx-background-color: red;
 	-fx-text-fill: white;
-	-fx-font-size: 30.0;
+	-fx-font-size: 20.0;
 }
 
 #btnExitGV:hover {
