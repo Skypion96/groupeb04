@@ -321,18 +321,19 @@ public class GameView extends AnchorPane {
 	}
 
 	// Action when clicking a button then tests if it is the correct answer
-	// Setting the background of the chosen answer orange for the "suspense"
+	// Setting the background of the chosen answer orange for the "suspense" during
+	// 3 seconds
 	public void buttonClick(int n) {
 		tlTimer.stop();
 		Timeline orange = new Timeline(
 
 				new KeyFrame(Duration.seconds(0.01), e -> {
-					// use "flash" color
+					// setting the background color to orange
 					buttonList.get(n).setStyle("-fx-background-color:#FF8C00");
 				}),
 
 				new KeyFrame(Duration.seconds(3), e -> {
-					// wait
+					// wait for 3 seconds (suspense)
 				})
 
 		);
@@ -404,12 +405,12 @@ public class GameView extends AnchorPane {
 		Timeline correct = new Timeline(
 
 				new KeyFrame(Duration.seconds(0.2), e -> {
-					// use "flash" color
+					// setting the background color to green
 					buttonList.get(n).setStyle("-fx-background-color:#008000");
 				}),
 
 				new KeyFrame(Duration.seconds(0.4), e -> {
-					// revert to regular color
+					// setting the background color back to the purple color
 					buttonList.get(n).setStyle("-fx-background-color: #9800AA;");
 				}));
 
@@ -454,21 +455,23 @@ public class GameView extends AnchorPane {
 		Timeline incorrect = new Timeline(
 
 				new KeyFrame(Duration.seconds(0.01), e -> {
-					// use "flash" color
+					// setting the background color to red
 					buttonList.get(n).setStyle("-fx-background-color:red");
 				})
 
 		);
 
+		// Timeline that makes the correct answer blinking green
 		Timeline correct = new Timeline(
 
 				new KeyFrame(Duration.seconds(0.2), e -> {
-					// use "flash" color
+					// setting the background color of the correct answer to green
 					buttonList.get(correctIndex).setStyle("-fx-background-color:#008000");
 				}),
 
 				new KeyFrame(Duration.seconds(0.4), e -> {
-					// revert to regular color
+					// // setting the background color of the correct answer back to the purple
+					// color
 					buttonList.get(correctIndex).setStyle("-fx-background-color: #9800AA;");
 				}));
 
