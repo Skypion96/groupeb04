@@ -9,7 +9,6 @@ import model.Game;
 import model.J5050Strategy;
 import model.JAudienceStrategy;
 import model.JCallStrategy;
-import model.Levels;
 import model.Pseudo;
 import model.Question;
 import model.Round;
@@ -123,7 +122,7 @@ class TestJUnit {
 
 	@Test
 	void deckFromJson() {
-		d.fromJson(d.toJson());
+		Deck.fromJson(d.toJson());
 	}
 
 	@Test

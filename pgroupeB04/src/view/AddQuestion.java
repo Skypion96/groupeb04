@@ -1,10 +1,5 @@
 package view;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import application.MainApp;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -194,7 +189,6 @@ public class AddQuestion extends AnchorPane {
 					 String statement = getTxtStatement().getText();
 					 Question qAdd = new Question(author, round, statement);
 					 boolean test;
-					 Map<String, Boolean> choices = new HashMap<>();
 					 
 					 for(int i =1;i<=4;i++) {
 						 if(i==1) {

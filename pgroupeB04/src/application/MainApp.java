@@ -4,18 +4,11 @@ import java.net.URL;
 
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import model.Deck;
-import model.Question;
-import model.Round;
-import serialisation.Serialisation;
 import view.AddQuestion;
 import view.GameView;
 import view.LoginAP;

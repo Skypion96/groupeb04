@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import model.Deck;
-import model.Pseudo;
 import model.ScoreList;
 
 public class Serialisation {
