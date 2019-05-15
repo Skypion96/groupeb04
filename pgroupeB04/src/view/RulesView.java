@@ -72,8 +72,8 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblAnswerQuest() {
 		if(lblAnswerQuest == null) {
-			lblAnswerQuest = new Label("You will answer questions with four choices but only one is true.\n If it's correct you continue to play.\n "
-					+ "If it's not, the game stop and you keep the gains of the last bearing that you passed.");
+			lblAnswerQuest = new Label("You will answer questions with four choices but only one is the correct answer.\n If it's correct you continue to play.\n "
+					+ "If it's not, the game stops and you keep the winnings of the last bearing that you passed.");
 			lblAnswerQuest.setId("lbl");
 		}
 		return lblAnswerQuest;
@@ -82,7 +82,7 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJ5050() {
 		if(lblJ5050 == null) {
-			lblJ5050 = new Label("                  Warning : only one use ! This joker remove two wrong answers.");
+			lblJ5050 = new Label("                  Warning : only one use ! This joker removes two wrong answers.");
 			lblJ5050.setId("lbl");
 		}
 		return lblJ5050;
@@ -91,7 +91,7 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJPublic() {
 		if(lblJPublic == null) {
-			lblJPublic = new Label("                  Warning : only one use ! This joker show you in percent what does the public think");
+			lblJPublic = new Label("                  Warning : only one use ! This joker shows you in percent what does the public think.");
 			lblJPublic.setId("lbl");
 		}
 		return lblJPublic;
@@ -100,8 +100,8 @@ public class RulesView extends AnchorPane{
 
 	public Label getLblJCall() {
 		if(lblJCall == null) {
-			lblJCall = new Label("                  Warning : only one use ! There is three types of answers :\n                  - The people know the answer.\n "
-					+ "                 - The people think to know the answer.\n                  - The people don't know the answer.");
+			lblJCall = new Label("                  Warning : only one use ! There are three types of answers :\n                  - The person knows the answer.\n "
+					+ "                 - The person thinks he knows the answer.\n                  - The person doesn't know the answer.");
 			lblJCall.setId("lbl");
 		}
 		return lblJCall;
